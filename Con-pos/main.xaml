@@ -26,7 +26,9 @@
         <GroupBox HorizontalAlignment="Left" Height="182" Header="공지사항" Margin="10,547,0,0" VerticalAlignment="Top" Width="755" FontSize="16">
             <TextBox HorizontalAlignment="Center" Height="137" TextWrapping="Wrap" Text="TextBox" Width="724"/>
         </GroupBox>
-        <GroupBox HorizontalAlignment="Left" Height="93" Header="금일 매출" Margin="523,449,0,0" VerticalAlignment="Top" Width="242" FontSize="16"/>
+        <GroupBox HorizontalAlignment="Left" Height="93" Header="금일 매출" Margin="523,449,0,0" VerticalAlignment="Top" Width="242" FontSize="16">
+            <Label Content="Label" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
+        </GroupBox>
         <Button Content="근무자 변경" HorizontalAlignment="Left" Height="72" Margin="686,33,0,0" VerticalAlignment="Top" Width="79" FontSize="11"/>
 
     </Grid>

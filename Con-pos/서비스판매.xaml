@@ -9,6 +9,13 @@
       Title="서비스판매">
 
     <Grid>
-        
+        <Label Content="서비스판매" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Button Content="택배 접수" HorizontalAlignment="Left" Height="76" Margin="54,115,0,0" VerticalAlignment="Top" Width="320"/>
+        <Button Content="회원 가입" HorizontalAlignment="Left" Height="76" Margin="400,115,0,0" VerticalAlignment="Top" Width="320"/>
+        <Button Content="택배 픽업" HorizontalAlignment="Left" Height="76" Margin="54,214,0,0" VerticalAlignment="Top" Width="320"/>
+        <Button Content="포인트 충전" HorizontalAlignment="Left" Height="76" Margin="400,214,0,0" VerticalAlignment="Top" Width="320"/>
+        <Button Content="예약상품 픽업" HorizontalAlignment="Left" Height="76" Margin="54,312,0,0" VerticalAlignment="Top" Width="320"/>
+        <Button Content="뒤로가기" HorizontalAlignment="Left" Height="76" Margin="400,307,0,0" VerticalAlignment="Top" Width="320" Click="Button_Click"/>
+
     </Grid>
 </Page>

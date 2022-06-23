@@ -61,6 +61,9 @@
     <Compile Include="상품판매.xaml.cs">
       <DependentUpon>상품판매.xaml</DependentUpon>
     </Compile>
+    <Compile Include="서비스판매.xaml.cs">
+      <DependentUpon>서비스판매.xaml</DependentUpon>
+    </Compile>
     <Page Include="main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +81,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="상품판매.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="서비스판매.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

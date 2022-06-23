@@ -16,7 +16,7 @@
             <Label Content="Label" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
         </GroupBox>
         <Button Content="상품판매" HorizontalAlignment="Left" Height="321" Margin="10,123,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click"/>
-        <Button Content="서비스판매" HorizontalAlignment="Left" Height="321" Margin="268,123,0,0" VerticalAlignment="Top" Width="242"/>
+        <Button Content="서비스판매" HorizontalAlignment="Left" Height="321" Margin="268,123,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_1"/>
         <Button Content="영수증 조회" HorizontalAlignment="Left" Height="88" Margin="523,123,0,0" VerticalAlignment="Top" Width="242"/>
         <Button Content="시재점검" HorizontalAlignment="Left" Height="118" Margin="522,326,0,0" VerticalAlignment="Top" Width="122"/>
         <Button Content="금고입금" HorizontalAlignment="Left" Height="118" Margin="656,326,0,0" VerticalAlignment="Top" Width="109"/>

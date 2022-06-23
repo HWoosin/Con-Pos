@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace Con_pos
 {
     /// <summary>
-    /// 상품판매.xaml에 대한 상호 작용 논리
+    /// 서비스판매.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class 상품판매 : Page
+    public partial class 서비스판매 : Page
     {
-        public 상품판매()
+        public 서비스판매()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)// 메인으로 돌아가는 버튼
-        {
-            NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
         }
     }
 }

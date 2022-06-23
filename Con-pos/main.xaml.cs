@@ -25,9 +25,14 @@ namespace Con_pos
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) //상품판매 버튼
         {
             NavigationService.Navigate(new Uri("/상품판매.xaml", UriKind.Relative));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e) //서비스판매 버튼
+        {
+            NavigationService.Navigate(new Uri("/서비스판매.xaml", UriKind.Relative));
         }
     }
 }

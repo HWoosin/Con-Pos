@@ -25,7 +25,7 @@ namespace Con_pos
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) //메인으로 돌아가기
         {
             NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
         }

@@ -1,0 +1,37 @@
+﻿<Page x:Class="Con_pos.상품판매"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Con_pos"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="800"
+      Title="상품판매">
+
+    <Grid>
+        <GroupBox HorizontalAlignment="Left" Height="715" Header="목록" Margin="11,10,0,0" VerticalAlignment="Top" Width="439">
+            <DataGrid HorizontalAlignment="Center" Height="672" Width="415" />
+        </GroupBox>
+        <GroupBox HorizontalAlignment="Left" Height="80" Header="상품갯수" Margin="467,10,0,0" VerticalAlignment="Top" Width="135">
+            <Label Content="Label" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+        </GroupBox>
+        <GroupBox HorizontalAlignment="Left" Height="64" Header="상품코드" Margin="467,95,0,0" VerticalAlignment="Top" Width="293">
+            <TextBox HorizontalAlignment="Left" Height="32" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBox" Width="259" FontSize="16"/>
+        </GroupBox>
+        <GroupBox HorizontalAlignment="Left" Height="188" Header="이벤트" Margin="467,164,0,0" VerticalAlignment="Top" Width="293">
+            <TextBox HorizontalAlignment="Left" Height="158" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBox" Width="259" FontSize="18"/>
+        </GroupBox>
+        <GroupBox HorizontalAlignment="Left" Height="80" Header="총 가격" Margin="619,10,0,0" VerticalAlignment="Top" Width="141">
+            <Label Content="Label" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+        </GroupBox>
+        <GroupBox HorizontalAlignment="Left" Height="80" Header="받은금액" Margin="467,357,0,0" VerticalAlignment="Top" Width="293">
+            <TextBox HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBox" Width="259" FontSize="24"/>
+        </GroupBox>
+        <Button Content="현금결제" HorizontalAlignment="Left" Height="96" Margin="467,448,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button Content="포인트 결제" HorizontalAlignment="Left" Height="96" Margin="625,448,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button Content="결제완료" HorizontalAlignment="Left" Height="96" Margin="467,557,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button Content="통합결제" HorizontalAlignment="Left" Height="96" Margin="625,557,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button Content="뒤로가기" HorizontalAlignment="Left" Height="52" Margin="467,673,0,0" VerticalAlignment="Top" Width="293" Click="Button_Click"/>
+
+    </Grid>
+</Page>

@@ -25,45 +25,51 @@ namespace Con_pos
     /// </summary>
     public partial class 점포경영관리 : Page
     {
-        MySQLManager manager = new MySQLManager();
+        public static DBMySql _db = new DBMySql();
+
         public 점포경영관리()
         {
             InitializeComponent();
-            Loaded += login_Loaded;
         }
-        private void login_Loaded(object sender, RoutedEventArgs e)
-        {
-            // DB Connection
-            manager.Initialize();
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e) // 메인으로 돌아가기
         {
             NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
         }
-        public class LoginEventArgs : EventArgs
-        {
-            public bool isSuccess;
-        }
+    
         private void login_Click(object sender, RoutedEventArgs e) //로그인 버튼
         {
-            LoginEventArgs args = new LoginEventArgs();
+            LoadUserInfo();
+            CheckID_PW(tb1.Text, tb2.Text);
+        }
+        public static void LoadUserInfo()
+        {
+            //데이터베이스에서 사용자 정보 가져오기
+            Config.user_ds = _db.SelectAll(Config.Tables[(int)eTName._user]);
 
-            manager.Select("Emlogin", 3, tb1.Text, tb2.Text);
+        }
 
-            if (MySQLManager.DataSearchResult == true)
+        private void CheckID_PW(string id, string pw)
+        {
+            //사용자 정보와 비교해서 ID / Password 일치하는 지 확인
+            if (Config.user_ds.Tables[0].Rows.Count > 0)
             {
-                args.isSuccess = true;
-            }
-
-            if (args.isSuccess == true)
-            {
-                MessageBox.Show("로그인에 성공하셨습니다!");
-                NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
-            }
-            else
-            {
-                MessageBox.Show("로그인에 실패하셨습니다.");
+                foreach (DataRow row in Config.user_ds.Tables[0].Rows)
+                {
+                    if (id == row["Eid"].ToString() || id == row["Eid"].ToString() )
+                    {
+                        if (pw == row["Epwd"].ToString())
+                        {
+                            MessageBox.Show("로그인에 성공했습니다.");
+                            NavigationService.Navigate(new Uri("/경영메뉴.xaml", UriKind.Relative));
+                        }
+                        else
+                            MessageBox.Show("비밀번호가 일치하지 않습니다. 확인 후 다시 입력해주세요.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("사용자 정보가 없습니다.");
+                    }
+                }
             }
         }
     }  

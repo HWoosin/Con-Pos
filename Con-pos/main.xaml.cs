@@ -34,5 +34,10 @@ namespace Con_pos
         {
             NavigationService.Navigate(new Uri("/서비스판매.xaml", UriKind.Relative));
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e) //점포경영관리 버튼
+        {
+            NavigationService.Navigate(new Uri("/점포경영관리.xaml", UriKind.Relative));
+        }
     }
 }

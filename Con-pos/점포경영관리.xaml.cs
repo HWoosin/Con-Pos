@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,27 +25,46 @@ namespace Con_pos
     /// </summary>
     public partial class 점포경영관리 : Page
     {
-        string Conn = "Server=localhost;Database=ConStore;Uid=root;Pwd=dntls88;";
+        MySQLManager manager = new MySQLManager();
         public 점포경영관리()
         {
             InitializeComponent();
+            Loaded += login_Loaded;
+        }
+        private void login_Loaded(object sender, RoutedEventArgs e)
+        {
+            // DB Connection
+            manager.Initialize();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) // 메인으로 돌아가기
         {
             NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
         }
-
+        public class LoginEventArgs : EventArgs
+        {
+            public bool isSuccess;
+        }
         private void login_Click(object sender, RoutedEventArgs e) //로그인 버튼
         {
-            using (MySqlConnection conn = new MySqlConnection(Conn))
+            LoginEventArgs args = new LoginEventArgs();
+
+            manager.Select("Emlogin", 3, tb1.Text, tb2.Text);
+
+            if (MySQLManager.DataSearchResult == true)
             {
-                string sql = "SELECT Eid FROM Emlogin";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                DataSet ds = new DataSet();
-                
-                
+                args.isSuccess = true;
+            }
+
+            if (args.isSuccess == true)
+            {
+                MessageBox.Show("로그인에 성공하셨습니다!");
+                NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
+            }
+            else
+            {
+                MessageBox.Show("로그인에 실패하셨습니다.");
             }
         }
-    }
+    }  
 }

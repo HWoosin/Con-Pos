@@ -101,6 +101,7 @@
     <Compile Include="main.xaml.cs">
       <DependentUpon>main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MySQLMannager.cs" />
     <Compile Include="상품판매.xaml.cs">
       <DependentUpon>상품판매.xaml</DependentUpon>
     </Compile>

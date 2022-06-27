@@ -41,26 +41,13 @@ namespace Con_pos
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)//회원가입
         {
-            //string Conn = "Server=localhost;Database=ConStore;Uid=root;Pwd=dntls88;";
             LoadUserInfo();
             _db2.Connection2();
             JoinMem(tb1.Text);
 
             string value = $"'{tb1.Text}','{tb2.Text}'";
             _db2.Insert(Config2.Tables[(int)eTName2._user], value);
-
-
-
-            /*
-            using (MySqlConnection conn = new MySqlConnection(Conn))
-            {
-                conn.Open();
-                MySqlCommand msc = new MySqlCommand("INSERT INTO CMem(Mph, Mname) Values('" + tb1.Text+ "','" + tb2.Text + "')", conn);
-                msc.ExecuteNonQuery();
-            }
-            */
             MessageBox.Show("회원가입을 완료했습니다.");
-
 
         }
 
@@ -73,6 +60,8 @@ namespace Con_pos
                     if (Text == row["Mph"].ToString())
                     {
                         MessageBox.Show("이미 존재하는 전화번호입니다.");
+                        //tb1.Text = String.Empty;
+                        //tb2.Text = String.Empty;
                         return false;
                     }
                     else

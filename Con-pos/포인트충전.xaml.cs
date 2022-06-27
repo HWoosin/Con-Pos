@@ -16,23 +16,18 @@ using System.Windows.Shapes;
 namespace Con_pos
 {
     /// <summary>
-    /// 서비스판매.xaml에 대한 상호 작용 논리
+    /// 포인트충전.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class 서비스판매 : Page
+    public partial class 포인트충전 : Page
     {
-        public 서비스판매()
+        public 포인트충전()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) //메인으로 돌아가기
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/회원가입.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/서비스판매.xaml", UriKind.Relative));
         }
     }
 }

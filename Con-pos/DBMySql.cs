@@ -13,6 +13,11 @@ namespace Con_pos
         MySqlDataAdapter adpt;
         MySqlCommand cmd;
 
+        MySqlConnection conn2 = new MySqlConnection($"server={Config2.Server};uid={Config2.UserID};" +
+            $"pwd={Config2.UserPassword};database={Config2.Database};pooling=false;allow user variables=true");
+        MySqlDataAdapter adpt2;
+        MySqlCommand cmd2;
+
         public void Connection()
         {
             try
@@ -25,6 +30,19 @@ namespace Con_pos
                 throw;
             }
             conn.Close();
+        }
+        public void Connection2()
+        {
+            try
+            {
+                conn2.Open();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                throw;
+            }
+            conn2.Close();
         }
 
         public DataSet SelectAll(string table)
@@ -77,16 +95,16 @@ namespace Con_pos
             }
         }
 
-        public void Insert(string table, string value)
+        public void Insert(string table, string value1)
         {
             try
             {
-                conn.Open();
-                string sql = $"INSERT INTO {table} VALUES ({value})";
+                conn2.Open();
+                string sql = $"INSERT INTO {table}(Mph,Mname) VALUES ({value1})";
                 //INSERT INTO user_info VALUES ('user1', 'j', 'ella', '1993/06/18', 'user1234', 1000000000)
-                cmd = new MySqlCommand(sql, conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                cmd2 = new MySqlCommand(sql, conn2);
+                cmd2.ExecuteNonQuery();
+                conn2.Close();
             }
             catch (Exception e)
             {
@@ -94,7 +112,30 @@ namespace Con_pos
                 throw;
             }
         }
+        public DataSet SelectAll2(string table)//회원가입에서의 조회
+        {
+            try
+            {
+                DataSet ds = new DataSet();
 
+                string sql = $"SELECT * FROM {table}";
+                adpt2 = new MySqlDataAdapter(sql, conn2);
+                adpt2.Fill(ds, table);
+                if (ds.Tables.Count > 0)
+                {
+                    return ds;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                throw;
+            }
+        }
         public void Update(string table, string setvalue, string wherevalue = "")
         {
             try

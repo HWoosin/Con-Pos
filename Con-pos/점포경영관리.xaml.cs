@@ -44,6 +44,7 @@ namespace Con_pos
         public static void LoadUserInfo()
         {
             //데이터베이스에서 사용자 정보 가져오기
+            
             Config.user_ds = _db.SelectAll(Config.Tables[(int)eTName._user]);
 
         }

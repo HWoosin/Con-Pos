@@ -30,14 +30,24 @@ namespace Con_pos
             NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e) //회원가입 페이지
         {
             NavigationService.Navigate(new Uri("/회원가입.xaml", UriKind.Relative));
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e) //포인트충전 페이지
         {
             NavigationService.Navigate(new Uri("/포인트충전.xaml", UriKind.Relative));
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e) //택베접수 페이지
+        {
+            NavigationService.Navigate(new Uri("/택배접수.xaml", UriKind.Relative));
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/택배픽업.xaml", UriKind.Relative));
         }
     }
 }

@@ -31,19 +31,6 @@ namespace Con_pos
             }
             conn.Close();
         }
-        public void Connection2()
-        {
-            try
-            {
-                conn2.Open();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-                throw;
-            }
-            conn2.Close();
-        }
 
         public DataSet SelectAll(string table)
         {

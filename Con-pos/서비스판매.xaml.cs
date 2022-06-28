@@ -34,5 +34,10 @@ namespace Con_pos
         {
             NavigationService.Navigate(new Uri("/회원가입.xaml", UriKind.Relative));
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/포인트충전.xaml", UriKind.Relative));
+        }
     }
 }

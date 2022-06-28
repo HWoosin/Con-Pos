@@ -37,21 +37,27 @@ namespace Con_pos
         {
             //데이터베이스에서 사용자 정보 가져오기
             Config2.user_ds2 = _db2.SelectAll2(Config2.Tables[(int)eTName2._user]);
-            
+
+        }
+        public void JoinMem()
+        {
+            string value = $"'{tb1.Text}','{tb2.Text}'";
+            _db2.Insert(Config2.Tables[(int)eTName2._user], value);
+            MessageBox.Show("회원가입을 완료했습니다.");
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)//회원가입
         {
             LoadUserInfo();
-            _db2.Connection2();
-            JoinMem(tb1.Text);
-
-            string value = $"'{tb1.Text}','{tb2.Text}'";
-            _db2.Insert(Config2.Tables[(int)eTName2._user], value);
-            MessageBox.Show("회원가입을 완료했습니다.");
+            if (!CheckMem(tb1.Text)) 
+            { 
+                MessageBox.Show("잘못된 입력이거나 이미 가입된 회원입니다."); 
+                return; 
+            }
+            JoinMem();
 
         }
 
-        public static bool JoinMem(string Text)
+        public static bool CheckMem(string Text)
         {
             if (Config2.user_ds2.Tables[0].Rows.Count > 0)
             {
@@ -59,19 +65,16 @@ namespace Con_pos
                 {
                     if (Text == row["Mph"].ToString())
                     {
-                        MessageBox.Show("이미 존재하는 전화번호입니다.");
-                        //tb1.Text = String.Empty;
-                        //tb2.Text = String.Empty;
                         return false;
                     }
-                    else
+                    else if (Text=="")
                     {
-                        break;
+                        return false;
                     }
                 }
             }
             return true;
         }
-        
+
     }
 }

@@ -49,5 +49,10 @@ namespace Con_pos
         {
             NavigationService.Navigate(new Uri("/택배픽업.xaml", UriKind.Relative));
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/예약상품픽업.xaml", UriKind.Relative));
+        }
     }
 }

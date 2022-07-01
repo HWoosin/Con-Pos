@@ -67,6 +67,14 @@ namespace Con_pos
                 conn.Open();
                 MySqlCommand msc = new MySqlCommand("Update CMem Set Mpoint= Mpoint+'"+Mpttb.Text+"' Where Mph ='"+Mphtb.Text+"';", conn);
                 msc.ExecuteNonQuery();
+                MessageBox.Show("충전이 완료되었습니다!");
+
+                //충전후 새로고침
+                string sql = "SELECT * FROM CMem where Mph = '" + Mphtb.Text + "';";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                dg2.ItemsSource = ds.Tables[0].DefaultView;
             }
         }
     }

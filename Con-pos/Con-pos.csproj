@@ -112,6 +112,9 @@
     <Compile Include="서비스판매.xaml.cs">
       <DependentUpon>서비스판매.xaml</DependentUpon>
     </Compile>
+    <Compile Include="예약상품픽업.xaml.cs">
+      <DependentUpon>예약상품픽업.xaml</DependentUpon>
+    </Compile>
     <Compile Include="점포경영관리.xaml.cs">
       <DependentUpon>점포경영관리.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="서비스판매.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="예약상품픽업.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

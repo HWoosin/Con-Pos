@@ -11,12 +11,12 @@
     <Grid>
         <GroupBox HorizontalAlignment="Center" Height="598" Header="경영메뉴" VerticalAlignment="Center" Width="574" FontSize="24"/>
         <Button Content="상품 발주" HorizontalAlignment="Left" Height="71" Margin="149,156,0,0" VerticalAlignment="Top" Width="240"/>
-        <Button Content="상품 조회" HorizontalAlignment="Left" Height="71" Margin="149,249,0,0" VerticalAlignment="Top" Width="240"/>
-        <Button Content="이벤트 관리" HorizontalAlignment="Left" Height="71" Margin="412,156,0,0" VerticalAlignment="Top" Width="240"/>
+        <Button Content="상품 관리" HorizontalAlignment="Left" Height="71" Margin="149,249,0,0" VerticalAlignment="Top" Width="240" Click="Button_Click_1"/>
+        <Button Content="메세지 관리" HorizontalAlignment="Left" Height="71" Margin="412,156,0,0" VerticalAlignment="Top" Width="240"/>
         <Button Content="매출 점검" HorizontalAlignment="Left" Height="71" Margin="412,249,0,0" VerticalAlignment="Top" Width="240"/>
         <Button Content="회원 관리" HorizontalAlignment="Left" Height="71" Margin="149,339,0,0" VerticalAlignment="Top" Width="240"/>
         <Button Content="매장 정보" HorizontalAlignment="Left" Height="71" Margin="412,339,0,0" VerticalAlignment="Top" Width="240"/>
-        <Button Content="근무자 관리" HorizontalAlignment="Left" Height="71" Margin="149,433,0,0" VerticalAlignment="Top" Width="240"/>
+        <Button Content="근무자 관리" HorizontalAlignment="Left" Height="71" Margin="149,433,0,0" VerticalAlignment="Top" Width="240" Click="Button_Click_2"/>
         <Button Content="로그아웃" HorizontalAlignment="Left" Height="71" Margin="412,433,0,0" VerticalAlignment="Top" Width="240" Click="Button_Click"/>
 
     </Grid>

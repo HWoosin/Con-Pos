@@ -106,6 +106,15 @@
     <Compile Include="경영메뉴.xaml.cs">
       <DependentUpon>경영메뉴.xaml</DependentUpon>
     </Compile>
+    <Compile Include="근무자관리.xaml.cs">
+      <DependentUpon>근무자관리.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="상품관리.xaml.cs">
+      <DependentUpon>상품관리.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="상품조회.xaml.cs">
+      <DependentUpon>상품조회.xaml</DependentUpon>
+    </Compile>
     <Compile Include="상품판매.xaml.cs">
       <DependentUpon>상품판매.xaml</DependentUpon>
     </Compile>
@@ -147,6 +156,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="경영메뉴.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="근무자관리.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="상품관리.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="상품조회.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

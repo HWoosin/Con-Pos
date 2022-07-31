@@ -16,16 +16,16 @@
             <Label Content="Label" HorizontalAlignment="Left" Margin="20,0,0,0"/>
         </GroupBox>
         <GroupBox HorizontalAlignment="Left" Height="64" Header="상품코드" Margin="467,95,0,0" VerticalAlignment="Top" Width="293">
-            <TextBox HorizontalAlignment="Left" Height="32" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBox" Width="259" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" Height="32" Margin="10,0,0,0" TextWrapping="Wrap" Width="259" FontSize="16"/>
         </GroupBox>
         <GroupBox HorizontalAlignment="Left" Height="188" Header="이벤트" Margin="467,164,0,0" VerticalAlignment="Top" Width="293">
-            <TextBox HorizontalAlignment="Left" Height="158" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBox" Width="259" FontSize="18"/>
+            <TextBox HorizontalAlignment="Left" Height="158" Margin="10,0,0,0" TextWrapping="Wrap" Width="259" FontSize="18"/>
         </GroupBox>
         <GroupBox HorizontalAlignment="Left" Height="80" Header="총 가격" Margin="619,10,0,0" VerticalAlignment="Top" Width="141">
             <Label Content="Label" HorizontalAlignment="Left" Margin="20,0,0,0"/>
         </GroupBox>
         <GroupBox HorizontalAlignment="Left" Height="80" Header="받은금액" Margin="467,357,0,0" VerticalAlignment="Top" Width="293">
-            <TextBox HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBox" Width="259" FontSize="24"/>
+            <TextBox HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" TextWrapping="Wrap" Width="259" FontSize="24"/>
         </GroupBox>
         <Button Content="현금결제" HorizontalAlignment="Left" Height="96" Margin="467,448,0,0" VerticalAlignment="Top" Width="135"/>
         <Button Content="포인트 결제" HorizontalAlignment="Left" Height="96" Margin="625,448,0,0" VerticalAlignment="Top" Width="135"/>

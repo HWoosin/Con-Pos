@@ -121,17 +121,29 @@
     <Compile Include="서비스판매.xaml.cs">
       <DependentUpon>서비스판매.xaml</DependentUpon>
     </Compile>
+    <Compile Include="예약상품조회.xaml.cs">
+      <DependentUpon>예약상품조회.xaml</DependentUpon>
+    </Compile>
     <Compile Include="예약상품픽업.xaml.cs">
       <DependentUpon>예약상품픽업.xaml</DependentUpon>
     </Compile>
     <Compile Include="점포경영관리.xaml.cs">
       <DependentUpon>점포경영관리.xaml</DependentUpon>
     </Compile>
+    <Compile Include="조회업무.xaml.cs">
+      <DependentUpon>조회업무.xaml</DependentUpon>
+    </Compile>
     <Compile Include="택배접수.xaml.cs">
       <DependentUpon>택배접수.xaml</DependentUpon>
     </Compile>
+    <Compile Include="택배조회.xaml.cs">
+      <DependentUpon>택배조회.xaml</DependentUpon>
+    </Compile>
     <Compile Include="택배픽업.xaml.cs">
       <DependentUpon>택배픽업.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="포인트조회.xaml.cs">
+      <DependentUpon>포인트조회.xaml</DependentUpon>
     </Compile>
     <Compile Include="포인트충전.xaml.cs">
       <DependentUpon>포인트충전.xaml</DependentUpon>
@@ -179,6 +191,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="예약상품조회.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="예약상품픽업.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,11 +203,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="조회업무.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="택배접수.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="택배조회.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="택배픽업.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="포인트조회.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Con_pos
 {
     /// <summary>
-    /// 상품조회.xaml에 대한 상호 작용 논리
+    /// 예약상품조회.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class 상품조회 : Page
+    public partial class 예약상품조회 : Page
     {
-        public 상품조회()
+        public 예약상품조회()
         {
             InitializeComponent();
         }

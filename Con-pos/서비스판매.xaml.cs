@@ -40,7 +40,7 @@ namespace Con_pos
             NavigationService.Navigate(new Uri("/포인트충전.xaml", UriKind.Relative));
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e) //택베접수 페이지
+        private void Button_Click_3(object sender, RoutedEventArgs e) //택배입고 페이지
         {
             NavigationService.Navigate(new Uri("/택배입고.xaml", UriKind.Relative));
         }
@@ -53,6 +53,12 @@ namespace Con_pos
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/예약상품픽업.xaml", UriKind.Relative));
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            Con_pos.SecondWindow secondWindow = new Con_pos.SecondWindow();
+            secondWindow.ShowDialog();
         }
     }
 }

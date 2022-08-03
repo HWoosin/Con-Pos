@@ -13,9 +13,9 @@
         <TextBox x:Name="Mphtb" HorizontalAlignment="Left" Margin="486,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Height="24"/>
         <Label Content="전화번호" HorizontalAlignment="Left" Margin="486,183,0,0" VerticalAlignment="Top"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Margin="486,421,0,0" VerticalAlignment="Top" Height="56" Width="164" Click="Button_Click"/>
-        <Button Content="조회" HorizontalAlignment="Left" Margin="486,261,0,0" VerticalAlignment="Top" Height="56" Width="164"/>
-        <DataGrid x:Name="dg1"  Margin="154,214,344,212"/>
-        <Button Content="전체 회원 조회" HorizontalAlignment="Left" Margin="486,339,0,0" VerticalAlignment="Top" Height="60" Width="164"/>
+        <Button Content="조회" HorizontalAlignment="Left" Margin="486,261,0,0" VerticalAlignment="Top" Height="56" Width="164" Click="Button_Click_1"/>
+        <DataGrid x:Name="CMemGrid"  Margin="154,214,344,212"/>
+        <Button Content="전체 회원 조회" HorizontalAlignment="Left" Margin="486,339,0,0" VerticalAlignment="Top" Height="60" Width="164" Click="Button_Click_2"/>
 
     </Grid>
 </Page>

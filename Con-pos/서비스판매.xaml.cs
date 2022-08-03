@@ -42,7 +42,7 @@ namespace Con_pos
 
         private void Button_Click_3(object sender, RoutedEventArgs e) //택베접수 페이지
         {
-            NavigationService.Navigate(new Uri("/택배접수.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/택배입고.xaml", UriKind.Relative));
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)

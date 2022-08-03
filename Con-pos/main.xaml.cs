@@ -44,5 +44,10 @@ namespace Con_pos
         {
             NavigationService.Navigate(new Uri("/조회업무.xaml", UriKind.Relative));
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/시재점검.xaml", UriKind.Relative));
+        }
     }
 }

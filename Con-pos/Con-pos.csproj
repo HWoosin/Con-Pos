@@ -109,6 +109,9 @@
     <Compile Include="근무자관리.xaml.cs">
       <DependentUpon>근무자관리.xaml</DependentUpon>
     </Compile>
+    <Compile Include="매장 정보.xaml.cs">
+      <DependentUpon>매장 정보.xaml</DependentUpon>
+    </Compile>
     <Compile Include="상품관리.xaml.cs">
       <DependentUpon>상품관리.xaml</DependentUpon>
     </Compile>
@@ -120,6 +123,9 @@
     </Compile>
     <Compile Include="서비스판매.xaml.cs">
       <DependentUpon>서비스판매.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="시재점검.xaml.cs">
+      <DependentUpon>시재점검.xaml</DependentUpon>
     </Compile>
     <Compile Include="예약상품조회.xaml.cs">
       <DependentUpon>예약상품조회.xaml</DependentUpon>
@@ -133,8 +139,8 @@
     <Compile Include="조회업무.xaml.cs">
       <DependentUpon>조회업무.xaml</DependentUpon>
     </Compile>
-    <Compile Include="택배접수.xaml.cs">
-      <DependentUpon>택배접수.xaml</DependentUpon>
+    <Compile Include="택배입고.xaml.cs">
+      <DependentUpon>택배입고.xaml</DependentUpon>
     </Compile>
     <Compile Include="택배조회.xaml.cs">
       <DependentUpon>택배조회.xaml</DependentUpon>
@@ -175,6 +181,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="매장 정보.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="상품관리.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="서비스판매.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="시재점검.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -207,7 +221,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="택배접수.xaml">
+    <Page Include="택배입고.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

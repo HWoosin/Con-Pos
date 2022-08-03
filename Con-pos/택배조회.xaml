@@ -8,7 +8,7 @@
       d:DesignHeight="800" d:DesignWidth="800"
       Title="택배조회">
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="669" Header="택배픽업" VerticalAlignment="Center" Width="559" FontSize="24"/>
+        <GroupBox HorizontalAlignment="Center" Height="669" Header="택배조회" VerticalAlignment="Center" Width="559" FontSize="24"/>
         <TextBox HorizontalAlignment="Left" Margin="164,523,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Height="42" FontSize="24"/>
         <Button Content="조회" HorizontalAlignment="Left" Margin="514,523,0,0" VerticalAlignment="Top" Height="46" Width="122"/>
         <Label Content="운송장 번호" HorizontalAlignment="Left" Margin="164,482,0,0" VerticalAlignment="Top" Height="67" Width="148" FontSize="24"/>

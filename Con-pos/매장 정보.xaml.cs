@@ -16,18 +16,18 @@ using System.Windows.Shapes;
 namespace Con_pos
 {
     /// <summary>
-    /// 택배접수.xaml에 대한 상호 작용 논리
+    /// 매장_정보.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class 택배접수 : Page
+    public partial class 매장_정보 : Page
     {
-        public 택배접수()
+        public 매장_정보()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/서비스판매.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/경영메뉴.xaml", UriKind.Relative));
         }
     }
 }

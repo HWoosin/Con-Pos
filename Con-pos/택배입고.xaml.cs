@@ -38,7 +38,7 @@ namespace Con_pos
             using (MySqlConnection conn = new MySqlConnection(Conn))
             {
                 //conn.Open();
-                //MySqlCommand msc = new MySqlCommand("INSERT INTO SentPnum(SentPnum) values( '" + checkPnum.Text + "')", conn);
+                //MySqlCommand msc = new MySqlCommand("INSERT INTO SentPackage(SentPnum) values( '" + checkPnum.Text + "')", conn);
                 //msc.ExecuteNonQuery();
                 string sql = "SELECT Sentprice FROM ProposalPackage where ProPnum = '" + checkPnum.Text + "';";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);

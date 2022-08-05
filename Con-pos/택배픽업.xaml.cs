@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +22,63 @@ namespace Con_pos
     /// </summary>
     public partial class 택배픽업 : Page
     {
+        string Conn = "Server=localhost;Database=ConStore;Uid=root;Pwd=dntls88;";
         public 택배픽업()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)//뒤로가기
         {
             NavigationService.Navigate(new Uri("/서비스판매.xaml", UriKind.Relative));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)//전체조회
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM ReceptionPackage";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                pickGrid.ItemsSource = ds.Tables[0].DefaultView;
+
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)//입고
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                conn.Open();
+                MySqlCommand msc = new MySqlCommand("INSERT INTO ReceptionPackage(RecepPnum) values( '" + RecepPnum.Text + "')", conn);
+                msc.ExecuteNonQuery();
+                string sql = "SELECT * FROM ReceptionPackage where RecepPnum = '" + RecepPnum.Text + "';";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                pickGrid.ItemsSource = ds.Tables[0].DefaultView;
+                MessageBox.Show("택배가 입고되었습니다.");
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)//출고
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                conn.Open();
+                MySqlCommand msc = new MySqlCommand("DELETE FROM ReceptionPackage where RecepPnum = '" + RecepPnum.Text + "'", conn);
+                msc.ExecuteNonQuery();
+                string sql = "SELECT * FROM ReceptionPackage";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                pickGrid.ItemsSource = ds.Tables[0].DefaultView;
+                MessageBox.Show("택배가 고객님께 전달되었습니다.");
+            }
         }
     }
 }

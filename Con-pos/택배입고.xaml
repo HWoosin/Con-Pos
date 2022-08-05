@@ -11,16 +11,15 @@
     <Grid>
         <GroupBox HorizontalAlignment="Center" Height="669" Header="택배입고" VerticalAlignment="Center" Width="559" FontSize="24"/>
         <TextBox x:Name="checkPnum" HorizontalAlignment="Center" Margin="0,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" Height="42" FontSize="24"/>
-        <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" Height="42" FontSize="24" Margin="0,477,0,0"/>
-        <Button Content="운임비 확인" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Height="46" Width="256" Click="Button_Click_1"/>
+        <TextBox x:Name="CusPay" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" Height="42" FontSize="24" Margin="0,477,0,0" Text=""/>
+        <Button Content="운임비 확인" HorizontalAlignment="Center" Margin="0,361,0,0" VerticalAlignment="Top" Height="46" Width="256" Click="Button_Click_1"/>
         <Label Content="운송장 번호" HorizontalAlignment="Left" Margin="272,168,0,0" VerticalAlignment="Top" Height="67" Width="148" FontSize="24"/>
-        <Label x:Name="checkPrice" Content="0원" HorizontalAlignment="Left" Margin="371,307,0,0" VerticalAlignment="Top" Height="67" Width="99" FontSize="24"/>
         <Label Content="받은금액" HorizontalAlignment="Left" Margin="272,431,0,0" VerticalAlignment="Top" Height="67" Width="114" FontSize="24"/>
-        <Button Content="현금 결제" HorizontalAlignment="Left" Margin="272,548,0,0" VerticalAlignment="Top" Height="46" Width="114"/>
-        <Button Content="포인트 결제" HorizontalAlignment="Left" Margin="414,548,0,0" VerticalAlignment="Top" Height="46" Width="114"/>
+        <Button Content="현금 결제" HorizontalAlignment="Left" Margin="272,548,0,0" VerticalAlignment="Top" Height="46" Width="114" Click="Button_Click_2"/>
         <Label Content="운임비:" HorizontalAlignment="Left" Margin="272,307,0,0" VerticalAlignment="Top" Height="67" Width="94" FontSize="24"/>
-        <Button Content="뒤로 가기" HorizontalAlignment="Left" Margin="414,616,0,0" VerticalAlignment="Top" Height="46" Width="114" Click="Button_Click"/>
-        <Button Content="착불 배송" HorizontalAlignment="Left" Margin="272,616,0,0" VerticalAlignment="Top" Height="46" Width="114"/>
+        <Button Content="뒤로 가기" HorizontalAlignment="Center" Margin="0,616,0,0" VerticalAlignment="Top" Height="46" Width="256" Click="Button_Click"/>
+        <Button Content="착불 배송" HorizontalAlignment="Left" Margin="414,548,0,0" VerticalAlignment="Top" Height="46" Width="114" Click="Button_Click_3"/>
+        <TextBox x:Name="checkPrice" HorizontalAlignment="Left" Margin="366,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Height="31" FontSize="20"/>
 
     </Grid>
 </Page>

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,7 @@ namespace Con_pos
     /// </summary>
     public partial class 택배조회 : Page
     {
+        string Conn = "Server=localhost;Database=ConStore;Uid=root;Pwd=dntls88;";
         public 택배조회()
         {
             InitializeComponent();
@@ -28,6 +31,58 @@ namespace Con_pos
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/조회업무.xaml", UriKind.Relative));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)//발신택배 선택조회
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM SentPackage where SentPnum = '" + SentPnum.Text + "';";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                sentGrid.ItemsSource = ds.Tables[0].DefaultView;
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)//발신택배조회
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM SentPackage";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                sentGrid.ItemsSource = ds.Tables[0].DefaultView;
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)//수신택배 선택조회
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM ReceptionPackage where RecepPnum = '" + RecepPnum.Text + "';";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                RecepGrid.ItemsSource = ds.Tables[0].DefaultView;
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)//수신택배조회
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM ReceptionPackage";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                RecepGrid.ItemsSource = ds.Tables[0].DefaultView;
+            }
         }
     }
 }

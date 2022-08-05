@@ -5,27 +5,30 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Con_pos"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="800"
       Title="택배접수">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Left" Height="364" Header="보내는 분" Margin="61,67,0,0" VerticalAlignment="Top" Width="336"/>
+        <GroupBox HorizontalAlignment="Left" Height="235" Header="보내는 분" Margin="61,67,0,0" VerticalAlignment="Top" Width="336"/>
         <Label Content="이름" HorizontalAlignment="Left" Margin="83,102,0,0" VerticalAlignment="Top"/>
-        <GroupBox HorizontalAlignment="Left" Height="364" Header="받는 분" Margin="415,67,0,0" VerticalAlignment="Top" Width="336"/>
-        <TextBox HorizontalAlignment="Left" Margin="141,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <GroupBox HorizontalAlignment="Left" Height="235" Header="받는 분" Margin="415,67,0,0" VerticalAlignment="Top" Width="336"/>
+        <TextBox x:Name="Sname" HorizontalAlignment="Left" Margin="141,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="전화번호" HorizontalAlignment="Left" Margin="83,140,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="141,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Sphone" HorizontalAlignment="Left" Margin="141,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="주소" HorizontalAlignment="Left" Margin="83,180,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="142,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Height="216"/>
+        <TextBox x:Name="Saddress" HorizontalAlignment="Left" Margin="142,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Height="108"/>
         <Label Content="이름" HorizontalAlignment="Left" Margin="437,102,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="495,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Rname" HorizontalAlignment="Left" Margin="495,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="전화번호" HorizontalAlignment="Left" Margin="437,140,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="495,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Rphone" HorizontalAlignment="Left" Margin="495,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="주소" HorizontalAlignment="Left" Margin="437,180,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="496,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Height="216"/>
+        <TextBox x:Name="Raddress" HorizontalAlignment="Left" Margin="496,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Height="108"/>
         <Label Content="택배접수" HorizontalAlignment="Left" Margin="27,25,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Button Content="선불접수" HorizontalAlignment="Left" Height="44" Margin="594,446,0,0" VerticalAlignment="Top" Width="157"/>
-        <Button Content="착불접수" HorizontalAlignment="Left" Height="44" Margin="415,446,0,0" VerticalAlignment="Top" Width="158"/>
+        <Button Content="입력" HorizontalAlignment="Left" Height="33" Margin="612,324,0,0" VerticalAlignment="Top" Width="139" Click="Button_Click"/>
+        <DataGrid x:Name="checkGrid" HorizontalAlignment="Left" Height="76" Margin="61,324,0,0" VerticalAlignment="Top" Width="539" />
+        <Button Content="삭제" HorizontalAlignment="Left" Height="33" Margin="612,367,0,0" VerticalAlignment="Top" Width="139" Click="Button_Click_1"/>
+        <Button Content="착불" HorizontalAlignment="Left" Height="46" Margin="61,420,0,0" VerticalAlignment="Top" Width="336" Click="Button_Click_3"/>
+        <Button Content="선불" HorizontalAlignment="Left" Height="46" Margin="415,420,0,0" VerticalAlignment="Top" Width="336" Click="Button_Click_2"/>
 
     </Grid>
 </Page>

@@ -69,7 +69,7 @@ namespace Con_pos
             {
                 if (int.Parse(checkPrice.Text) == 0)
                 {
-                    MessageBox.Show("선불택배입니다. 운임비를 확인해주세요!");
+                    MessageBox.Show("운임비를 확인해주세요!");
                 }
                 else if (int.Parse(checkPrice.Text) > int.Parse(CusPay.Text))
                 {
@@ -105,7 +105,7 @@ namespace Con_pos
             {
                 if (int.Parse(checkPrice.Text) > int.Parse(CusPay.Text) || int.Parse(checkPrice.Text) < int.Parse(CusPay.Text))
                 {
-                    MessageBox.Show("착불택배입니다. 운임비를 확인해주세요!");
+                    MessageBox.Show("운임비를 확인해주세요!");
                 }
                 else //if (int.Parse(checkPrice.Text) == int.Parse(CusPay.Text))
                 {

@@ -118,6 +118,9 @@
     <Compile Include="상품관리.xaml.cs">
       <DependentUpon>상품관리.xaml</DependentUpon>
     </Compile>
+    <Compile Include="상품발주.xaml.cs">
+      <DependentUpon>상품발주.xaml</DependentUpon>
+    </Compile>
     <Compile Include="상품조회.xaml.cs">
       <DependentUpon>상품조회.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,9 @@
     </Compile>
     <Compile Include="택배접수.xaml.cs">
       <DependentUpon>택배접수.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="택배접수관리.xaml.cs">
+      <DependentUpon>택배접수관리.xaml</DependentUpon>
     </Compile>
     <Compile Include="택배조회.xaml.cs">
       <DependentUpon>택배조회.xaml</DependentUpon>
@@ -202,6 +208,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="상품발주.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="상품조회.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -239,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="택배접수.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="택배접수관리.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

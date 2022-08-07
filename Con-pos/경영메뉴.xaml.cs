@@ -51,5 +51,17 @@ namespace Con_pos
         {
             NavigationService.Navigate(new Uri("/회원관리.xaml", UriKind.Relative));
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/택배접수관리.xaml", UriKind.Relative));
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/상품발주.xaml", UriKind.Relative));
+        }
+
+
     }
 }

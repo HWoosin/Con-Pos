@@ -54,8 +54,6 @@ namespace Con_pos
                 }
                 conn.Close();
             }
-            
-            
         
         }
 

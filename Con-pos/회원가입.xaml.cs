@@ -57,7 +57,7 @@ namespace Con_pos
 
         }
 
-        public static bool CheckMem(string Text)
+        public static bool CheckMem(string Text)//가입확인
         {
             if (Config2.user_ds2.Tables[0].Rows.Count > 0)
             {

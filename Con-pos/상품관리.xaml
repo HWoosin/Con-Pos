@@ -9,20 +9,21 @@
       Title="상품관리">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Left" Height="710" Header="전체상품" Margin="26,30,0,0" VerticalAlignment="Top" Width="374"/>
-        <DataGrid HorizontalAlignment="Left" Height="670" Margin="39,53,0,0" VerticalAlignment="Top" Width="348"/>
+        <GroupBox HorizontalAlignment="Left" Height="637" Header="전체상품" Margin="26,30,0,0" VerticalAlignment="Top" Width="374"/>
+        <DataGrid x:Name="shopPDGrid" HorizontalAlignment="Left" Height="597" Margin="39,53,0,0" VerticalAlignment="Top" Width="348"/>
         <GroupBox HorizontalAlignment="Left" Height="91" Header="상품 검색" Margin="422,30,0,0" VerticalAlignment="Top" Width="350"/>
-        <Button Content="검색" HorizontalAlignment="Left" Height="33" Margin="663,65,0,0" VerticalAlignment="Top" Width="93"/>
+        <Button Content="검색" HorizontalAlignment="Left" Height="33" Margin="663,65,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click_2"/>
         <GroupBox HorizontalAlignment="Left" Height="207" Header="검색된 상품" Margin="422,138,0,0" VerticalAlignment="Top" Width="350"/>
-        <DataGrid HorizontalAlignment="Left" Height="171" Margin="434,160,0,0" VerticalAlignment="Top" Width="326" />
+        <DataGrid x:Name="selectPDGrid" HorizontalAlignment="Left" Height="171" Margin="434,160,0,0" VerticalAlignment="Top" Width="326" />
         <GroupBox HorizontalAlignment="Left" Height="210" Header="이벤트내용" Margin="422,457,0,0" VerticalAlignment="Top" Width="350"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Height="51" Margin="609,689,0,0" VerticalAlignment="Top" Width="163" Click="Button_Click"/>
-        <TextBox HorizontalAlignment="Left" Height="160" Margin="434,490,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="326"/>
-        <Button Content="이벤트입력" HorizontalAlignment="Left" Height="51" Margin="422,689,0,0" VerticalAlignment="Top" Width="163"/>
+        <TextBox x:Name="PDEvent" HorizontalAlignment="Left" Height="160" Margin="434,490,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="326"/>
+        <Button Content="이벤트수정" HorizontalAlignment="Left" Height="51" Margin="422,689,0,0" VerticalAlignment="Top" Width="163" Click="Button_Click_4"/>
         <GroupBox HorizontalAlignment="Left" Height="91" Header="수량 수정" Margin="422,359,0,0" VerticalAlignment="Top" Width="350"/>
-        <Button Content="수정" HorizontalAlignment="Left" Height="32" Margin="663,388,0,0" VerticalAlignment="Top" Width="93"/>
-        <TextBox HorizontalAlignment="Left" Height="33" Margin="434,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.434,-2.509"/>
-        <TextBox HorizontalAlignment="Left" Height="32" Margin="434,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.434,-2.509"/>
+        <Button Content="수정" HorizontalAlignment="Left" Height="32" Margin="663,388,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click_3"/>
+        <TextBox x:Name="PDnum" HorizontalAlignment="Left" Height="33" Margin="434,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.434,-2.509"/>
+        <TextBox x:Name="PDcount" HorizontalAlignment="Left" Height="32" Margin="434,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.434,-2.509"/>
+        <Button Content="전체조회" HorizontalAlignment="Left" Height="51" Margin="26,689,0,0" VerticalAlignment="Top" Width="374" Click="Button_Click_1"/>
 
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
 ﻿<Page x:Class="Con_pos.main"
+      xmlns:wookoa="clr-namespace:System;assembly=mscorlib"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,12 +10,8 @@
       Title="main">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Left" Height="82" Header="날짜 시간" Margin="10,23,0,0" VerticalAlignment="Top" Width="500" FontSize="16">
-            <Label Content="Label" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
-        </GroupBox>
-        <GroupBox HorizontalAlignment="Left" Height="82" Header="근무자" Margin="523,23,0,0" VerticalAlignment="Top" Width="158" FontSize="16">
-            <Label Content="Label" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
-        </GroupBox>
+        <GroupBox HorizontalAlignment="Left" Height="82" Header="날짜 시간" Margin="10,23,0,0" VerticalAlignment="Top" Width="500" FontSize="16"/>
+        <GroupBox HorizontalAlignment="Left" Height="82" Header="근무자" Margin="523,23,0,0" VerticalAlignment="Top" Width="158" FontSize="16"/>
         <Button Content="상품판매" HorizontalAlignment="Left" Height="321" Margin="10,123,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click"/>
         <Button Content="서비스판매" HorizontalAlignment="Left" Height="321" Margin="268,123,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_1"/>
         <Button Content="영수증 조회" HorizontalAlignment="Left" Height="88" Margin="523,123,0,0" VerticalAlignment="Top" Width="242"/>
@@ -23,13 +20,13 @@
         <Button Content="점포경영관리" HorizontalAlignment="Left" Height="82" Margin="10,460,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_2"/>
         <Button Content="조회업무" HorizontalAlignment="Left" Height="88" Margin="523,226,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_3"/>
         <Button Content="폐기등록" HorizontalAlignment="Left" Height="82" Margin="268,460,0,0" VerticalAlignment="Top" Width="242"/>
-        <GroupBox HorizontalAlignment="Left" Height="182" Header="공지사항" Margin="10,547,0,0" VerticalAlignment="Top" Width="755" FontSize="16">
-            <TextBox HorizontalAlignment="Center" Height="137" TextWrapping="Wrap" Text="TextBox" Width="724"/>
-        </GroupBox>
-        <GroupBox HorizontalAlignment="Left" Height="93" Header="금일 매출" Margin="523,449,0,0" VerticalAlignment="Top" Width="242" FontSize="16">
-            <Label Content="Label" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
-        </GroupBox>
+        <GroupBox HorizontalAlignment="Left" Height="182" Header="공지사항" Margin="10,547,0,0" VerticalAlignment="Top" Width="755" FontSize="16"/>
+        <GroupBox HorizontalAlignment="Left" Height="93" Header="금고 금액" Margin="523,449,0,0" VerticalAlignment="Top" Width="242" FontSize="16"/>
         <Button Content="근무자 변경" HorizontalAlignment="Left" Height="72" Margin="686,33,0,0" VerticalAlignment="Top" Width="79" FontSize="11"/>
+        <TextBlock HorizontalAlignment="Left" Margin="538,480,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="45" Width="194" FontSize="25"/>
+        <TextBlock HorizontalAlignment="Left" Margin="538,57,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="34" Width="70" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" Width="724" Margin="26,570,0,94" FontSize="20"/>
+        <TextBlock x:Name="DateTime" HorizontalAlignment="Left" Margin="26,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="363" FontSize="25" Text="-"/>
 
     </Grid>
 </Page>

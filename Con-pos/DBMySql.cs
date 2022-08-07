@@ -82,7 +82,7 @@ namespace Con_pos
             }
         }
 
-        public void Insert(string table, string value1)
+        public void Insert(string table, string value1)//회원가입에서 정보기입
         {
             try
             {

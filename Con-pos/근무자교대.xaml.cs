@@ -45,7 +45,7 @@ namespace Con_pos
                 }
                 conn.Close();
             }
-            MessageBox.Show("입력완료! 근무자교대를 눌러주세요.");
+            MessageBox.Show("입력완료! 근무자 변경을 눌러주세요.");
         }
     }
 }

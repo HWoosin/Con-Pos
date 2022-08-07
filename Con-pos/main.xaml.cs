@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Con_pos
 {
@@ -20,9 +21,21 @@ namespace Con_pos
     /// </summary>
     public partial class main : Page
     {
+        public string worker;
         public main()
         {
             InitializeComponent();
+
+            //동적시간구현
+            DispatcherTimer timer = new DispatcherTimer();
+
+            timer.Interval = TimeSpan.FromMilliseconds(0.01);
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+        }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            DateTimebox.Text = DateTime.Now.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) //상품판매 버튼
@@ -48,6 +61,11 @@ namespace Con_pos
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/시재점검.xaml", UriKind.Relative));
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)//근무자변경
+        {
+            worker = workerBox.Text;
         }
     }
 }

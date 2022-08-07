@@ -106,11 +106,17 @@
     <Compile Include="SecondWindow.xaml.cs">
       <DependentUpon>SecondWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ThirdWindow.xaml.cs">
+      <DependentUpon>ThirdWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="경영메뉴.xaml.cs">
       <DependentUpon>경영메뉴.xaml</DependentUpon>
     </Compile>
     <Compile Include="근무자관리.xaml.cs">
       <DependentUpon>근무자관리.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="근무자교대.xaml.cs">
+      <DependentUpon>근무자교대.xaml</DependentUpon>
     </Compile>
     <Compile Include="매장 정보.xaml.cs">
       <DependentUpon>매장 정보.xaml</DependentUpon>
@@ -192,11 +198,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ThirdWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="경영메뉴.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="근무자관리.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="근무자교대.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

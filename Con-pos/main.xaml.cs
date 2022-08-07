@@ -21,9 +21,10 @@ namespace Con_pos
     /// </summary>
     public partial class main : Page
     {
-        public string worker;
+       
         public main()
         {
+
             InitializeComponent();
 
             //동적시간구현
@@ -65,7 +66,14 @@ namespace Con_pos
 
         private void Button_Click_5(object sender, RoutedEventArgs e)//근무자변경
         {
-            worker = workerBox.Text;
+            workerBox.Text = 근무자교대.worker;
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)//근무자 입력
+        {
+            workerBox.Text = "입력 중~~";
+            Con_pos.ThirdWindow thirdWindow = new Con_pos.ThirdWindow();
+            thirdWindow.ShowDialog();
         }
     }
 }

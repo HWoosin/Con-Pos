@@ -50,7 +50,7 @@ namespace Con_pos
             using (MySqlConnection conn = new MySqlConnection(Conn))
             {
                 conn.Open();
-                string sql = "create table "+ReceiptNum+ "(SellPDnum char(20) primary key, SellPDname CHAR(20) , Sellcount int, Sellprice int);";
+                string sql = "create table "+ReceiptNum+ "(SellPDnum char(100) primary key, SellPDname CHAR(100) , Sellcount CHAR(100), Sellprice CHAR(100));";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
             }

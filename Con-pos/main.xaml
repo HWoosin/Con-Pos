@@ -16,14 +16,14 @@
         <Button Content="서비스판매" HorizontalAlignment="Left" Height="321" Margin="268,123,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_1"/>
         <Button Content="영수증 조회" HorizontalAlignment="Left" Height="88" Margin="523,123,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_7"/>
         <Button Content="시재점검" HorizontalAlignment="Left" Height="118" Margin="522,326,0,0" VerticalAlignment="Top" Width="122" Click="Button_Click_4"/>
-        <Button Content="금고입금" HorizontalAlignment="Left" Height="118" Margin="656,326,0,0" VerticalAlignment="Top" Width="109"/>
+        <Button Content="금고입금" HorizontalAlignment="Left" Height="118" Margin="656,326,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click_8"/>
         <Button Content="점포경영관리" HorizontalAlignment="Left" Height="82" Margin="10,460,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_2"/>
         <Button Content="조회업무" HorizontalAlignment="Left" Height="88" Margin="523,226,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_3"/>
         <Button Content="폐기등록" HorizontalAlignment="Left" Height="82" Margin="268,460,0,0" VerticalAlignment="Top" Width="242"/>
         <GroupBox HorizontalAlignment="Left" Height="182" Header="공지사항" Margin="10,547,0,0" VerticalAlignment="Top" Width="755" FontSize="16"/>
         <GroupBox HorizontalAlignment="Left" Height="93" Header="금고 금액" Margin="523,449,0,0" VerticalAlignment="Top" Width="242" FontSize="16"/>
         <Button Content="근무자 입력" HorizontalAlignment="Left" Height="31" Margin="686,35,0,0" VerticalAlignment="Top" Width="79" FontSize="11" Click="Button_Click_6"/>
-        <TextBlock x:Name="safeMoney" HorizontalAlignment="Left" Margin="538,480,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="45" Width="194" FontSize="25"/>
+        <TextBlock x:Name="safeMoney" HorizontalAlignment="Left" Margin="538,480,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="45" Width="194" FontSize="25" Loaded="safeMoney_Loaded"/>
         <TextBlock x:Name="workerBox" HorizontalAlignment="Left" Margin="538,57,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="34" Width="70" FontSize="20" Visibility="Visible" Loaded="workerBox_Loaded"/>
         <TextBox x:Name="Message" HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" Width="724" Margin="26,576,0,88" FontSize="20"/>
         <TextBlock x:Name="DateTimebox" HorizontalAlignment="Left" Margin="26,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="465" FontSize="25" Text="-"/>

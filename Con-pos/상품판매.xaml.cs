@@ -24,14 +24,15 @@ namespace Con_pos
     {
         string Conn2 = "Server=localhost;Database=ConStore;Uid=root;Pwd=dntls88;";//상품DB접근
         string Conn = "Server=localhost;Database=ConStore_sell;Uid=root;Pwd=dntls88;";//영수증DB접근
-        int totalprice;
-        int totalcount;
+        public static int totalprice;
+        public static int totalcount;
+        public static int safecash;
         public 상품판매()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)// 메인으로 돌아가는 버튼
+        private void Button_Click(object sender, RoutedEventArgs e)// 뒤로가기
         {
             using (MySqlConnection conn = new MySqlConnection(Conn))
             {
@@ -41,6 +42,8 @@ namespace Con_pos
                 cmd.ExecuteNonQuery();
                 NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
             }
+            totalprice = 0;
+            totalcount = 0;
         }
 
         private void ReceiptNum_Loaded(object sender, RoutedEventArgs e)//영수증번호 표기
@@ -200,7 +203,7 @@ namespace Con_pos
             {
                 if (int.Parse(TotalPrice.Text) == 0)
                 {
-                    MessageBox.Show("운임비를 확인해주세요!");
+                    MessageBox.Show("총 가격을 확인해주세요!");
                 }
                 else if (int.Parse(TotalPrice.Text) > int.Parse(Price.Text))
                 {
@@ -233,6 +236,10 @@ namespace Con_pos
                         SellGrid.ItemsSource = ds.Tables[0].DefaultView;
                         EnterButton.IsEnabled = false;
                         CompleteButton.IsEnabled = true;
+                        safecash = totalprice;
+                        totalprice = 0;//정적이므로 다시 0으로 만들어줌
+                        totalcount = 0;
+                        //main.Safemoney += totalprice;
                     }
                 }
             }
@@ -241,6 +248,15 @@ namespace Con_pos
         private void Button_Click_4(object sender, RoutedEventArgs e)//결제완료
         {
             NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
+            totalprice = 0;
+            totalcount = 0;
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)//포인트결제
+        {
+            Con_pos.FourthWindow fourthWindow = new Con_pos.FourthWindow();
+            fourthWindow.ShowDialog();
+            CompleteButton.IsEnabled = true;
         }
     }
 }

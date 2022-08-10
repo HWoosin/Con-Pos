@@ -26,7 +26,7 @@
             <TextBox x:Name="Price" HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" TextWrapping="Wrap" Width="310" FontSize="24"/>
         </GroupBox>
         <Button Content="현금결제" HorizontalAlignment="Left" Height="96" Margin="404,448,0,0" VerticalAlignment="Top" Width="163" Click="Button_Click_3"/>
-        <Button Content="포인트 결제" HorizontalAlignment="Left" Height="96" Margin="586,448,0,0" VerticalAlignment="Top" Width="162"/>
+        <Button Content="포인트 결제" HorizontalAlignment="Left" Height="96" Margin="586,448,0,0" VerticalAlignment="Top" Width="162" Click="Button_Click_5"/>
         <Button x:Name="CompleteButton" Content="결제완료" HorizontalAlignment="Left" Height="96" Margin="404,557,0,0" VerticalAlignment="Top" Width="163" Click="Button_Click_4" IsEnabled="False"/>
         <Button Content="통합결제" HorizontalAlignment="Left" Height="96" Margin="587,557,0,0" VerticalAlignment="Top" Width="162"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Height="52" Margin="404,673,0,0" VerticalAlignment="Top" Width="344" Click="Button_Click"/>

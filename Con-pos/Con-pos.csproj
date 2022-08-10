@@ -99,6 +99,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DBMySql.cs" />
+    <Compile Include="FourthWindow.xaml.cs">
+      <DependentUpon>FourthWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="main.xaml.cs">
       <DependentUpon>main.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,9 @@
     </Compile>
     <Compile Include="근무자교대.xaml.cs">
       <DependentUpon>근무자교대.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="금고입금.xaml.cs">
+      <DependentUpon>금고입금.xaml</DependentUpon>
     </Compile>
     <Compile Include="매장 정보.xaml.cs">
       <DependentUpon>매장 정보.xaml</DependentUpon>
@@ -169,6 +175,9 @@
     <Compile Include="택배픽업.xaml.cs">
       <DependentUpon>택배픽업.xaml</DependentUpon>
     </Compile>
+    <Compile Include="포인트결제.xaml.cs">
+      <DependentUpon>포인트결제.xaml</DependentUpon>
+    </Compile>
     <Compile Include="포인트조회.xaml.cs">
       <DependentUpon>포인트조회.xaml</DependentUpon>
     </Compile>
@@ -181,6 +190,10 @@
     <Compile Include="회원관리.xaml.cs">
       <DependentUpon>회원관리.xaml</DependentUpon>
     </Compile>
+    <Page Include="FourthWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -214,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="근무자교대.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="금고입금.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -282,6 +299,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="택배픽업.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="포인트결제.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

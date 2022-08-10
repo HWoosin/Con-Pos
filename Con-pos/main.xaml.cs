@@ -23,6 +23,7 @@ namespace Con_pos
     public partial class main : Page
     {
         public static string ReceiptNum;
+        public static int Safemoney=100000;
         int Receipt;
         string Conn = "Server=localhost;Database=ConStore_sell;Uid=root;Pwd=dntls88;";
         public main()
@@ -97,6 +98,18 @@ namespace Con_pos
         private void Button_Click_7(object sender, RoutedEventArgs e)//영수증 조회
         {
             NavigationService.Navigate(new Uri("/영수증조회.xaml", UriKind.Relative));
+        }
+
+        private void safeMoney_Loaded(object sender, RoutedEventArgs e)//금고금액 표시
+        {
+            Safemoney = 상품판매.safecash + Safemoney;//금고금액에 결제 후 더해주기
+            상품판매.safecash = 0;
+            safeMoney.Text = Safemoney.ToString("#,##0");
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/금고입금.xaml", UriKind.Relative));
         }
     }
 }

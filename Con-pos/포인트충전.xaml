@@ -17,8 +17,8 @@
         <TextBox x:Name="Mpttb" HorizontalAlignment="Left" Margin="486,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Height="26"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Margin="486,532,0,0" VerticalAlignment="Top" Height="56" Width="164" Click="Button_Click"/>
         <Button Content="전체 회원 조회" HorizontalAlignment="Left" Margin="486,356,0,0" VerticalAlignment="Top" Height="56" Width="164" Click="Button_Click_1"/>
-        <DataGrid x:Name="dg1"  Margin="154,214,344,400"/>
-        <DataGrid x:Name="dg2"  Margin="154,418,344,212"/>
+        <DataGrid x:Name="dg1"  Margin="154,214,344,400" FontSize="20"/>
+        <DataGrid x:Name="dg2"  Margin="154,418,344,212" FontSize="20"/>
         <Button Content="조회" HorizontalAlignment="Left" Margin="580,438,0,0" VerticalAlignment="Top" Height="70" Width="70" Click="Button_Click_2"/>
 
     </Grid>

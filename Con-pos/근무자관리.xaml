@@ -25,8 +25,8 @@
         <Label Content="근무종료일" HorizontalAlignment="Left" Margin="303,620,0,0" VerticalAlignment="Top"/>
         <Label Content="거주지" HorizontalAlignment="Left" Margin="328,578,0,0" VerticalAlignment="Top"/>
         <GroupBox HorizontalAlignment="Left" Height="168" Header="근무자 관리" Margin="31,328,0,0" VerticalAlignment="Top" Width="741"/>
-        <DataGrid x:Name="AllEmpGrid" HorizontalAlignment="Left" Height="240" Margin="57,58,0,0" VerticalAlignment="Top" Width="691"/>
-        <DataGrid x:Name="FindEmpGrid" HorizontalAlignment="Left" Height="119" Margin="57,357,0,0" VerticalAlignment="Top" Width="381"/>
+        <DataGrid x:Name="AllEmpGrid" HorizontalAlignment="Left" Height="240" Margin="57,58,0,0" VerticalAlignment="Top" Width="691" FontSize="14"/>
+        <DataGrid x:Name="FindEmpGrid" HorizontalAlignment="Left" Height="119" Margin="57,357,0,0" VerticalAlignment="Top" Width="381" FontSize="14"/>
         <TextBox x:Name="EmpID" HorizontalAlignment="Left" Margin="519,359,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
         <Label Content="전화번호" HorizontalAlignment="Left" Margin="460,357,0,0" VerticalAlignment="Top"/>
         <Button Content="전체 조회" HorizontalAlignment="Left" Height="30" Margin="519,400,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click_1"/>

@@ -12,11 +12,11 @@
         <TextBox x:Name="Packnum" HorizontalAlignment="Left" Margin="86,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Height="42" FontSize="24"/>
         <Button Content="조회" HorizontalAlignment="Left" Margin="428,460,0,0" VerticalAlignment="Top" Height="46" Width="122" RenderTransformOrigin="1.851,-1.009" Click="Button_Click_2"/>
         <Label Content="운송장 번호" HorizontalAlignment="Left" Margin="86,419,0,0" VerticalAlignment="Top" Height="67" Width="148" FontSize="24"/>
-        <DataGrid x:Name="PropGrid" HorizontalAlignment="Left" Height="285" Margin="86,129,0,0" VerticalAlignment="Top" Width="464"/>
+        <DataGrid x:Name="PropGrid" HorizontalAlignment="Left" Height="285" Margin="86,129,0,0" VerticalAlignment="Top" Width="464" FontSize="20"/>
         <Button Content="전체 조회" HorizontalAlignment="Left" Height="47" Margin="86,523,0,0" VerticalAlignment="Top" Width="324" Click="Button_Click_1"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Height="47" Margin="575,588,0,0" VerticalAlignment="Top" Width="145" Click="Button_Click"/>
         <Button Content="접수목록삭제" HorizontalAlignment="Left" Margin="575,524,0,0" VerticalAlignment="Top" Height="46" Width="145" RenderTransformOrigin="1.851,-1.009" Click="Button_Click_4"/>
-        <DataGrid x:Name="SentGrid" HorizontalAlignment="Left" Height="285" Margin="575,129,0,0" VerticalAlignment="Top" Width="145" />
+        <DataGrid x:Name="SentGrid" HorizontalAlignment="Left" Height="285" Margin="575,129,0,0" VerticalAlignment="Top" Width="145" FontSize="14" />
         <Button Content="입고목록삭제" HorizontalAlignment="Left" Margin="575,460,0,0" VerticalAlignment="Top" Height="46" Width="145" RenderTransformOrigin="1.851,-1.009" Click="Button_Click_3"/>
         <Button Content="미결제 변경" HorizontalAlignment="Left" Margin="428,524,0,0" VerticalAlignment="Top" Height="46" Width="122" RenderTransformOrigin="1.851,-1.009" Click="Button_Click_5"/>
 

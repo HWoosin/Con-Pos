@@ -139,6 +139,9 @@
     <Compile Include="시재점검.xaml.cs">
       <DependentUpon>시재점검.xaml</DependentUpon>
     </Compile>
+    <Compile Include="영수증조회.xaml.cs">
+      <DependentUpon>영수증조회.xaml</DependentUpon>
+    </Compile>
     <Compile Include="예약상품조회.xaml.cs">
       <DependentUpon>예약상품조회.xaml</DependentUpon>
     </Compile>
@@ -239,6 +242,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="시재점검.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="영수증조회.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

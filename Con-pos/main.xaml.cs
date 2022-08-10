@@ -93,5 +93,10 @@ namespace Con_pos
         {
             workerBox.Text = 근무자교대.worker;
         }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)//영수증 조회
+        {
+            NavigationService.Navigate(new Uri("/영수증조회.xaml", UriKind.Relative));
+        }
     }
 }

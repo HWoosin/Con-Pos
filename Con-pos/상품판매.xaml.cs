@@ -231,9 +231,16 @@ namespace Con_pos
                         DataSet ds = new DataSet();
                         da.Fill(ds);
                         SellGrid.ItemsSource = ds.Tables[0].DefaultView;
+                        EnterButton.IsEnabled = false;
+                        CompleteButton.IsEnabled = true;
                     }
                 }
             }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)//결제완료
+        {
+            NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
         }
     }
 }

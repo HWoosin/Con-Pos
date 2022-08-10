@@ -29,5 +29,27 @@ namespace Con_pos
         {
             NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if(_50000.Text=="" || _10000.Text == "" || _5000.Text=="" || _1000.Text=="" || _500.Text=="" || _100.Text==""  || _50.Text=="" || _10.Text=="")
+            {
+                MessageBox.Show("모두입력해주세요!");
+            }
+            else
+            {
+                int checkSafe = (50000 * int.Parse(_50000.Text)) + (10000 * int.Parse(_10000.Text)) + (5000 * int.Parse(_5000.Text)) + (1000 * int.Parse(_1000.Text)) + (500 * int.Parse(_500.Text))
+                    + (100 * int.Parse(_100.Text)) + (50 * int.Parse(_50.Text)) + (10 * int.Parse(_10.Text));
+                int result= checkSafe - main.Safemoney;
+                if(result>0)
+                    MessageBox.Show($"시재 점검결과: {result.ToString("#,##0원 많습니다.")}", "점검오류");
+                else if (result<0)
+                    MessageBox.Show($"시재 점검결과: {result.ToString("#,##0원 입니다.")}", "점검오류");
+                else
+                    MessageBox.Show($"시재 점검결과: {result.ToString("#,##0원 입니다.")}", "점검완료");
+
+            }
+            
+        }
     }
 }

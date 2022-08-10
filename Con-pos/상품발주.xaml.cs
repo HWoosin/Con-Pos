@@ -50,7 +50,7 @@ namespace Con_pos
         {
             using (MySqlConnection conn = new MySqlConnection(Conn))
             {
-                string sql = "SELECT PDname, PDmaker, PDevent FROM Buyproduct where PDnum = '" + PDnum.Text + "';";
+                string sql = "SELECT PDname, PDmaker, PDprice, PDevent FROM Buyproduct where PDnum = '" + PDnum.Text + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 conn.Open();
 
@@ -61,6 +61,7 @@ namespace Con_pos
                     {
                         PDname.Text = (reader["PDname"].ToString());
                         PDmaker.Text = (reader["PDmaker"].ToString());
+                        PDprice.Text = (reader["PDprice"].ToString());
                         PDevent.Text = (reader["PDevent"].ToString());
                     }
                 }
@@ -81,10 +82,10 @@ namespace Con_pos
                     using (MySqlConnection conn = new MySqlConnection(Conn))
                     {
                         conn.Open();
-                        MySqlCommand msc = new MySqlCommand("INSERT INTO TemProduct values( '" + PDnum.Text + "','" + PDname.Text + "','" + PDcount.Text + "','" + PDmaker.Text + "','" + PDevent.Text + "')", conn);
+                        MySqlCommand msc = new MySqlCommand("INSERT INTO temProduct values( '" + PDnum.Text + "','" + PDname.Text + "','" + PDcount.Text + "','" + PDprice.Text + "','" + PDmaker.Text + "','" + PDevent.Text + "')", conn);
                         msc.ExecuteNonQuery();
 
-                        string sql = "SELECT * FROM TemProduct";
+                        string sql = "SELECT * FROM temProduct";
                         MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                         DataSet ds = new DataSet();
                         da.Fill(ds);
@@ -96,10 +97,10 @@ namespace Con_pos
                     using (MySqlConnection conn = new MySqlConnection(Conn))
                     {
                         conn.Open();
-                        MySqlCommand msc = new MySqlCommand("Update TemProduct Set TPDcount= TPDcount+'" + PDcount.Text + "' Where TPDnum ='" + PDnum.Text + "';", conn);
+                        MySqlCommand msc = new MySqlCommand("Update temProduct Set TPDcount= TPDcount+'" + PDcount.Text + "' Where TPDnum ='" + PDnum.Text + "';", conn);
                         msc.ExecuteNonQuery();
 
-                        string sql = "SELECT * FROM TemProduct";
+                        string sql = "SELECT * FROM temProduct";
                         MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                         DataSet ds = new DataSet();
                         da.Fill(ds);
@@ -136,11 +137,11 @@ namespace Con_pos
                 using (MySqlConnection conn = new MySqlConnection(Conn))
                 {
                     conn.Open();
-                    MySqlCommand msc = new MySqlCommand("INSERT INTO ShopProduct values( '" + PDnum.Text + "','" + PDname.Text + "','" + PDcount.Text + "','" + PDmaker.Text + "','" + PDevent.Text + "')", conn);
+                    MySqlCommand msc = new MySqlCommand("INSERT INTO ShopProduct values( '" + PDnum.Text + "','" + PDname.Text + "','" + PDcount.Text + "','" + PDprice.Text + "','" + PDmaker.Text + "','" + PDevent.Text + "')", conn);
                     msc.ExecuteNonQuery();
-                    MySqlCommand msc2 = new MySqlCommand("DELETE FROM TemProduct where TPDnum = '" + PDnum.Text + "'", conn);
+                    MySqlCommand msc2 = new MySqlCommand("DELETE FROM temProduct where TPDnum = '" + PDnum.Text + "'", conn);
                     msc2.ExecuteNonQuery();
-                    string sql = "SELECT * FROM TemProduct";
+                    string sql = "SELECT * FROM temProduct";
                     MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -156,7 +157,7 @@ namespace Con_pos
                     MySqlCommand msc = new MySqlCommand("Update ShopProduct Set SPDcount= SPDcount+'" + PDcount.Text + "' Where SPDnum ='" + PDnum.Text + "';", conn);
                     msc.ExecuteNonQuery();
 
-                    MySqlCommand msc2 = new MySqlCommand("DELETE FROM TemProduct where TPDnum = '" + PDnum.Text + "'", conn);
+                    MySqlCommand msc2 = new MySqlCommand("DELETE FROM temProduct where TPDnum = '" + PDnum.Text + "'", conn);
                     msc2.ExecuteNonQuery();
                     string sql = "SELECT * FROM TemProduct";
                     MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
@@ -172,7 +173,7 @@ namespace Con_pos
         {
             using (MySqlConnection conn = new MySqlConnection(Conn))
             {
-                string sql = "SELECT * FROM TemProduct";
+                string sql = "SELECT * FROM temProduct";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                 DataSet ds = new DataSet();
                 da.Fill(ds);

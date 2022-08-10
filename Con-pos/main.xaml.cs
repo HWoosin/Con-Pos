@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,9 @@ namespace Con_pos
     /// </summary>
     public partial class main : Page
     {
-       
+        public static string ReceiptNum;
+        int Receipt;
+        string Conn = "Server=localhost;Database=ConStore_sell;Uid=root;Pwd=dntls88;";
         public main()
         {
 
@@ -41,6 +44,16 @@ namespace Con_pos
 
         private void Button_Click(object sender, RoutedEventArgs e) //상품판매 버튼
         {
+            Random receiptNum = new Random(); //영수증번호8자리 랜덤생성
+            Receipt= receiptNum.Next(10, 99);
+            ReceiptNum = "sell"+Receipt.ToString();
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                conn.Open();
+                string sql = "create table "+ReceiptNum+ "(SellPDnum char(20) primary key, SellPDname CHAR(20) , Sellcount int, Sellprice int);";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
             NavigationService.Navigate(new Uri("/상품판매.xaml", UriKind.Relative));
         }
 
@@ -74,6 +87,11 @@ namespace Con_pos
             workerBox.Text = "입력 중~~";
             Con_pos.ThirdWindow thirdWindow = new Con_pos.ThirdWindow();
             thirdWindow.ShowDialog();
+        }
+
+        private void workerBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            workerBox.Text = 근무자교대.worker;
         }
     }
 }

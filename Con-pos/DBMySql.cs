@@ -18,6 +18,7 @@ namespace Con_pos
         MySqlDataAdapter adpt2;
         MySqlCommand cmd2;
 
+
         public void Connection()
         {
             try
@@ -123,6 +124,8 @@ namespace Con_pos
                 throw;
             }
         }
+        
+        
         public void Update(string table, string setvalue, string wherevalue = "")
         {
             try

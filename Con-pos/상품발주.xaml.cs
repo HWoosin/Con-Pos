@@ -180,5 +180,18 @@ namespace Con_pos
                 selectGrid.ItemsSource = ds.Tables[0].DefaultView;
             }
         }
+
+        private void AllGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM Buyproduct";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                AllGrid.ItemsSource = ds.Tables[0].DefaultView;
+            }
+        }
     }
 }

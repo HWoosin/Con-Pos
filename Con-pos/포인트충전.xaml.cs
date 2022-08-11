@@ -77,5 +77,19 @@ namespace Con_pos
                 dg2.ItemsSource = ds.Tables[0].DefaultView;
             }
         }
+
+        private void dg1_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM CMem";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                dg1.ItemsSource = ds.Tables[0].DefaultView;
+
+            }
+        }
     }
 }

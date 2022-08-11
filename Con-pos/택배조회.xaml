@@ -12,12 +12,12 @@
         <TextBox x:Name="SentPnum" HorizontalAlignment="Left" Margin="168,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="29" FontSize="18"/>
         <Button Content="조회" HorizontalAlignment="Left" Margin="512,289,0,0" VerticalAlignment="Top" Height="32" Width="120" Click="Button_Click_1"/>
         <Label Content="발신 운송장 번호" HorizontalAlignment="Left" Margin="168,254,0,0" VerticalAlignment="Top" Height="46" Width="146" FontSize="15"/>
-        <DataGrid x:Name="sentGrid" HorizontalAlignment="Center" Height="138" Margin="0,111,0,0" VerticalAlignment="Top" Width="464" FontSize="25"/>
+        <DataGrid x:Name="sentGrid" HorizontalAlignment="Center" Height="116" Margin="0,132,0,0" VerticalAlignment="Top" Width="464" FontSize="25" Loaded="sentGrid_Loaded"/>
         <Button Content="전체 조회" HorizontalAlignment="Left" Height="32" Margin="168,337,0,0" VerticalAlignment="Top" Width="320" Click="Button_Click_2"/>
         <TextBox x:Name="RecepPnum" HorizontalAlignment="Left" Margin="168,557,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="29" FontSize="18"/>
         <Button Content="조회" HorizontalAlignment="Left" Margin="512,557,0,0" VerticalAlignment="Top" Height="32" Width="120" Click="Button_Click_3"/>
         <Label Content="수신 운송장 번호" HorizontalAlignment="Left" Margin="168,521,0,0" VerticalAlignment="Top" Height="46" Width="146" FontSize="15"/>
-        <DataGrid x:Name="RecepGrid" HorizontalAlignment="Center" Height="116" Margin="0,400,0,0" VerticalAlignment="Top" Width="464" FontSize="25"/>
+        <DataGrid x:Name="RecepGrid" HorizontalAlignment="Center" Height="116" Margin="0,400,0,0" VerticalAlignment="Top" Width="464" FontSize="25" Loaded="RecepGrid_Loaded"/>
         <Button Content="전체 조회" HorizontalAlignment="Left" Height="32" Margin="168,601,0,0" VerticalAlignment="Top" Width="320" Click="Button_Click_4"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Height="32" Margin="512,601,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click"/>
 

@@ -128,5 +128,19 @@ namespace Con_pos
                 
             }
         }
+
+        private void CmemGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM CMem";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                CmemGrid.ItemsSource = ds.Tables[0].DefaultView;
+
+            }
+        }
     }
 }

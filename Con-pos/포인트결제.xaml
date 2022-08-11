@@ -9,8 +9,7 @@
       Title="포인트결제">
 
     <Grid>
-        <Button Content="결제" HorizontalAlignment="Left" Margin="75,254,0,0" VerticalAlignment="Top" Height="41" Width="119" Click="Button_Click_1"/>
-        <Button Content="취소" HorizontalAlignment="Left" Margin="236,254,0,0" VerticalAlignment="Top" Height="41" Width="119"/>
+        <Button Content="결제" HorizontalAlignment="Left" Margin="75,254,0,0" VerticalAlignment="Top" Height="41" Width="280" Click="Button_Click_1"/>
         <Label Content="결제금액:" HorizontalAlignment="Left" Margin="41,38,0,0" VerticalAlignment="Top" FontSize="20"/>
         <TextBlock x:Name="TotalPrice" HorizontalAlignment="Left" Margin="140,43,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="20" Loaded="TotalPrice_Loaded"/>
         <TextBox x:Name="CusMem" HorizontalAlignment="Left" Margin="74,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="24"/>

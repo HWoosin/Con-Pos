@@ -70,5 +70,18 @@ namespace Con_pos
                 conn.Close();
             }
         }
+
+        private void shopPDGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM Shopproduct";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                shopPDGrid.ItemsSource = ds.Tables[0].DefaultView;
+            }
+        }
     }
 }

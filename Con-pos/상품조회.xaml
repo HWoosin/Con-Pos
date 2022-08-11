@@ -10,7 +10,7 @@
 
     <Grid>
         <GroupBox HorizontalAlignment="Left" Height="637" Header="전체상품" Margin="26,30,0,0" VerticalAlignment="Top" Width="374"/>
-        <DataGrid x:Name="shopPDGrid" HorizontalAlignment="Left" Height="593" Margin="39,53,0,0" VerticalAlignment="Top" Width="348"/>
+        <DataGrid x:Name="shopPDGrid" HorizontalAlignment="Left" Height="593" Margin="39,53,0,0" VerticalAlignment="Top" Width="348" Loaded="shopPDGrid_Loaded"/>
         <GroupBox HorizontalAlignment="Left" Height="298" Header="검색된 상품" Margin="422,138,0,0" VerticalAlignment="Top" Width="350"/>
         <DataGrid x:Name="selectPDGrid" HorizontalAlignment="Left" Height="258" Margin="434,160,0,0" VerticalAlignment="Top" Width="326" FontSize="15" />
         <GroupBox HorizontalAlignment="Left" Height="210" Header="이벤트내용" Margin="422,457,0,0" VerticalAlignment="Top" Width="350"/>

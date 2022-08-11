@@ -46,7 +46,21 @@ namespace Con_pos
             }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)//전체회원조회
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM CMem";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                CMemGrid.ItemsSource = ds.Tables[0].DefaultView;
+
+            }
+        }
+
+        private void CMemGrid_Loaded(object sender, RoutedEventArgs e)
         {
             using (MySqlConnection conn = new MySqlConnection(Conn))
             {

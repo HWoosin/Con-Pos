@@ -9,12 +9,12 @@
       Title="포인트조회">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="476" Header="포인트 충전" VerticalAlignment="Center" Width="568" FontSize="24"/>
+        <GroupBox HorizontalAlignment="Center" Height="476" Header="포인트 조회" VerticalAlignment="Center" Width="568" FontSize="24"/>
         <TextBox x:Name="Mphtb" HorizontalAlignment="Left" Margin="486,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Height="24"/>
         <Label Content="전화번호" HorizontalAlignment="Left" Margin="486,183,0,0" VerticalAlignment="Top"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Margin="486,421,0,0" VerticalAlignment="Top" Height="56" Width="164" Click="Button_Click"/>
         <Button Content="조회" HorizontalAlignment="Left" Margin="486,261,0,0" VerticalAlignment="Top" Height="56" Width="164" Click="Button_Click_1"/>
-        <DataGrid x:Name="CMemGrid"  Margin="154,214,344,212" FontSize="20"/>
+        <DataGrid x:Name="CMemGrid"  Margin="154,214,344,212" FontSize="20" Loaded="CMemGrid_Loaded"/>
         <Button Content="전체 회원 조회" HorizontalAlignment="Left" Margin="486,339,0,0" VerticalAlignment="Top" Height="60" Width="164" Click="Button_Click_2"/>
 
     </Grid>

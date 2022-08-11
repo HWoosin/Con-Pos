@@ -10,7 +10,7 @@
 
     <Grid>
         <GroupBox HorizontalAlignment="Center" Height="728" Header="상품발주" VerticalAlignment="Center" Width="733" FontSize="20"/>
-        <DataGrid x:Name="AllGrid" HorizontalAlignment="Left" Height="595" Margin="59,95,0,0" VerticalAlignment="Top" Width="318"/>
+        <DataGrid x:Name="AllGrid" HorizontalAlignment="Left" Height="595" Margin="59,95,0,0" VerticalAlignment="Top" Width="318" Loaded="AllGrid_Loaded"/>
         <TextBox x:Name="PDnum" HorizontalAlignment="Left" Margin="489,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Text=""/>
         <TextBox x:Name="PDname" HorizontalAlignment="Left" Margin="489,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
         <TextBox x:Name="PDcount" HorizontalAlignment="Left" Margin="489,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>

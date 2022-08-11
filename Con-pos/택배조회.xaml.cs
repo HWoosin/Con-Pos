@@ -84,5 +84,31 @@ namespace Con_pos
                 RecepGrid.ItemsSource = ds.Tables[0].DefaultView;
             }
         }
+
+        private void sentGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM SentPackage";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                sentGrid.ItemsSource = ds.Tables[0].DefaultView;
+            }
+        }
+
+        private void RecepGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM ReceptionPackage";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                RecepGrid.ItemsSource = ds.Tables[0].DefaultView;
+            }
+        }
     }
 }

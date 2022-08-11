@@ -118,5 +118,31 @@ namespace Con_pos
 
             }
         }
+
+        private void PropGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql2 = "SELECT ProPnum, sentname, recepname, sentprice, paydone FROM ProposalPackage";
+                MySqlDataAdapter da2 = new MySqlDataAdapter(sql2, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds2 = new DataSet();
+                da2.Fill(ds2);
+                PropGrid.ItemsSource = ds2.Tables[0].DefaultView;
+            }
+        }
+
+        private void SentGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM SentPackage";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SentGrid.ItemsSource = ds.Tables[0].DefaultView;
+            }
+        }
     }
 }

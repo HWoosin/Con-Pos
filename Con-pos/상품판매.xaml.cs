@@ -24,6 +24,7 @@ namespace Con_pos
     {
         string Conn2 = "Server=localhost;Database=ConStore;Uid=root;Pwd=dntls88;";//상품DB접근
         string Conn = "Server=localhost;Database=ConStore_sell;Uid=root;Pwd=dntls88;";//영수증DB접근
+       
         public static int totalprice;
         public static int totalcount;
         public static int safecash;
@@ -31,7 +32,7 @@ namespace Con_pos
         {
             InitializeComponent();
         }
-
+       
         private void Button_Click(object sender, RoutedEventArgs e)// 뒤로가기
         {
             using (MySqlConnection conn = new MySqlConnection(Conn))
@@ -53,8 +54,6 @@ namespace Con_pos
 
         private void Button_Click_1(object sender, RoutedEventArgs e)//상품입력, 상품정보 같으면 갯수추가, 총 가격오름
         {
-            deleteButton.IsEnabled = true;
-            totalcount++;
             TotalCount.Content = totalcount;
             if (Pnum.Text == "")
             {
@@ -62,6 +61,9 @@ namespace Con_pos
             }
             else
             {
+                deleteButton.IsEnabled = true;
+                backtoMain.IsEnabled = false;
+                totalcount++;
                 using (MySqlConnection conn2 = new MySqlConnection(Conn2))
                 {
                     string sql = "SELECT SPDnum, SPDname, SPDprice, SPDevent FROM ShopProduct where SPDnum = '" + Pnum.Text + "';";
@@ -116,6 +118,17 @@ namespace Con_pos
                         SellGrid.ItemsSource = ds.Tables[0].DefaultView;
                         totalprice += int.Parse(Pprice.Text);
                         TotalPrice.Text = totalprice.ToString();
+
+                        string sql2 = "SELECT  Sellcount FROM " + Receiptname.Text + " where SellPDnum ='" + Pnum.Text + "';";//갯수가 음수로 내려가는지 검사
+                        MySqlCommand cmd = new MySqlCommand(sql2, conn);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+                                PDcount.Text = (reader["Sellcount"].ToString());//Hidden
+                            }
+                        }
                     }
                 }
 
@@ -124,14 +137,15 @@ namespace Con_pos
 
         private void Button_Click_2(object sender, RoutedEventArgs e)//삭제
         {
-            totalcount--;
             TotalCount.Content = totalcount;
             if (Pnum.Text == "")
             {
                 MessageBox.Show("상품코드를 입력해주세요.");
             }
+
             else
             {
+                totalcount--;
                 using (MySqlConnection conn2 = new MySqlConnection(Conn2))
                 {
                     string sql = "SELECT SPDnum, SPDname, SPDprice, SPDevent FROM ShopProduct where SPDnum = '" + Pnum.Text + "';";
@@ -162,6 +176,17 @@ namespace Con_pos
                         msc.ExecuteNonQuery();
                         string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + Receiptname.Text + ";";
                         MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+
+                        string sql2 = "SELECT  Sellcount FROM " + Receiptname.Text + " where SellPDnum ='"+Pnum.Text+"';";//갯수가 음수로 내려가는지 검사
+                        MySqlCommand cmd = new MySqlCommand(sql2, conn);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+                                PDcount.Text = (reader["Sellcount"].ToString());//Hidden
+                            }
+                        }
                         DataSet ds = new DataSet();
                         da.Fill(ds);
                         SellGrid.ItemsSource = ds.Tables[0].DefaultView;
@@ -173,23 +198,34 @@ namespace Con_pos
                 {
                     MessageBox.Show("구매목록에 없는 상품입니다.");
                 }
-                //total 이 음수가 되지않도록 수정
-                if (totalcount == 0 && totalprice ==0)
-                {
-                    using (MySqlConnection conn = new MySqlConnection(Conn))
+               
+                    //total 이 음수가 되지않도록 수정
+                    if (totalcount <= 0 || totalprice <= 0)
                     {
-                        conn.Open();
-                        MySqlCommand msc = new MySqlCommand("DELETE FROM " + Receiptname.Text + ";", conn);
-                        msc.ExecuteNonQuery();
-                        string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + Receiptname.Text + ";";
-                        MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
-                        SellGrid.ItemsSource = ds.Tables[0].DefaultView;
-
+                        TotalCount.Content = 0;
+                        TotalPrice.Text = "0";
+                        deleteButton.IsEnabled = false;
+                        backtoMain.IsEnabled = true;
                     }
-                    deleteButton.IsEnabled = false;
-                }
+                    //목록상품의 갯수가 음수가 되지않도록 수정
+                    if (int.Parse(PDcount.Text) <= 0)
+                    {
+                        using (MySqlConnection conn = new MySqlConnection(Conn))
+                        {
+                            conn.Open();
+                            MySqlCommand msc = new MySqlCommand("DELETE FROM " + Receiptname.Text + " Where SellPDnum = '" + Pnum.Text + "';", conn);
+                            msc.ExecuteNonQuery();
+                            string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + Receiptname.Text + ";";
+                            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                            DataSet ds = new DataSet();
+                            da.Fill(ds);
+                            SellGrid.ItemsSource = ds.Tables[0].DefaultView;
+                        }
+                    }
+                    
+                
+               
+                
             }
         }
 

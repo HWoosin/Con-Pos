@@ -95,5 +95,19 @@ namespace Con_pos
                 AllEmpGrid.ItemsSource = ds.Tables[0].DefaultView;
             }
         }
+
+        private void AllEmpGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM Empmem";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                AllEmpGrid.ItemsSource = ds.Tables[0].DefaultView;
+
+            }
+        }
     }
 }

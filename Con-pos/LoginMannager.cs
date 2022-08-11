@@ -11,6 +11,7 @@ namespace Con_pos
 {
     enum eTName : int { _user }
     enum eTName2 : int { _user }
+
     class Config
     {
         public static string Database = "ConStore";
@@ -33,4 +34,5 @@ namespace Con_pos
         public static DataSet user_ds2= null;
     }
 
+    
 }

@@ -80,5 +80,19 @@ namespace Con_pos
                 MessageBox.Show("택배가 고객님께 전달되었습니다.");
             }
         }
+
+        private void pickGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                string sql = "SELECT * FROM ReceptionPackage";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                pickGrid.ItemsSource = ds.Tables[0].DefaultView;
+
+            }
+        }
     }
 }

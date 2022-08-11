@@ -102,8 +102,10 @@ namespace Con_pos
 
         private void safeMoney_Loaded(object sender, RoutedEventArgs e)//금고금액 표시
         {
-            Safemoney = 상품판매.safecash + Safemoney;//금고금액에 결제 후 더해주기
+            Safemoney = 상품판매.safecash+ 택배입고.Parcelmoney +포인트충전.PointChargemoney+ Safemoney;//금고금액에 결제 후 더해주기
             상품판매.safecash = 0;
+            택배입고.Parcelmoney = 0;
+            포인트충전.PointChargemoney = 0;
             safeMoney.Text = Safemoney.ToString("#,##0");
         }
 

@@ -17,9 +17,11 @@
         <Label Content="받은금액" HorizontalAlignment="Left" Margin="272,431,0,0" VerticalAlignment="Top" Height="67" Width="114" FontSize="24"/>
         <Button Content="현금 결제" HorizontalAlignment="Left" Margin="272,548,0,0" VerticalAlignment="Top" Height="46" Width="114" Click="Button_Click_2"/>
         <Label Content="운임비:" HorizontalAlignment="Left" Margin="272,307,0,0" VerticalAlignment="Top" Height="67" Width="94" FontSize="24"/>
-        <Button Content="뒤로 가기" HorizontalAlignment="Center" Margin="0,616,0,0" VerticalAlignment="Top" Height="46" Width="256" Click="Button_Click"/>
+        <Button x:Name="backtomenu" Content="뒤로 가기" HorizontalAlignment="Left" Margin="414,620,0,0" VerticalAlignment="Top" Height="46" Width="114" Click="Button_Click"/>
         <Button Content="착불 배송" HorizontalAlignment="Left" Margin="414,548,0,0" VerticalAlignment="Top" Height="46" Width="114" Click="Button_Click_3"/>
         <TextBlock x:Name="checkPrice" HorizontalAlignment="Left" Height="32" Margin="366,316,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="135" FontSize="20"/>
+        <TextBlock x:Name="ParcelReceiptNum" HorizontalAlignment="Left" Margin="598,56,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Loaded="ParcelReceiptNum_Loaded"/>
+        <Button x:Name="CompletePay" Content="결제완료" HorizontalAlignment="Left" Margin="272,620,0,0" VerticalAlignment="Top" Height="46" Width="114" Click="Button_Click_4" IsEnabled="False"/>
 
     </Grid>
 </Page>

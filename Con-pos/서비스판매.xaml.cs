@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,11 @@ namespace Con_pos
     /// </summary>
     public partial class 서비스판매 : Page
     {
+        string Conn = "Server=localhost;Database=ConStore_sell;Uid=root;Pwd=dntls88;";
+        public static string ParcelReceipt;
+        public static string PointChargeReceipt;
+        int Charge;
+        int Parcel;
         public 서비스판매()
         {
             InitializeComponent();
@@ -37,11 +43,31 @@ namespace Con_pos
 
         private void Button_Click_2(object sender, RoutedEventArgs e) //포인트충전 페이지
         {
+            Random pointchargereceiptNum = new Random(); //영수증번호8자리 랜덤생성
+            Charge = pointchargereceiptNum.Next(10, 99);
+            PointChargeReceipt = "charge" + Charge.ToString();
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                conn.Open();
+                string sql = "create table " + PointChargeReceipt + "(SellPDnum char(100) primary key, SellPDname CHAR(100) , Sellcount CHAR(100), Sellprice CHAR(100));";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
             NavigationService.Navigate(new Uri("/포인트충전.xaml", UriKind.Relative));
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e) //택배입고 페이지
         {
+            Random parcelreceiptNum = new Random(); //영수증번호8자리 랜덤생성
+            Parcel = parcelreceiptNum.Next(10, 99);
+            ParcelReceipt = "parcel" + Parcel.ToString();
+            using (MySqlConnection conn = new MySqlConnection(Conn))
+            {
+                conn.Open();
+                string sql = "create table " + ParcelReceipt + "(SellPDnum char(100) primary key, SellPDname CHAR(100) , Sellcount CHAR(100), Sellprice CHAR(100));";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
             NavigationService.Navigate(new Uri("/택배입고.xaml", UriKind.Relative));
         }
 

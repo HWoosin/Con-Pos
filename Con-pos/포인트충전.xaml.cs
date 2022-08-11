@@ -23,6 +23,9 @@ namespace Con_pos
     public partial class 포인트충전 : Page
     {
         string Conn = "Server=localhost;Database=ConStore;Uid=root;Pwd=dntls88;";
+        string Conn2 = "Server=localhost;Database=ConStore_sell;Uid=root;Pwd=dntls88;";
+
+        public static int PointChargemoney;
         public 포인트충전()
         {
             InitializeComponent();
@@ -30,6 +33,13 @@ namespace Con_pos
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            using (MySqlConnection conn2 = new MySqlConnection(Conn2))
+            {
+                conn2.Open();
+                string sql = "drop table " + PointChargeNum.Text + "";
+                MySqlCommand cmd = new MySqlCommand(sql, conn2);
+                cmd.ExecuteNonQuery();
+            }
             NavigationService.Navigate(new Uri("/서비스판매.xaml", UriKind.Relative));
         }
 
@@ -62,20 +72,42 @@ namespace Con_pos
 
         private void Button_Click_3(object sender, RoutedEventArgs e)//충전
         {
-            using (MySqlConnection conn = new MySqlConnection(Conn))
+            if(Mpttb.Text=="")
             {
-                conn.Open();
-                MySqlCommand msc = new MySqlCommand("Update CMem Set Mpoint= Mpoint+'"+Mpttb.Text+"' Where Mph ='"+Mphtb.Text+"';", conn);
-                msc.ExecuteNonQuery();
-                MessageBox.Show("충전이 완료되었습니다!");
-
-                //충전후 새로고침
-                string sql = "SELECT * FROM CMem where Mph = '" + Mphtb.Text + "';";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dg2.ItemsSource = ds.Tables[0].DefaultView;
+                MessageBox.Show("충전 금액을 입력해주세요.");
             }
+            else
+            {
+                string PaymentTime = DateTime.Now.ToString();
+                using (MySqlConnection conn = new MySqlConnection(Conn))
+                {
+                    conn.Open();
+                    MySqlCommand msc = new MySqlCommand("Update CMem Set Mpoint= Mpoint+'" + Mpttb.Text + "' Where Mph ='" + Mphtb.Text + "';", conn);
+                    msc.ExecuteNonQuery();
+                    MessageBox.Show("충전이 완료되었습니다!");
+
+                    //충전후 새로고침
+                    string sql = "SELECT * FROM CMem where Mph = '" + Mphtb.Text + "';";
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dg2.ItemsSource = ds.Tables[0].DefaultView;
+                }
+                using (MySqlConnection conn2 = new MySqlConnection(Conn2))
+                {
+                    conn2.Open();
+                    MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + PointChargeNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('1','근무자:','" + 근무자교대.worker + "','" + PaymentTime + "')", conn2);
+                    msc2.ExecuteNonQuery();
+                    MySqlCommand msc3 = new MySqlCommand("INSERT INTO " + PointChargeNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('2','포인트충전','현금결제 합계:','" + Mpttb.Text + "')", conn2);
+                    msc3.ExecuteNonQuery();
+                    MySqlCommand msc4 = new MySqlCommand("INSERT INTO " + PointChargeNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('3','','받은금액:','" + Mpttb.Text + "')", conn2);
+                    msc4.ExecuteNonQuery();
+                }
+                PointChargemoney = int.Parse(Mpttb.Text);
+                CompleteCharge.IsEnabled = true;
+                backtomenu.IsEnabled = false;
+            }
+            
         }
 
         private void dg1_Loaded(object sender, RoutedEventArgs e)
@@ -90,6 +122,16 @@ namespace Con_pos
                 dg1.ItemsSource = ds.Tables[0].DefaultView;
 
             }
+        }
+
+        private void PointChargeNum_Loaded(object sender, RoutedEventArgs e)
+        {
+            PointChargeNum.Text = 서비스판매.PointChargeReceipt;
+        }
+
+        private void CompleteCharge_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/서비스판매.xaml", UriKind.Relative));
         }
     }
 }

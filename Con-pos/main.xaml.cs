@@ -113,5 +113,10 @@ namespace Con_pos
         {
             NavigationService.Navigate(new Uri("/금고입금.xaml", UriKind.Relative));
         }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/폐기등록.xaml", UriKind.Relative));
+        }
     }
 }

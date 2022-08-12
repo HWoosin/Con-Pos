@@ -175,6 +175,9 @@
     <Compile Include="택배픽업.xaml.cs">
       <DependentUpon>택배픽업.xaml</DependentUpon>
     </Compile>
+    <Compile Include="폐기등록.xaml.cs">
+      <DependentUpon>폐기등록.xaml</DependentUpon>
+    </Compile>
     <Compile Include="포인트결제.xaml.cs">
       <DependentUpon>포인트결제.xaml</DependentUpon>
     </Compile>
@@ -299,6 +302,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="택배픽업.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="폐기등록.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

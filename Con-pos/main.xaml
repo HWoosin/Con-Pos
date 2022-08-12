@@ -19,7 +19,7 @@
         <Button Content="금고입금" HorizontalAlignment="Left" Height="118" Margin="656,326,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click_8"/>
         <Button Content="점포경영관리" HorizontalAlignment="Left" Height="82" Margin="10,460,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_2"/>
         <Button Content="조회업무" HorizontalAlignment="Left" Height="88" Margin="523,226,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_3"/>
-        <Button Content="폐기등록" HorizontalAlignment="Left" Height="82" Margin="268,460,0,0" VerticalAlignment="Top" Width="242"/>
+        <Button Content="폐기등록" HorizontalAlignment="Left" Height="82" Margin="268,460,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_9"/>
         <GroupBox HorizontalAlignment="Left" Height="182" Header="공지사항" Margin="10,547,0,0" VerticalAlignment="Top" Width="755" FontSize="16"/>
         <GroupBox HorizontalAlignment="Left" Height="93" Header="금고 금액" Margin="523,449,0,0" VerticalAlignment="Top" Width="242" FontSize="16"/>
         <Button Content="근무자 입력" HorizontalAlignment="Left" Height="31" Margin="686,35,0,0" VerticalAlignment="Top" Width="79" FontSize="11" Click="Button_Click_6"/>

@@ -24,7 +24,7 @@ namespace Con_pos
     {
         string Conn2 = "Server=localhost;Database=ConStore;Uid=root;Pwd=dntls88;";//상품DB접근
         string Conn = "Server=localhost;Database=ConStore_sell;Uid=root;Pwd=dntls88;";//영수증DB접근
-       
+
         public static int totalprice;
         public static int totalcount;
         public static int safecash;
@@ -32,7 +32,7 @@ namespace Con_pos
         {
             InitializeComponent();
         }
-       
+
         private void Button_Click(object sender, RoutedEventArgs e)// 뒤로가기
         {
             using (MySqlConnection conn = new MySqlConnection(Conn))
@@ -54,7 +54,6 @@ namespace Con_pos
 
         private void Button_Click_1(object sender, RoutedEventArgs e)//상품입력, 상품정보 같으면 갯수추가, 총 가격오름
         {
-            TotalCount.Content = totalcount;
             try
             {
                 if (Pnum.Text == "")
@@ -65,7 +64,6 @@ namespace Con_pos
                 {
                     deleteButton.IsEnabled = true;
                     backtoMain.IsEnabled = false;
-                    totalcount++;
                     using (MySqlConnection conn2 = new MySqlConnection(Conn2))
                     {
                         string sql = "SELECT SPDnum, SPDname, SPDprice, SPDevent FROM ShopProduct where SPDnum = '" + Pnum.Text + "';";
@@ -87,20 +85,47 @@ namespace Con_pos
                     }
                     try
                     {
-                        int Pcount = 1;
-                        using (MySqlConnection conn = new MySqlConnection(Conn))
+                        if (Pnum.Text == shownum.Text)
                         {
-                            conn.Open();
-                            MySqlCommand msc = new MySqlCommand("INSERT INTO " + Receiptname.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('" + Pnum.Text + "','" + Pname.Text + "','" + Pcount + "','" + Pprice.Text + "')", conn);
-                            msc.ExecuteNonQuery();
-                            string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + Receiptname.Text + ";";
-                            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                            //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
-                            DataSet ds = new DataSet();
-                            da.Fill(ds);
-                            SellGrid.ItemsSource = ds.Tables[0].DefaultView;
-                            totalprice += int.Parse(Pprice.Text);
-                            TotalPrice.Text = totalprice.ToString();
+                            int Pcount = 1;
+                            using (MySqlConnection conn = new MySqlConnection(Conn))
+                            {
+                                conn.Open();
+                                MySqlCommand msc = new MySqlCommand("INSERT INTO " + Receiptname.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('" + Pnum.Text + "','" + Pname.Text + "','" + Pcount + "','" + Pprice.Text + "')", conn);
+                                msc.ExecuteNonQuery();
+                                string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + Receiptname.Text + ";";
+
+                                string sql2 = "SELECT  Sellcount FROM " + Receiptname.Text + " where SellPDnum ='" + Pnum.Text + "';";//갯수가 음수로 내려가는지 검사
+                                MySqlCommand cmd = new MySqlCommand(sql2, conn);
+                                using (MySqlDataReader reader = cmd.ExecuteReader())
+                                {
+
+                                    while (reader.Read())
+                                    {
+                                        PDcount.Text = (reader["Sellcount"].ToString());//Hidden
+                                    }
+                                }
+                                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                                DataSet ds = new DataSet();
+                                da.Fill(ds);
+                                SellGrid.ItemsSource = ds.Tables[0].DefaultView;
+                                totalprice += int.Parse(Pprice.Text);
+                                TotalPrice.Text = totalprice.ToString();
+                                totalcount++;
+                                TotalCount.Text = totalcount.ToString();
+                                shownum.Text = "";
+                            }
+                            using (MySqlConnection conn2 = new MySqlConnection(Conn2))//판매후 재고변동
+                            {
+                                conn2.Open();
+                                MySqlCommand msc2 = new MySqlCommand("Update ShopProduct Set SPDcount=SPDcount-'" + Pcount + "' Where SPDnum ='" + Pnum.Text + "';", conn2);
+                                msc2.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("등록되지않은 상품입니다.");
                         }
                     }
                     catch (Exception ex)
@@ -120,7 +145,15 @@ namespace Con_pos
                             SellGrid.ItemsSource = ds.Tables[0].DefaultView;
                             totalprice += int.Parse(Pprice.Text);
                             TotalPrice.Text = totalprice.ToString();
-
+                            totalcount++;
+                            TotalCount.Text = totalcount.ToString();
+                            shownum.Text = "";
+                            using (MySqlConnection conn2 = new MySqlConnection(Conn2))//판매후 재고변동
+                            {
+                                conn2.Open();
+                                MySqlCommand msc2 = new MySqlCommand("Update ShopProduct Set SPDcount=SPDcount-'" + Pcount + "' Where SPDnum ='" + Pnum.Text + "';", conn2);
+                                msc2.ExecuteNonQuery();
+                            }
                             string sql2 = "SELECT  Sellcount FROM " + Receiptname.Text + " where SellPDnum ='" + Pnum.Text + "';";//갯수가 음수로 내려가는지 검사
                             MySqlCommand cmd = new MySqlCommand(sql2, conn);
                             using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -133,83 +166,89 @@ namespace Con_pos
                             }
                         }
                     }
-
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("등록되지않은 상품입니다.");
+                MessageBox.Show("오류입니다.");
             }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)//삭제
         {
-            TotalCount.Content = totalcount;
-            if (Pnum.Text == "")
+            try
             {
-                MessageBox.Show("상품코드를 입력해주세요.");
-            }
-
-            else
-            {
-                totalcount--;
-                using (MySqlConnection conn2 = new MySqlConnection(Conn2))
+                if (Pnum.Text == "")
                 {
-                    string sql = "SELECT SPDnum, SPDname, SPDprice, SPDevent FROM ShopProduct where SPDnum = '" + Pnum.Text + "';";
-                    MySqlCommand cmd = new MySqlCommand(sql, conn2);
-                    conn2.Open();
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-
-                        while (reader.Read())
-                        {
-                            shownum.Text = (reader["SPDnum"].ToString());//Hidden
-                            Pname.Text = (reader["SPDname"].ToString());//Hidden
-                            Pprice.Text = (reader["SPDprice"].ToString());//Hidden
-                            Pevent.Text = (reader["SPDevent"].ToString());
-                        }
-                    }
-                    conn2.Close();
+                    MessageBox.Show("상품코드를 입력해주세요.");
                 }
-                try
+                
+                else if (shownum.Text == Pnum.Text)
                 {
-                    int Pcount = 1;
-                    int Price = int.Parse(Pprice.Text);
-                    using (MySqlConnection conn = new MySqlConnection(Conn))
-                    {
-                        conn.Open();
-                        MySqlCommand msc = new MySqlCommand("Update  " + Receiptname.Text + " Set Sellcount= Sellcount-'" + Pcount + "', Sellprice=Sellprice-'" + Price + "' Where SellPDnum ='" + Pnum.Text + "';", conn);
-                        msc.ExecuteNonQuery();
-                        string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + Receiptname.Text + ";";
-                        MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-
-                        string sql2 = "SELECT  Sellcount FROM " + Receiptname.Text + " where SellPDnum ='"+Pnum.Text+"';";//갯수가 음수로 내려가는지 검사
-                        MySqlCommand cmd = new MySqlCommand(sql2, conn);
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                    MessageBox.Show("목록에 없는 상품입니다.");
+                    shownum.Text = "";
+                }
+                
+                else
+                {
+                        using (MySqlConnection conn2 = new MySqlConnection(Conn2))
                         {
+                            string sql = "SELECT SPDnum, SPDname, SPDprice, SPDevent FROM ShopProduct where SPDnum = '" + Pnum.Text + "';";
+                            MySqlCommand cmd = new MySqlCommand(sql, conn2);
+                            conn2.Open();
 
-                            while (reader.Read())
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
                             {
-                                PDcount.Text = (reader["Sellcount"].ToString());//Hidden
+
+                                while (reader.Read())
+                                {
+                                    shownum.Text = (reader["SPDnum"].ToString());//Hidden
+                                    Pname.Text = (reader["SPDname"].ToString());//Hidden
+                                    Pprice.Text = (reader["SPDprice"].ToString());//Hidden
+                                    Pevent.Text = (reader["SPDevent"].ToString());
+                                }
+                            }
+                            conn2.Close();
+                        }
+                        int Price = int.Parse(Pprice.Text);
+                        using (MySqlConnection conn = new MySqlConnection(Conn))
+                        {
+                            conn.Open();
+                            string sql2 = "SELECT  Sellcount FROM " + Receiptname.Text + " where SellPDnum ='" + Pnum.Text + "';";//갯수가 음수로 내려가는지 검사
+                            MySqlCommand cmd = new MySqlCommand(sql2, conn);
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+
+                                while (reader.Read())
+                                {
+                                    PDcount.Text = (reader["Sellcount"].ToString());//Hidden
+                                }
+                            }
+                            MySqlCommand msc = new MySqlCommand("DELETE FROM " + Receiptname.Text + " Where SellPDnum = '" + Pnum.Text + "';", conn);
+                            msc.ExecuteNonQuery();
+                            string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + Receiptname.Text + ";";
+                            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+
+                            DataSet ds = new DataSet();
+                            da.Fill(ds);
+                            SellGrid.ItemsSource = ds.Tables[0].DefaultView;
+                            totalprice -= int.Parse(Pprice.Text) * int.Parse(PDcount.Text);
+                            TotalPrice.Text = totalprice.ToString();
+                            totalcount -= int.Parse(PDcount.Text);
+                            TotalCount.Text = totalcount.ToString();
+                            //shownum.Text = "";
+                            using (MySqlConnection conn2 = new MySqlConnection(Conn2))//취소 후 재고변동
+                            {
+                                conn2.Open();
+                                MySqlCommand msc2 = new MySqlCommand("Update ShopProduct Set SPDcount=SPDcount+'" + PDcount.Text + "' Where SPDnum ='" + Pnum.Text + "';", conn2);
+                                msc2.ExecuteNonQuery();
                             }
                         }
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
-                        SellGrid.ItemsSource = ds.Tables[0].DefaultView;
-                        totalprice -= int.Parse(Pprice.Text);
-                        TotalPrice.Text = totalprice.ToString();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("구매목록에 없는 상품입니다.");
-                }
-               
+
                     //total 이 음수가 되지않도록 수정
                     if (totalcount <= 0 || totalprice <= 0)
                     {
-                        TotalCount.Content = 0;
+                        TotalCount.Text = "0";
                         TotalPrice.Text = "0";
                         deleteButton.IsEnabled = false;
                         backtoMain.IsEnabled = true;
@@ -229,10 +268,12 @@ namespace Con_pos
                             SellGrid.ItemsSource = ds.Tables[0].DefaultView;
                         }
                     }
-                    
-                
-               
-                
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("삭제오류입니다.");
+                //shownum.Text = "";
             }
         }
 
@@ -254,7 +295,7 @@ namespace Con_pos
                 }
                 else
                 {
-                    string PaymentTime=DateTime.Now.ToString();
+                    string PaymentTime = DateTime.Now.ToString();
                     int result;
                     result = int.Parse(Price.Text) - int.Parse(TotalPrice.Text);
                     MessageBox.Show($"거스름돈: {result.ToString("#,##0원")}", "결제완료");
@@ -264,13 +305,13 @@ namespace Con_pos
                         conn.Open();
                         MySqlCommand msc = new MySqlCommand("INSERT INTO " + Receiptname.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('1','근무자:','" + 근무자교대.worker + "','" + PaymentTime + "')", conn);
                         msc.ExecuteNonQuery();
-                        MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + Receiptname.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('2','현금결제 합계:','" + TotalCount.Content + "','" + TotalPrice.Text + "')", conn);
+                        MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + Receiptname.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('2','현금결제 합계:','" + TotalCount.Text + "','" + TotalPrice.Text + "')", conn);
                         msc2.ExecuteNonQuery();
                         MySqlCommand msc3 = new MySqlCommand("INSERT INTO " + Receiptname.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('3','','받은금액:','" + Price.Text + "')", conn);
                         msc3.ExecuteNonQuery();
                         MySqlCommand msc4 = new MySqlCommand("INSERT INTO " + Receiptname.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('4','','거스름돈:','" + result + "')", conn);
                         msc4.ExecuteNonQuery();
-                        
+
                         string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + Receiptname.Text + ";";
                         MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                         //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);

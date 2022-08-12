@@ -13,7 +13,6 @@
             <DataGrid x:Name="SellGrid" HorizontalAlignment="Center" Height="641" Width="356" FontSize="20" />
         </GroupBox>
         <GroupBox HorizontalAlignment="Left" Height="80" Header="상품갯수" Margin="404,10,0,0" VerticalAlignment="Top" Width="163">
-            <Label x:Name="TotalCount" Content="-" HorizontalAlignment="Left" Margin="10,0,0,0" FontSize="20"/>
         </GroupBox>
         <GroupBox HorizontalAlignment="Left" Height="60" Header="상품코드" Margin="404,95,0,0" VerticalAlignment="Top" Width="344">
             <TextBox x:Name="Pnum" HorizontalAlignment="Center" TextWrapping="Wrap" Width="312" FontSize="16" Height="32"/>
@@ -38,6 +37,7 @@
         <Button x:Name="EnterButton" Content="입력" HorizontalAlignment="Left" Margin="415,160,0,0" VerticalAlignment="Top" Height="34                 " Width="158" Click="Button_Click_1"/>
         <TextBlock x:Name="TotalPrice" HorizontalAlignment="Left" Margin="601,30,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="20"/>
         <TextBox x:Name="PDcount" HorizontalAlignment="Left" Margin="193,733,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Visibility="Visible"/>
+        <TextBlock x:Name="TotalCount" HorizontalAlignment="Left" Margin="427,30,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="20"/>
 
 
     </Grid>

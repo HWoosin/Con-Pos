@@ -20,14 +20,20 @@
         <Button Content="점포경영관리" HorizontalAlignment="Left" Height="82" Margin="10,460,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_2"/>
         <Button Content="조회업무" HorizontalAlignment="Left" Height="88" Margin="523,226,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_3"/>
         <Button Content="폐기등록" HorizontalAlignment="Left" Height="82" Margin="268,460,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_9"/>
-        <GroupBox HorizontalAlignment="Left" Height="182" Header="공지사항" Margin="10,547,0,0" VerticalAlignment="Top" Width="755" FontSize="16"/>
+        <GroupBox HorizontalAlignment="Left" Height="200" Header="공지사항" Margin="10,547,0,0" VerticalAlignment="Top" Width="755" FontSize="16"/>
         <GroupBox HorizontalAlignment="Left" Height="93" Header="금고 금액" Margin="523,449,0,0" VerticalAlignment="Top" Width="242" FontSize="16"/>
         <Button Content="근무자 입력" HorizontalAlignment="Left" Height="31" Margin="686,35,0,0" VerticalAlignment="Top" Width="79" FontSize="11" Click="Button_Click_6"/>
         <TextBlock x:Name="safeMoney" HorizontalAlignment="Left" Margin="538,480,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="45" Width="194" FontSize="25" Loaded="safeMoney_Loaded"/>
         <TextBlock x:Name="workerBox" HorizontalAlignment="Left" Margin="538,57,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="34" Width="70" FontSize="20" Visibility="Visible" Loaded="workerBox_Loaded"/>
-        <TextBox x:Name="Message" HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" Width="724" Margin="26,576,0,88" FontSize="20"/>
+        <TextBox x:Name="messageBox" HorizontalAlignment="Left" TextWrapping="Wrap" Width="724" Margin="26,597,0,67" FontSize="20"/>
         <TextBlock x:Name="DateTimebox" HorizontalAlignment="Left" Margin="26,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="465" FontSize="25" Text="-"/>
         <Button Content="근무자 변경" HorizontalAlignment="Left" Height="31" Margin="686,73,0,0" VerticalAlignment="Top" Width="79" FontSize="11" Click="Button_Click_5"/>
+        <Label Content="서버:" HorizontalAlignment="Left" Margin="26,570,0,0" VerticalAlignment="Top"/>
+        <Label Content="포트:" HorizontalAlignment="Left" Margin="198,570,0,0" VerticalAlignment="Top"/>
+        <Button Content="연결하기" HorizontalAlignment="Left" Margin="338,570,0,0" VerticalAlignment="Top" Click="Button_Click_10"/>
+        <Button Content="내용확인" HorizontalAlignment="Left" Margin="406,570,0,0" VerticalAlignment="Top" Click="Button_Click_11"/>
+        <TextBox x:Name="IPbox" HorizontalAlignment="Left" Margin="63,574,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Portbox" HorizontalAlignment="Left" Margin="235,574,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
 
     </Grid>
 </Page>

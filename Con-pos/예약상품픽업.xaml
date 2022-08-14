@@ -10,19 +10,19 @@
 
     <Grid>
         <GroupBox HorizontalAlignment="Center" Height="333" Header="예약된 상품" Margin="0,48,0,0" VerticalAlignment="Top" Width="698" FontSize="24"/>
-        <DataGrid HorizontalAlignment="Center" Height="270" Margin="0,89,0,0" VerticalAlignment="Top" Width="654"/>
-        <Button Content="전체 조회" HorizontalAlignment="Center" Height="41" Margin="0,414,0,0" VerticalAlignment="Top" Width="698"/>
-        <TextBox HorizontalAlignment="Left" Margin="51,508,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" Height="40" FontSize="24"/>
-        <Button Content="선택상품조회" HorizontalAlignment="Left" Margin="486,508,0,0" VerticalAlignment="Top" Height="40" Width="120"/>
-        <Button Content="고객 수령" HorizontalAlignment="Left" Margin="629,508,0,0" VerticalAlignment="Top" Height="40" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="51,586,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Height="40" FontSize="24"/>
-        <Button Content="선택상품입고" HorizontalAlignment="Left" Margin="486,586,0,0" VerticalAlignment="Top" Height="40" Width="120"/>
+        <DataGrid x:Name="Allgrid" HorizontalAlignment="Center" Height="270" Margin="0,89,0,0" VerticalAlignment="Top" Width="654" Loaded="Allgrid_Loaded"/>
+        <Button Content="전체 조회" HorizontalAlignment="Center" Height="41" Margin="0,414,0,0" VerticalAlignment="Top" Width="698" Click="Button_Click_1"/>
+        <TextBox x:Name="ReserveNum" HorizontalAlignment="Left" Margin="51,508,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" Height="40" FontSize="24"/>
+        <Button Content="선택상품조회" HorizontalAlignment="Left" Margin="486,508,0,0" VerticalAlignment="Top" Height="40" Width="120" Click="Button_Click_2"/>
+        <Button Content="고객 수령" HorizontalAlignment="Left" Margin="629,508,0,0" VerticalAlignment="Top" Height="40" Width="120" Click="Button_Click_3"/>
+        <TextBox x:Name="checkNum" HorizontalAlignment="Left" Margin="51,586,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Height="40" FontSize="24"/>
+        <Button Content="선택상품입고" HorizontalAlignment="Left" Margin="486,586,0,0" VerticalAlignment="Top" Height="40" Width="120" Click="Button_Click_4"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Margin="629,586,0,0" VerticalAlignment="Top" Height="40" Width="120" Click="Button_Click"/>
-        <TextBox HorizontalAlignment="Left" Margin="238,586,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="40" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="321,586,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Height="40" FontSize="24" RenderTransformOrigin="0.278,0.62"/>
+        <TextBox x:Name="checkCount" HorizontalAlignment="Left" Margin="238,586,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="40" FontSize="24"/>
+        <TextBox x:Name="checkCusNum" HorizontalAlignment="Left" Margin="321,586,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Height="40" FontSize="20" RenderTransformOrigin="0.278,0.62"/>
         <Label Content="예약번호" HorizontalAlignment="Left" Margin="51,560,0,0" VerticalAlignment="Top"/>
         <Label Content="수량" HorizontalAlignment="Left" Margin="238,560,0,0" VerticalAlignment="Top"/>
-        <Label Content="고객명" HorizontalAlignment="Left" Margin="321,560,0,0" VerticalAlignment="Top"/>
+        <Label Content="예약고객번호" HorizontalAlignment="Left" Margin="321,560,0,0" VerticalAlignment="Top"/>
         <Label Content="예약번호" HorizontalAlignment="Left" Margin="51,482,0,0" VerticalAlignment="Top"/>
 
     </Grid>

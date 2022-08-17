@@ -94,7 +94,7 @@ namespace Con_pos
                         conn.Open();
                         MySqlCommand msc = new MySqlCommand("Update Cmem Set Mpoint= Mpoint-'" + TotalPrice.Text + "' Where Mph ='" + CusMem.Text + "';", conn);
                         msc.ExecuteNonQuery();
-                        MySqlCommand msc2 = new MySqlCommand("Update SalesCheck Set pointsave=pointsave+'" + TotalPrice.Text + "';", conn);
+                        MySqlCommand msc2 = new MySqlCommand("Update SalesCheck Set todaysave=todaysave+'" + TotalPrice.Text + "', pointsave=pointsave+'" + TotalPrice.Text + "';", conn);
                         msc2.ExecuteNonQuery();
                     }
                 }

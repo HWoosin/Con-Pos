@@ -114,7 +114,7 @@ namespace Con_pos
                         using (MySqlConnection conn = new MySqlConnection(Conn))//금고와 매출에 더함
                         {
                             conn.Open();
-                            MySqlCommand msc = new MySqlCommand("Update SalesCheck Set cashsave=cashsave+'" + checkPrice.Text + "', safemoney=safemoney+'" + checkPrice.Text + "';", conn);
+                            MySqlCommand msc = new MySqlCommand("Update SalesCheck Set todaysave=todaysave+'" + checkPrice.Text + "', cashsave=cashsave+'" + checkPrice.Text + "', safemoney=safemoney+'" + checkPrice.Text + "';", conn);
                             msc.ExecuteNonQuery();
                         }
                         Parcelmoney = int.Parse(checkPrice.Text);

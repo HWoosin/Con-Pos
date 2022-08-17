@@ -103,6 +103,12 @@ namespace Con_pos
                     MySqlCommand msc4 = new MySqlCommand("INSERT INTO " + PointChargeNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('3','','받은금액:','" + Mpttb.Text + "')", conn2);
                     msc4.ExecuteNonQuery();
                 }
+                using (MySqlConnection conn = new MySqlConnection(Conn))//금고와 매출에 더함
+                {
+                    conn.Open();
+                    MySqlCommand msc = new MySqlCommand("Update SalesCheck Set todaysave=todaysave+'" + Mpttb.Text + "', cashsave=cashsave+'" + Mpttb.Text + "', safemoney=safemoney+'" + Mpttb.Text + "';", conn);
+                    msc.ExecuteNonQuery();
+                }
                 PointChargemoney = int.Parse(Mpttb.Text);
                 CompleteCharge.IsEnabled = true;
                 backtomenu.IsEnabled = false;

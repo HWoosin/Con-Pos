@@ -185,6 +185,8 @@ namespace Con_pos
                 writeMessageTextbox(receiveData1); // 데이타를 수신창에 쓰기                  
             }
         }
+            */
+        /*
         private void writeMessageTextbox(string str)  // richTextbox1 에 쓰기 함수
         {
             messageBox.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate { messageBox.AppendText(str + "\r\n"); })); // 데이타를 수신창에 표시, 반드시 invoke 사용. 충돌피함.

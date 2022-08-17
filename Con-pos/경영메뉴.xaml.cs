@@ -62,6 +62,9 @@ namespace Con_pos
             NavigationService.Navigate(new Uri("/상품발주.xaml", UriKind.Relative));
         }
 
-
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/매출점검.xaml", UriKind.Relative));
+        }
     }
 }

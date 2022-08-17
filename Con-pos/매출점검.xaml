@@ -3,13 +3,22 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       xmlns:local="clr-namespace:Con_pos"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="800"
       Title="매출점검">
 
-    <Grid Width="500" Height="500"/>
-    
+    <Grid>
+        <GroupBox HorizontalAlignment="Center" Height="678" Header="매출점검" VerticalAlignment="Center" Width="662" FontSize="20"/>
+        <Label Content="현재 시각:" HorizontalAlignment="Left" Margin="117,119,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <TextBlock x:Name="Nowtime" HorizontalAlignment="Left" Margin="202,126,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15"/>
+        <Label Content="금일 매출:" HorizontalAlignment="Left" Margin="117,174,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <TextBlock x:Name="TodaySales" HorizontalAlignment="Left" Margin="202,181,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15" Loaded="TextBlock_Loaded"/>
+        <Label Content="어제 매출:" HorizontalAlignment="Left" Margin="117,237,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="202,244,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15"/>
+        <Label Content="이번달 매출:" HorizontalAlignment="Left" Margin="117,302,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="217,309,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15"/>
+        <Button Content="뒤로가기" HorizontalAlignment="Left" Margin="563,663,0,0" VerticalAlignment="Top" Height="42" Width="145" Click="Button_Click"/>
+
+    </Grid>
 </Page>
-    

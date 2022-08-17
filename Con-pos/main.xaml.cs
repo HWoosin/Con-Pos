@@ -27,9 +27,10 @@ namespace Con_pos
     public partial class main : Page
     {
         public static string ReceiptNum;
-        public static int Safemoney=100000;
+        public static int Safemoney;
         int Receipt;
         string Conn = "Server=localhost;Database=ConStore_sell;Uid=root;Pwd=dntls88;";
+        string Conn2 = "Server=localhost;Database=ConStore;Uid=root;Pwd=dntls88;";
         public main()
         {
 
@@ -108,10 +109,25 @@ namespace Con_pos
 
         private void safeMoney_Loaded(object sender, RoutedEventArgs e)//금고금액 표시
         {
-            Safemoney = 상품판매.safecash+ 택배입고.Parcelmoney +포인트충전.PointChargemoney+ Safemoney;//금고금액에 결제 후 더해주기
+            //계산후 정적이므로 0으로 만들어줘야한다
             상품판매.safecash = 0;
             택배입고.Parcelmoney = 0;
             포인트충전.PointChargemoney = 0;
+            using (MySqlConnection conn2 = new MySqlConnection(Conn2))
+            {
+                conn2.Open();
+                string sql2 = "SELECT  safemoney  FROM SalesCheck";//금고액 불러오기
+                MySqlCommand cmd = new MySqlCommand(sql2, conn2);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+                        safeMoney.Text = (reader["safemoney"].ToString());//Hidden
+                    }
+                }
+            }
+            Safemoney = int.Parse(safeMoney.Text);
             safeMoney.Text = Safemoney.ToString("#,##0");
         }
 

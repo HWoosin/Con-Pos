@@ -104,12 +104,18 @@ namespace Con_pos
                             conn2.Open();
                             MySqlCommand msc = new MySqlCommand("INSERT INTO " + ParcelReceiptNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('1','근무자:','" + 근무자교대.worker + "','" + PaymentTime + "')", conn2);
                             msc.ExecuteNonQuery();
-                            MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + ParcelReceiptNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('2','택배','현금결제 합계:','" + checkPrice.Text + "')", conn2);
+                            MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + ParcelReceiptNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('2','선불택배','현금결제 합계:','" + checkPrice.Text + "')", conn2);
                             msc2.ExecuteNonQuery();
                             MySqlCommand msc3 = new MySqlCommand("INSERT INTO " + ParcelReceiptNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('3','','받은금액:','" + CusPay.Text + "')", conn2);
                             msc3.ExecuteNonQuery();
                             MySqlCommand msc4 = new MySqlCommand("INSERT INTO " + ParcelReceiptNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('4','','거스름돈:','" + result + "')", conn2);
                             msc4.ExecuteNonQuery();
+                        }
+                        using (MySqlConnection conn = new MySqlConnection(Conn))//금고와 매출에 더함
+                        {
+                            conn.Open();
+                            MySqlCommand msc = new MySqlCommand("Update SalesCheck Set cashsave=cashsave+'" + checkPrice.Text + "', safemoney=safemoney+'" + checkPrice.Text + "';", conn);
+                            msc.ExecuteNonQuery();
                         }
                         Parcelmoney = int.Parse(checkPrice.Text);
                         CompletePay.IsEnabled = true;
@@ -164,7 +170,7 @@ namespace Con_pos
                             conn2.Open();
                             MySqlCommand msc = new MySqlCommand("INSERT INTO " + ParcelReceiptNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('1','근무자:','" + 근무자교대.worker + "','" + PaymentTime + "')", conn2);
                             msc.ExecuteNonQuery();
-                            MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + ParcelReceiptNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('2','','현금결제 합계:','" + checkPrice.Text + "')", conn2);
+                            MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + ParcelReceiptNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('2','착불택배','현금결제 합계:','" + checkPrice.Text + "')", conn2);
                             msc2.ExecuteNonQuery();
                             MySqlCommand msc3 = new MySqlCommand("INSERT INTO " + ParcelReceiptNum.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice)  values('3','','받은금액:','" + CusPay.Text + "')", conn2);
                             msc3.ExecuteNonQuery();

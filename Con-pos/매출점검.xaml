@@ -14,10 +14,10 @@
         <TextBlock x:Name="Nowtime" HorizontalAlignment="Left" Margin="202,126,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15"/>
         <Label Content="금일 매출:" HorizontalAlignment="Left" Margin="117,174,0,0" VerticalAlignment="Top" FontSize="15"/>
         <TextBlock x:Name="TodaySales" HorizontalAlignment="Left" Margin="202,181,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15" Loaded="TextBlock_Loaded"/>
-        <Label Content="어제 매출:" HorizontalAlignment="Left" Margin="117,237,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <TextBlock HorizontalAlignment="Left" Margin="202,244,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15"/>
-        <Label Content="이번달 매출:" HorizontalAlignment="Left" Margin="117,302,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <TextBlock HorizontalAlignment="Left" Margin="217,309,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15"/>
+        <Label Content="포인트 매출:" HorizontalAlignment="Left" Margin="117,237,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="211,244,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15"/>
+        <Label Content="현금 매출:" HorizontalAlignment="Left" Margin="117,302,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="202,309,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Margin="563,663,0,0" VerticalAlignment="Top" Height="42" Width="145" Click="Button_Click"/>
 
     </Grid>

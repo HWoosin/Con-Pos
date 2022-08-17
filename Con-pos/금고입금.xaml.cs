@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Con_pos
     /// </summary>
     public partial class 금고입금 : Page
     {
+        string Conn = "Server=localhost;Database=ConStore;Uid=root;Pwd=dntls88;";
         public static int resultmoney;
         public 금고입금()
         {
@@ -76,11 +78,21 @@ namespace Con_pos
                 {
                     MessageBox.Show("금고액이 적습니다.");
                 }
+                else if (resultmoney<100000)
+                {
+                    MessageBox.Show("금고액이 10만원 이하 입니다.");
+                }
                 else
                 {
                     main.Safemoney = int.Parse(aftermoney.Text);
                     MessageBox.Show("입금 완료!");
                     resultmoney = 0;
+                    using (MySqlConnection conn = new MySqlConnection(Conn))//금고입금
+                    {
+                        conn.Open();
+                        MySqlCommand msc2 = new MySqlCommand("Update SalesCheck Set safemoney='" + aftermoney.Text + "';", conn);
+                        msc2.ExecuteNonQuery();
+                    }
                     NavigationService.Navigate(new Uri("/main.xaml", UriKind.Relative));
                 }
             }

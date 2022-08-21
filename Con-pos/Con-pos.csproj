@@ -105,6 +105,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DBMySql.cs" />
+    <Compile Include="FifthWindow.xaml.cs">
+      <DependentUpon>FifthWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FourthWindow.xaml.cs">
       <DependentUpon>FourthWindow.xaml</DependentUpon>
     </Compile>
@@ -190,6 +193,9 @@
     <Compile Include="포인트결제.xaml.cs">
       <DependentUpon>포인트결제.xaml</DependentUpon>
     </Compile>
+    <Compile Include="포인트적립.xaml.cs">
+      <DependentUpon>포인트적립.xaml</DependentUpon>
+    </Compile>
     <Compile Include="포인트조회.xaml.cs">
       <DependentUpon>포인트조회.xaml</DependentUpon>
     </Compile>
@@ -202,6 +208,10 @@
     <Compile Include="회원관리.xaml.cs">
       <DependentUpon>회원관리.xaml</DependentUpon>
     </Compile>
+    <Page Include="FifthWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FourthWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -323,6 +333,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="포인트결제.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="포인트적립.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

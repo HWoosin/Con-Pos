@@ -89,7 +89,7 @@ namespace Con_pos
                     
                         상품판매.totalprice = 0;//정적이므로 다시 0으로 만들어줌
                         상품판매.totalcount = 0;
-                    using (MySqlConnection conn = new MySqlConnection(Conn))//해당회원의 포인트 차감
+                    using (MySqlConnection conn = new MySqlConnection(Conn))//해당회원의 포인트 차감과 매출에 포인트 더함
                     {
                         conn.Open();
                         MySqlCommand msc = new MySqlCommand("Update Cmem Set Mpoint= Mpoint-'" + TotalPrice.Text + "' Where Mph ='" + CusMem.Text + "';", conn);
@@ -97,6 +97,7 @@ namespace Con_pos
                         MySqlCommand msc2 = new MySqlCommand("Update SalesCheck Set todaysave=todaysave+'" + TotalPrice.Text + "', pointsave=pointsave+'" + TotalPrice.Text + "';", conn);
                         msc2.ExecuteNonQuery();
                     }
+                    Window.GetWindow(this).Close();//결제창 자동닫기
                 }
             }
         }

@@ -387,6 +387,13 @@ namespace Con_pos
             Con_pos.FourthWindow fourthWindow = new Con_pos.FourthWindow();
             fourthWindow.ShowDialog();
             CompleteButton.IsEnabled = true;
+            CashButton.IsEnabled = false;
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            Con_pos.FifthWindow fifthWindow = new Con_pos.FifthWindow();
+            fifthWindow.ShowDialog();
         }
     }
 }

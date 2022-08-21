@@ -117,14 +117,14 @@ namespace Con_pos
             using (MySqlConnection conn = new MySqlConnection(Conn))
             {
                 conn.Open();
-                MySqlCommand msc = new MySqlCommand("UPDATE CMem SET Mgrade = 'Sliver' where Mph ='" + FindCmem.Text + "'", conn);
+                MySqlCommand msc = new MySqlCommand("UPDATE CMem SET Mgrade = 'Silver' where Mph ='" + FindCmem.Text + "'", conn);
                 msc.ExecuteNonQuery();
                 string sql = "SELECT * FROM CMem where Mph = '" + FindCmem.Text + "';";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 CmemGrid.ItemsSource = ds.Tables[0].DefaultView;
-                MessageBox.Show("Sliver 등급 변경완료");
+                MessageBox.Show("Silver 등급 변경완료");
                 
             }
         }

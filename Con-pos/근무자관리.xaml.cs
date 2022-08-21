@@ -80,19 +80,26 @@ namespace Con_pos
 
         private void Button_Click_4(object sender, RoutedEventArgs e)//근무자 추가
         {
-            using (MySqlConnection conn = new MySqlConnection(Conn))
+            if (EmpPhone.Text == "" || Empname.Text == "" || EmpBirth.Text == "" || EmpAddress.Text == "" || StartD.Text == "" || EndD.Text == "")
             {
-                conn.Open();
-                MySqlCommand msc = new MySqlCommand("INSERT INTO Empmem(Empph, Empname, Empbirth, EmpAddress, StartDate, EndDate) values('" + EmpPhone.Text + "','" + Empname.Text + "'," +
-                    "'" + EmpBirth.Text + "','"+EmpAddress.Text+ "','" + StartD.Text + "','" + EndD.Text + "')", conn);
-                msc.ExecuteNonQuery();
-                //추가하고 새로고침
-                string sql = "SELECT * FROM Empmem";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                AllEmpGrid.ItemsSource = ds.Tables[0].DefaultView;
+                MessageBox.Show("모두입력해주세요!");
+            }
+            else
+            {
+                using (MySqlConnection conn = new MySqlConnection(Conn))
+                {
+                    conn.Open();
+                    MySqlCommand msc = new MySqlCommand("INSERT INTO Empmem(Empph, Empname, Empbirth, EmpAddress, StartDate, EndDate) values('" + EmpPhone.Text + "','" + Empname.Text + "'," +
+                        "'" + EmpBirth.Text + "','" + EmpAddress.Text + "','" + StartD.Text + "','" + EndD.Text + "')", conn);
+                    msc.ExecuteNonQuery();
+                    //추가하고 새로고침
+                    string sql = "SELECT * FROM Empmem";
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                    //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    AllEmpGrid.ItemsSource = ds.Tables[0].DefaultView;
+                }
             }
         }
 

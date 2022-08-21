@@ -71,45 +71,59 @@ namespace Con_pos
 
         private void Button_Click_2(object sender, RoutedEventArgs e)//폐기
         {
-            string PaymentTime = DateTime.Now.ToString();
-            using (MySqlConnection conn = new MySqlConnection(Conn))
+            if (Pnum.Text == "" || showname.Text == "" || Pcount.Text == "" || showprice.Text == "" || showCompany.Text == "")
             {
-                conn.Open();
-                MySqlCommand msc = new MySqlCommand("INSERT INTO trashproduct(TRPDnum, TRPDname, TRPDcount, TRPDprice, TRPDmaker, TRDate) values('" + Pnum.Text + "','" + showname.Text + "'," +
-                    "'" + Pcount.Text + "','" + showprice.Text + "','" + showCompany.Text + "','" + PaymentTime + "')", conn);
-                msc.ExecuteNonQuery();
-                //추가하고 새로고침
-                string sql = "SELECT * FROM trashproduct";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                Allgrid.ItemsSource = ds.Tables[0].DefaultView;
-                //폐기후 재고변경
-                MySqlCommand msc2 = new MySqlCommand("Update ShopProduct Set SPDcount=SPDcount-'" + Pcount.Text + "' Where SPDnum ='" + Pnum.Text + "';", conn);
-                msc2.ExecuteNonQuery();
-                MessageBox.Show("등록되었습니다.");
+                MessageBox.Show("모두입력해주세요!");
+            }
+            else
+            {
+                string PaymentTime = DateTime.Now.ToString();
+                using (MySqlConnection conn = new MySqlConnection(Conn))
+                {
+                    conn.Open();
+                    MySqlCommand msc = new MySqlCommand("INSERT INTO trashproduct(TRPDnum, TRPDname, TRPDcount, TRPDprice, TRPDmaker, TRDate) values('" + Pnum.Text + "','" + showname.Text + "'," +
+                        "'" + Pcount.Text + "','" + showprice.Text + "','" + showCompany.Text + "','" + PaymentTime + "')", conn);
+                    msc.ExecuteNonQuery();
+                    //추가하고 새로고침
+                    string sql = "SELECT * FROM trashproduct";
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                    //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    Allgrid.ItemsSource = ds.Tables[0].DefaultView;
+                    //폐기후 재고변경
+                    MySqlCommand msc2 = new MySqlCommand("Update ShopProduct Set SPDcount=SPDcount-'" + Pcount.Text + "' Where SPDnum ='" + Pnum.Text + "';", conn);
+                    msc2.ExecuteNonQuery();
+                    MessageBox.Show("등록되었습니다.");
+                }
             }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)//취소
         {
-            using (MySqlConnection conn = new MySqlConnection(Conn))
+            if(Pnum.Text=="")
             {
-                conn.Open();
-                MySqlCommand msc = new MySqlCommand("DELETE FROM trashproduct where TRPDnum = '" + Pnum.Text + "'", conn);
-                msc.ExecuteNonQuery();
-                //추가하고 새로고침
-                string sql = "SELECT * FROM trashproduct";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                Allgrid.ItemsSource = ds.Tables[0].DefaultView;
-                //취소후 재고변경
-                MySqlCommand msc2 = new MySqlCommand("Update ShopProduct Set SPDcount=SPDcount+'" + Pcount.Text + "' Where SPDnum ='" + Pnum.Text + "';", conn);
-                msc2.ExecuteNonQuery();
-                MessageBox.Show("취소되었습니다.");
+                MessageBox.Show("상품번호를 입력해주세요");
+            }
+            else
+            {
+                using (MySqlConnection conn = new MySqlConnection(Conn))
+                {
+                    conn.Open();
+                    MySqlCommand msc = new MySqlCommand("DELETE FROM trashproduct where TRPDnum = '" + Pnum.Text + "'", conn);
+                    msc.ExecuteNonQuery();
+                    //추가하고 새로고침
+                    string sql = "SELECT * FROM trashproduct";
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                    //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    Allgrid.ItemsSource = ds.Tables[0].DefaultView;
+                    //취소후 재고변경
+                    MySqlCommand msc2 = new MySqlCommand("Update ShopProduct Set SPDcount=SPDcount+'" + Pcount.Text + "' Where SPDnum ='" + Pnum.Text + "';", conn);
+                    msc2.ExecuteNonQuery();
+                    MessageBox.Show("취소되었습니다.");
+                }
             }
         }
     }

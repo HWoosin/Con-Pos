@@ -53,33 +53,42 @@ namespace Con_pos
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (CusName.Text == "")
+            try
             {
-                MessageBox.Show("고객조회를 확인해주세요.");
-            }
-            else
-            {
-                if (int.Parse(TotalPrice.Text) == 0)
+                if (CusMem.Text == "")
                 {
-                    MessageBox.Show("총 가격을 확인해주세요!");
+                    MessageBox.Show("고객조회를 확인해주세요.");
                 }
                 else
                 {
-                    using (MySqlConnection conn2 = new MySqlConnection(Conn2))
+                    if (int.Parse(TotalPrice.Text) == 0)
                     {
-                        conn2.Open();
-                        MySqlCommand msc = new MySqlCommand("INSERT INTO " + main.ReceiptNum + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('5','포인트적립:','" +GetPoint.Text+ "','')", conn2);
-                        msc.ExecuteNonQuery();
+                        MessageBox.Show("총 가격을 확인해주세요!");
                     }
-                    using (MySqlConnection conn = new MySqlConnection(Conn))//해당회원에게 포인트적립
+                    else
                     {
-                        conn.Open();
-                        MySqlCommand msc = new MySqlCommand("Update Cmem Set Mpoint= Mpoint+'" + GetPoint.Text + "' Where Mph ='" + CusMem.Text + "';", conn);
-                        msc.ExecuteNonQuery();
+                        using (MySqlConnection conn2 = new MySqlConnection(Conn2))
+                        {
+                            conn2.Open();
+                            MySqlCommand msc = new MySqlCommand("INSERT INTO " + main.ReceiptNum + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('5','포인트적립:','" + GetPoint.Text + "','')", conn2);
+                            msc.ExecuteNonQuery();
+                        }
+                        using (MySqlConnection conn = new MySqlConnection(Conn))//해당회원에게 포인트적립
+                        {
+                            conn.Open();
+                            MySqlCommand msc = new MySqlCommand("Update Cmem Set Mpoint= Mpoint+'" + GetPoint.Text + "' Where Mph ='" + CusMem.Text + "';", conn);
+                            msc.ExecuteNonQuery();
+                        }
+                        Window.GetWindow(this).Close();//적립창 자동닫기
                     }
-                    Window.GetWindow(this).Close();//적립창 자동닫기
                 }
             }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("이미 적립되었습니다.");
+                Window.GetWindow(this).Close();//적립창 자동닫기
+            }
+           
         }
 
 

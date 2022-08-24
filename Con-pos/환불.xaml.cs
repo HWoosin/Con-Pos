@@ -80,6 +80,10 @@ namespace Con_pos
                 msc2.ExecuteNonQuery();
             }
                 MessageBox.Show("현금환불완료.");
+            FindMem.IsEnabled = false;
+            RefundCash.IsEnabled = false;
+            RefundPoint.IsEnabled = false;
+            backbutton.IsEnabled = true;
         }
 
         private void ReceiptLoad_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)//셀 선택시 텍스트박스에 나옴
@@ -136,6 +140,7 @@ namespace Con_pos
                 Refundprice = Refundprice+int.Parse(PDprice.Text);
                 Totalprice.Text = Refundprice.ToString();
                 deleteButton.IsEnabled = false;
+                backbutton.IsEnabled = false;
             }
             
         }
@@ -203,6 +208,10 @@ namespace Con_pos
                     msc2.ExecuteNonQuery();
                 }
                 MessageBox.Show("포인트환불완료.");
+                FindMem.IsEnabled = false;
+                RefundCash.IsEnabled = false;
+                RefundPoint.IsEnabled = false;
+                backbutton.IsEnabled = true;
             }
             
         }

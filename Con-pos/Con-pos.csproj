@@ -202,6 +202,9 @@
     <Compile Include="포인트충전.xaml.cs">
       <DependentUpon>포인트충전.xaml</DependentUpon>
     </Compile>
+    <Compile Include="환불.xaml.cs">
+      <DependentUpon>환불.xaml</DependentUpon>
+    </Compile>
     <Compile Include="회원가입.xaml.cs">
       <DependentUpon>회원가입.xaml</DependentUpon>
     </Compile>
@@ -345,6 +348,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="포인트충전.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="환불.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

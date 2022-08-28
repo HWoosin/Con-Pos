@@ -9,7 +9,13 @@
       Title="조회업무">
 
     <Grid>
-        <Label Content="조회 업무" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="조회 업무" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White"/>
         <Button Content="상품 조회" HorizontalAlignment="Left" Height="76" Margin="54,115,0,0" VerticalAlignment="Top" Width="320" Click="Button_Click_3"/>
         <Button Content="택배 조회" HorizontalAlignment="Left" Height="76" Margin="54,214,0,0" VerticalAlignment="Top" Width="320" Click="Button_Click_4"/>
         <Button Content="포인트 조회" HorizontalAlignment="Left" Height="76" Margin="400,115,0,0" VerticalAlignment="Top" Width="320" Click="Button_Click_1"/>

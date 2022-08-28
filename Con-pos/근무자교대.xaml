@@ -9,10 +9,16 @@
       Title="근무자교대">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="131" Header="근무자교대" Margin="0,19,0,0" VerticalAlignment="Top" Width="148"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF7CFF71" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Center" Height="131" Header="근무자교대" Margin="0,19,0,0" VerticalAlignment="Top" Width="148" Foreground="White"/>
         <Button Content="근무자 교대" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="19" Margin="0,110,0,0" Click="Button_Click"/>
         <TextBox x:Name="wokerNum" HorizontalAlignment="Center" Margin="0,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="번호" HorizontalAlignment="Left" Margin="40,45,0,0" VerticalAlignment="Top"/>
+        <Label Content="번호" HorizontalAlignment="Left" Margin="35,45,0,0" VerticalAlignment="Top" Foreground="White"/>
 
     </Grid>
 </Page>

@@ -9,7 +9,13 @@
       Title="회원관리">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="660" Header="회원관리" VerticalAlignment="Center" Width="640" FontSize="20"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Center" Height="660" Header="회원관리" VerticalAlignment="Center" Width="640" FontSize="20" Foreground="White"/>
         <DataGrid x:Name="CmemGrid" HorizontalAlignment="Center" Height="297" Margin="0,115,0,0" VerticalAlignment="Top" Width="572" FontSize="25" Loaded="CmemGrid_Loaded" />
         <Button Content="전체조회" HorizontalAlignment="Center" Height="39" Margin="0,433,0,0" VerticalAlignment="Top" Width="572" Click="Button_Click_1"/>
         <TextBox x:Name="FindCmem" HorizontalAlignment="Left" Margin="114,522,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Height="36" FontSize="20"/>

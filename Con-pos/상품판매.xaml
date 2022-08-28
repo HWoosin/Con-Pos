@@ -9,18 +9,24 @@
       Title="상품판매">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Left" Height="689" Header="목록" Margin="15,36,0,0" VerticalAlignment="Top" Width="375">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Left" Height="689" Header="목록" Margin="15,36,0,0" VerticalAlignment="Top" Width="375" Foreground="White">
             <DataGrid x:Name="SellGrid" HorizontalAlignment="Center" Height="641" Width="356" FontSize="20" />
         </GroupBox>
-        <GroupBox HorizontalAlignment="Left" Height="80" Header="상품갯수" Margin="404,10,0,0" VerticalAlignment="Top" Width="163">
+        <GroupBox HorizontalAlignment="Left" Height="80" Header="상품갯수" Margin="404,10,0,0" VerticalAlignment="Top" Width="163" Foreground="White">
         </GroupBox>
-        <GroupBox HorizontalAlignment="Left" Height="60" Header="상품코드" Margin="404,95,0,0" VerticalAlignment="Top" Width="344">
+        <GroupBox HorizontalAlignment="Left" Height="60" Header="상품코드" Margin="404,95,0,0" VerticalAlignment="Top" Width="344" Foreground="White">
             <TextBox x:Name="Pnum" HorizontalAlignment="Center" TextWrapping="Wrap" Width="312" FontSize="16" Height="32"/>
         </GroupBox>
-        <GroupBox HorizontalAlignment="Left" Height="161" Header="이벤트" Margin="404,196,0,0" VerticalAlignment="Top" Width="344">
+        <GroupBox HorizontalAlignment="Left" Height="161" Header="이벤트" Margin="404,196,0,0" VerticalAlignment="Top" Width="344" Foreground="White">
             <TextBox x:Name="Pevent" HorizontalAlignment="Left" Height="126" Margin="10,0,0,0" TextWrapping="Wrap" Width="309" FontSize="20" Text="-"/>
         </GroupBox>
-        <GroupBox HorizontalAlignment="Left" Height="80" Header="총 가격" Margin="586,10,0,0" VerticalAlignment="Top" Width="162"/>
+        <GroupBox HorizontalAlignment="Left" Height="80" Header="총 가격" Margin="586,10,0,0" VerticalAlignment="Top" Width="162" Foreground="White"/>
         <GroupBox HorizontalAlignment="Left" Height="80" Header="받은금액" Margin="404,357,0,0" VerticalAlignment="Top" Width="344">
             <TextBox x:Name="Price" HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" TextWrapping="Wrap" Width="310" FontSize="24"/>
         </GroupBox>
@@ -35,9 +41,9 @@
         <TextBox x:Name="shownum" HorizontalAlignment="Left" Margin="267,733,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="deleteButton" Content="삭제" HorizontalAlignment="Left" Margin="587,160,0,0" VerticalAlignment="Top" Height="34                 " Width="161" Click="Button_Click_2" IsEnabled="False"/>
         <Button x:Name="EnterButton" Content="입력" HorizontalAlignment="Left" Margin="415,160,0,0" VerticalAlignment="Top" Height="34                 " Width="158" Click="Button_Click_1"/>
-        <TextBlock x:Name="TotalPrice" HorizontalAlignment="Left" Margin="601,30,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="TotalPrice" HorizontalAlignment="Left" Margin="601,30,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
         <TextBox x:Name="PDcount" HorizontalAlignment="Left" Margin="193,733,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Visibility="Visible"/>
-        <TextBlock x:Name="TotalCount" HorizontalAlignment="Left" Margin="427,30,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="TotalCount" HorizontalAlignment="Left" Margin="427,30,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
 
 
     </Grid>

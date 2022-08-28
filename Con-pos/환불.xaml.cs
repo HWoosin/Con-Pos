@@ -184,7 +184,7 @@ namespace Con_pos
 
         private void Button_Click_4(object sender, RoutedEventArgs e)//포인트환불
         {
-            if(CusName.Text==""|| CusPoint.Text=="")
+            if(CusName.Text=="-"|| CusPoint.Text=="-")
             {
                 MessageBox.Show("고객을 조회해주세요");
             }

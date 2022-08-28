@@ -8,7 +8,13 @@
       d:DesignHeight="800" d:DesignWidth="800"
       Title="택배접수관리">
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="668" Header="택배접수관리" VerticalAlignment="Center" Width="722" FontSize="24"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Center" Height="668" Header="택배접수관리" VerticalAlignment="Center" Width="722" FontSize="24" Foreground="White"/>
         <TextBox x:Name="Packnum" HorizontalAlignment="Left" Margin="86,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Height="42" FontSize="24"/>
         <Button Content="조회" HorizontalAlignment="Left" Margin="428,460,0,0" VerticalAlignment="Top" Height="46" Width="122" RenderTransformOrigin="1.851,-1.009" Click="Button_Click_2"/>
         <Label Content="운송장 번호" HorizontalAlignment="Left" Margin="86,419,0,0" VerticalAlignment="Top" Height="67" Width="148" FontSize="24"/>

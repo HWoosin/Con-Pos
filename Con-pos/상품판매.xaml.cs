@@ -126,6 +126,8 @@ namespace Con_pos
                         else
                         {
                             MessageBox.Show("등록되지않은 상품입니다.");
+                            //deleteButton.IsEnabled = false;
+                            backtoMain.IsEnabled = true;
                         }
                     }
                     catch (Exception ex)

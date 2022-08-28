@@ -9,6 +9,12 @@
       Title="점포경영관리">
 
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Button x:Name="login" Content="로그인" HorizontalAlignment="Center" Height="46" Margin="0,412,0,0" VerticalAlignment="Top" Width="154" Click="login_Click"/>
         <Label Content="ID" HorizontalAlignment="Left" Margin="275,316,0,0" VerticalAlignment="Top"/>
         <Label Content="PWD" HorizontalAlignment="Left" Margin="267,355,0,0" VerticalAlignment="Top"/>

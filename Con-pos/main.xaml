@@ -10,8 +10,14 @@
       Title="main">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Left" Height="82" Header="날짜와 시간" Margin="10,23,0,0" VerticalAlignment="Top" Width="500" FontSize="16"/>
-        <GroupBox HorizontalAlignment="Left" Height="82" Header="근무자" Margin="523,23,0,0" VerticalAlignment="Top" Width="158" FontSize="16"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Left" Height="82" Header="날짜와 시간" Margin="10,23,0,0" VerticalAlignment="Top" Width="500" FontSize="16" Foreground="White"/>
+        <GroupBox HorizontalAlignment="Left" Height="82" Header="근무자" Margin="523,23,0,0" VerticalAlignment="Top" Width="158" FontSize="16" Foreground="White"/>
         <Button Content="상품판매" HorizontalAlignment="Left" Height="321" Margin="10,123,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click"/>
         <Button Content="서비스판매" HorizontalAlignment="Left" Height="321" Margin="268,123,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_1"/>
         <Button Content="영수증 조회" HorizontalAlignment="Left" Height="88" Margin="523,123,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_7"/>
@@ -24,9 +30,9 @@
         <GroupBox HorizontalAlignment="Left" Height="93" Header="금고 금액" Margin="523,449,0,0" VerticalAlignment="Top" Width="242" FontSize="16"/>
         <Button Content="근무자 입력" HorizontalAlignment="Left" Height="31" Margin="686,35,0,0" VerticalAlignment="Top" Width="79" FontSize="11" Click="Button_Click_6"/>
         <TextBlock x:Name="safeMoney" HorizontalAlignment="Left" Margin="538,480,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="45" Width="194" FontSize="25" Loaded="safeMoney_Loaded"/>
-        <TextBlock x:Name="workerBox" HorizontalAlignment="Left" Margin="538,57,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="34" Width="70" FontSize="20" Visibility="Visible" Loaded="workerBox_Loaded"/>
+        <TextBlock x:Name="workerBox" HorizontalAlignment="Left" Margin="538,57,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="34" Width="70" FontSize="20" Visibility="Visible" Loaded="workerBox_Loaded" Foreground="White"/>
         <TextBox x:Name="messageBox" HorizontalAlignment="Left" TextWrapping="Wrap" Width="724" Margin="26,597,0,67" FontSize="20"/>
-        <TextBlock x:Name="DateTimebox" HorizontalAlignment="Left" Margin="26,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="465" FontSize="25" Text="-"/>
+        <TextBlock x:Name="DateTimebox" HorizontalAlignment="Left" Margin="26,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="465" FontSize="25" Text="-" Foreground="White"/>
         <Button Content="근무자 변경" HorizontalAlignment="Left" Height="31" Margin="686,73,0,0" VerticalAlignment="Top" Width="79" FontSize="11" Click="Button_Click_5"/>
         <Label Content="서버:" HorizontalAlignment="Left" Margin="26,570,0,0" VerticalAlignment="Top"/>
         <Label Content="포트:" HorizontalAlignment="Left" Margin="198,570,0,0" VerticalAlignment="Top"/>

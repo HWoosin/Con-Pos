@@ -9,11 +9,17 @@
       Title="상품관리">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Left" Height="637" Header="전체상품" Margin="26,30,0,0" VerticalAlignment="Top" Width="374"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Left" Height="637" Header="전체상품" Margin="26,30,0,0" VerticalAlignment="Top" Width="374" Foreground="White"/>
         <DataGrid x:Name="shopPDGrid" HorizontalAlignment="Left" Height="597" Margin="39,53,0,0" VerticalAlignment="Top" Width="348" FontSize="15" Loaded="shopPDGrid_Loaded"/>
-        <GroupBox HorizontalAlignment="Left" Height="91" Header="상품 검색" Margin="422,30,0,0" VerticalAlignment="Top" Width="350"/>
+        <GroupBox HorizontalAlignment="Left" Height="91" Header="상품 검색" Margin="422,30,0,0" VerticalAlignment="Top" Width="350" Foreground="White"/>
         <Button Content="검색" HorizontalAlignment="Left" Height="33" Margin="663,65,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click_2"/>
-        <GroupBox HorizontalAlignment="Left" Height="207" Header="검색된 상품" Margin="422,138,0,0" VerticalAlignment="Top" Width="350"/>
+        <GroupBox HorizontalAlignment="Left" Height="207" Header="검색된 상품" Margin="422,138,0,0" VerticalAlignment="Top" Width="350" Foreground="White"/>
         <DataGrid x:Name="selectPDGrid" HorizontalAlignment="Left" Height="171" Margin="434,160,0,0" VerticalAlignment="Top" Width="326" FontSize="15" />
         <GroupBox HorizontalAlignment="Left" Height="210" Header="이벤트내용" Margin="422,457,0,0" VerticalAlignment="Top" Width="350"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Height="51" Margin="609,689,0,0" VerticalAlignment="Top" Width="163" Click="Button_Click"/>

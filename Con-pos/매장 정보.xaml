@@ -9,7 +9,13 @@
       Title="매장_정보">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="606" Header="매장 정보" VerticalAlignment="Center" Width="542"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Center" Height="606" Header="매장 정보" VerticalAlignment="Center" Width="542" Foreground="White"/>
         <Label Content="점주명:" HorizontalAlignment="Left" Margin="176,170,0,0" VerticalAlignment="Top" FontSize="17"/>
         <Label Content="점주 전화번호:" HorizontalAlignment="Left" Margin="176,231,0,0" VerticalAlignment="Top" FontSize="17"/>
         <Label Content="지점명:" HorizontalAlignment="Left" Margin="176,294,0,0" VerticalAlignment="Top" FontSize="17"/>

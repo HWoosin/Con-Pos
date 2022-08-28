@@ -9,7 +9,13 @@
       Title="폐기등록">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Left" Height="296" Header="폐기등록" Margin="46,36,0,0" VerticalAlignment="Top" Width="704" FontSize="25"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Left" Height="296" Header="폐기등록" Margin="46,36,0,0" VerticalAlignment="Top" Width="704" FontSize="25" Foreground="White"/>
         <DataGrid x:Name="Allgrid" HorizontalAlignment="Left" Height="234" Margin="68,79,0,0" VerticalAlignment="Top" Width="660" Loaded="Allgrid_Loaded"/>
         <GroupBox HorizontalAlignment="Left" Height="366" Header="상품정보" Margin="46,364,0,0" VerticalAlignment="Top" Width="305" FontSize="25"/>
         <Label Content="상품코드" HorizontalAlignment="Left" Margin="68,427,0,0" VerticalAlignment="Top" Height="44" Width="80" FontSize="15"/>

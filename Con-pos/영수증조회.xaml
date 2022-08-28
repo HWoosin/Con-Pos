@@ -9,9 +9,15 @@
       Title="영수증조회">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Left" Height="669" Header="전체 영수증 목록" Margin="32,31,0,0" VerticalAlignment="Top" Width="226"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Left" Height="669" Header="전체 영수증 목록" Margin="32,31,0,0" VerticalAlignment="Top" Width="226" Foreground="White"/>
         <DataGrid x:Name="AllReceiptGrid" HorizontalAlignment="Left" Height="611" Margin="53,68,0,0" VerticalAlignment="Top" Width="184" Loaded="AllReceiptGrid_Loaded" FontSize="20" SelectedCellsChanged="AllReceiptGrid_SelectedCellsChanged" />
-        <GroupBox HorizontalAlignment="Left" Height="508" Header="선택영수증내용" Margin="284,31,0,0" VerticalAlignment="Top" Width="485"/>
+        <GroupBox HorizontalAlignment="Left" Height="508" Header="선택영수증내용" Margin="284,31,0,0" VerticalAlignment="Top" Width="485" Foreground="White"/>
         <Button Content="조회" HorizontalAlignment="Left" Margin="598,553,0,0" VerticalAlignment="Top" Height="42" Width="171" Click="Button_Click_1"/>
         <TextBox x:Name="selectReceipt" HorizontalAlignment="Left" Margin="284,553,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" Height="41" FontSize="25"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Margin="598,670,0,0" VerticalAlignment="Top" Height="42" Width="171" Click="Button_Click"/>

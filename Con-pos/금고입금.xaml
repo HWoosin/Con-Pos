@@ -9,7 +9,13 @@
       Title="금고입금">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="514" Header="금고입금" VerticalAlignment="Center" Width="498" FontSize="20"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Center" Height="514" Header="금고입금" VerticalAlignment="Center" Width="498" FontSize="20" Foreground="White"/>
         <Label Content="입금액" HorizontalAlignment="Left" Margin="221,352,0,0" VerticalAlignment="Top" FontSize="25"/>
         <Label Content="금고액:" HorizontalAlignment="Left" Margin="221,218,0,0" VerticalAlignment="Top" FontSize="25"/>
         <TextBlock x:Name="Safemoney" HorizontalAlignment="Center" Margin="0,222,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="47" Width="166" FontSize="25" Loaded="TextBlock_Loaded"/>

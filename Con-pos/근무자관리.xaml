@@ -9,7 +9,13 @@
       Title="근무자관리">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Left" Height="285" Header="전체 근무자" Margin="31,30,0,0" VerticalAlignment="Top" Width="741"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Left" Height="285" Header="전체 근무자" Margin="31,30,0,0" VerticalAlignment="Top" Width="741" Foreground="White"/>
         <GroupBox HorizontalAlignment="Left" Height="168" Header="근무자 추가" Margin="31,508,0,0" VerticalAlignment="Top" Width="741"/>
         <TextBox x:Name="Empname" HorizontalAlignment="Left" Margin="164,540,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
         <TextBox x:Name="EmpBirth" HorizontalAlignment="Left" Margin="164,578,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="28"/>

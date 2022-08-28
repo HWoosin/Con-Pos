@@ -115,23 +115,35 @@ namespace Con_pos
 
         private void Button_Click_4(object sender, RoutedEventArgs e)//선택상품취소=장바구니에서 삭제
         {
-            using (MySqlConnection conn = new MySqlConnection(Conn))
+            if (PDcount.Text == "")
             {
-                conn.Open();
-                MySqlCommand msc = new MySqlCommand("DELETE FROM TemProduct where TPDnum = '" + PDnum.Text + "'", conn);
-                msc.ExecuteNonQuery();
-                //삭제하고 새로고침
-                string sql = "SELECT * FROM TemProduct";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                selectGrid.ItemsSource = ds.Tables[0].DefaultView;
-                MessageBox.Show("선택상품이 장바구니에서 삭제되었습니다!");
+                MessageBox.Show("상품갯수를 확인해주세요.");
             }
+            else
+            {
+                using (MySqlConnection conn = new MySqlConnection(Conn))
+                {
+                    conn.Open();
+                    MySqlCommand msc = new MySqlCommand("DELETE FROM TemProduct where TPDnum = '" + PDnum.Text + "'", conn);
+                    msc.ExecuteNonQuery();
+                    //삭제하고 새로고침
+                    string sql = "SELECT * FROM TemProduct";
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    selectGrid.ItemsSource = ds.Tables[0].DefaultView;
+                    MessageBox.Show("선택상품이 장바구니에서 삭제되었습니다!");
+                }
+            }
+            
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)//발주
         {
+            if (PDcount.Text == "")
+            {
+                MessageBox.Show("상품갯수를 확인해주세요.");
+            }
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(Conn))
@@ -192,6 +204,46 @@ namespace Con_pos
                 da.Fill(ds);
                 AllGrid.ItemsSource = ds.Tables[0].DefaultView;
             }
+        }
+
+        private void selectGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            try
+            {
+                DataRowView dataRow = (DataRowView)selectGrid.SelectedItem;
+                string s1 = dataRow.Row.ItemArray[0].ToString();
+                PDnum.Text = s1;
+                string s2 = dataRow.Row.ItemArray[1].ToString();
+                PDname.Text = s2;
+                string s3 = dataRow.Row.ItemArray[2].ToString();
+                PDcount.Text = s3;
+                string s4 = dataRow.Row.ItemArray[3].ToString();
+                PDprice.Text = s4;
+                string s5 = dataRow.Row.ItemArray[4].ToString();
+                PDmaker.Text = s5;
+                string s6 = dataRow.Row.ItemArray[5].ToString();
+                PDevent.Text = s6;
+            }
+            catch (Exception ex) { }
+        }
+
+        private void AllGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            try
+            {
+                DataRowView dataRow = (DataRowView)AllGrid.SelectedItem;
+                string s1 = dataRow.Row.ItemArray[0].ToString();
+                PDnum.Text = s1;
+                string s2 = dataRow.Row.ItemArray[1].ToString();
+                PDname.Text = s2;
+                string s4 = dataRow.Row.ItemArray[2].ToString();
+                PDprice.Text = s4;
+                string s5 = dataRow.Row.ItemArray[3].ToString();
+                PDmaker.Text = s5;
+                string s6 = dataRow.Row.ItemArray[4].ToString();
+                PDevent.Text = s6;
+            }
+            catch (Exception ex) { }
         }
     }
 }

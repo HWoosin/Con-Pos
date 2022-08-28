@@ -9,15 +9,21 @@
       Title="매출점검">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="678" Header="매출점검" VerticalAlignment="Center" Width="662" FontSize="20"/>
-        <Label Content="현재 시각:" HorizontalAlignment="Left" Margin="117,119,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <TextBlock x:Name="Nowtime" HorizontalAlignment="Left" Margin="202,126,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15"/>
-        <Label Content="금일 매출:" HorizontalAlignment="Left" Margin="117,174,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <TextBlock x:Name="TodaySales" HorizontalAlignment="Left" Margin="202,179,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15" Loaded="TextBlock_Loaded"/>
-        <Label Content="포인트 매출:" HorizontalAlignment="Left" Margin="117,237,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <TextBlock x:Name="PointSales" HorizontalAlignment="Left" Margin="211,242,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15"/>
-        <Label Content="현금 매출:" HorizontalAlignment="Left" Margin="117,302,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <TextBlock x:Name="CashSales" HorizontalAlignment="Left" Margin="198,307,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0.247"/>
+                <GradientStop Color="#FFFF5A5A" Offset="0.948"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Center" Height="678" Header="매출점검" VerticalAlignment="Center" Width="662" FontSize="20" Foreground="White"/>
+        <Label Content="현재 시각:" HorizontalAlignment="Left" Margin="117,119,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <TextBlock x:Name="Nowtime" HorizontalAlignment="Left" Margin="202,126,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <Label Content="금일 매출:" HorizontalAlignment="Left" Margin="117,174,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <TextBlock x:Name="TodaySales" HorizontalAlignment="Left" Margin="202,179,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15" Loaded="TextBlock_Loaded" Foreground="White"/>
+        <Label Content="포인트 매출:" HorizontalAlignment="Left" Margin="117,237,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <TextBlock x:Name="PointSales" HorizontalAlignment="Left" Margin="216,242,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <Label Content="현금 매출:" HorizontalAlignment="Left" Margin="117,302,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <TextBlock x:Name="CashSales" HorizontalAlignment="Left" Margin="203,307,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Margin="563,663,0,0" VerticalAlignment="Top" Height="42" Width="145" Click="Button_Click"/>
 
     </Grid>

@@ -9,7 +9,13 @@
       Title="시재점검">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="652" Header="시재 점검" VerticalAlignment="Center" Width="672"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Center" Height="652" Header="시재 점검" VerticalAlignment="Center" Width="672" Foreground="White" FontSize="25"/>
         <Label Content="50,000" HorizontalAlignment="Left" Margin="105,134,0,0" VerticalAlignment="Top" Height="39" Width="62" FontSize="17"/>
         <TextBox x:Name="_50000" HorizontalAlignment="Left" Margin="209,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" Height="27" FontSize="17"/>
         <Label Content="10,000" HorizontalAlignment="Left" Margin="105,200,0,0" VerticalAlignment="Top" Height="39" Width="62" FontSize="17"/>

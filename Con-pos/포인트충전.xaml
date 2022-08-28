@@ -9,11 +9,17 @@
       Title="포인트충전">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="476" Header="포인트 충전" VerticalAlignment="Center" Width="568" FontSize="24"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Center" Height="476" Header="포인트 충전" VerticalAlignment="Center" Width="568" FontSize="24" Foreground="White"/>
         <TextBox x:Name="Mphtb" HorizontalAlignment="Left" Margin="486,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Height="24"/>
-        <Label Content="전화번호" HorizontalAlignment="Left" Margin="486,183,0,0" VerticalAlignment="Top"/>
+        <Label Content="전화번호" HorizontalAlignment="Left" Margin="481,183,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Button Content="충전" HorizontalAlignment="Left" Margin="486,438,0,0" VerticalAlignment="Top" Height="70" Width="70" Click="Button_Click_3"/>
-        <Label Content="포인트" HorizontalAlignment="Left" Margin="486,263,0,0" VerticalAlignment="Top"/>
+        <Label Content="포인트" HorizontalAlignment="Left" Margin="482,263,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="Mpttb" HorizontalAlignment="Left" Margin="486,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Height="26"/>
         <Button x:Name="backtomenu" Content="뒤로가기" HorizontalAlignment="Left" Margin="580,532,0,0" VerticalAlignment="Top" Height="56" Width="70" Click="Button_Click"/>
         <Button Content="전체 회원 조회" HorizontalAlignment="Left" Margin="486,356,0,0" VerticalAlignment="Top" Height="56" Width="164" Click="Button_Click_1"/>

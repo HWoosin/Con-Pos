@@ -58,16 +58,7 @@ namespace Con_pos
                 }
                 else
                 {
-                    using (MySqlConnection conn = new MySqlConnection(Conn))
-                    {
-                        string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + selectReceipt.Text + ";";
-                        MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                        //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
-                        selectGrid.ItemsSource = ds.Tables[0].DefaultView;
 
-                    }
                 }
             }
             catch (Exception ex)
@@ -80,11 +71,37 @@ namespace Con_pos
 
         private void Button_Click_2(object sender, RoutedEventArgs e)//환불
         {
-            checkReceipt = selectReceipt.Text;
-            NavigationService.Navigate(new Uri("/환불.xaml", UriKind.Relative));
+            try
+            {
+                if (selectReceipt.Text == "")
+                {
+                    MessageBox.Show("영수증번호를 확인해주세요");
+                }
+                else
+                {
+                    using (MySqlConnection conn = new MySqlConnection(Conn))
+                    {
+                        string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + selectReceipt.Text + ";";
+                        MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                        //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        selectGrid.ItemsSource = ds.Tables[0].DefaultView;
+
+                    }
+                    checkReceipt = selectReceipt.Text;
+                    NavigationService.Navigate(new Uri("/환불.xaml", UriKind.Relative));
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("없는 영수증입니다.");
+            }
+           
+
         }
 
-        private void AllReceiptGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        private void AllReceiptGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)//셀선택
         {
             try
             {

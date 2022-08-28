@@ -9,10 +9,16 @@
       Title="환불">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Left" Height="716" Header="영수증 내용" Margin="40,30,0,0" VerticalAlignment="Top" Width="396"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Left" Height="716" Header="영수증 내용" Margin="40,30,0,0" VerticalAlignment="Top" Width="396" Foreground="White"/>
         <DataGrid x:Name="ReceiptLoad" HorizontalAlignment="Left" Height="654" Margin="71,66,0,0" VerticalAlignment="Top" Width="334" Loaded="DataGrid_Loaded" SelectedCellsChanged="ReceiptLoad_SelectedCellsChanged"/>
-        <Label Content="총 가격:" HorizontalAlignment="Left" Margin="460,34,0,0" VerticalAlignment="Top" FontSize="25"/>
-        <TextBlock x:Name="Totalprice" HorizontalAlignment="Left" Margin="578,39,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="25"/>
+        <Label Content="총 가격:" HorizontalAlignment="Left" Margin="460,34,0,0" VerticalAlignment="Top" FontSize="25" Foreground="White"/>
+        <TextBlock x:Name="Totalprice" HorizontalAlignment="Left" Margin="578,39,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="25" Foreground="White"/>
         <Button x:Name="RefundCash" Content="현금환불" HorizontalAlignment="Left" Margin="460,629,0,0" VerticalAlignment="Top" Height="46" Width="291" Click="Button_Click_1"/>
         <Button x:Name="RefundPoint" Content="포인트 환불" HorizontalAlignment="Left" Margin="460,566,0,0" VerticalAlignment="Top" Height="46" Width="291" Click="Button_Click_4"/>
         <Button x:Name="backbutton" Content="뒤로가기" HorizontalAlignment="Left" Margin="460,691,0,0" VerticalAlignment="Top" Height="47" Width="291" Click="Button_Click"/>
@@ -23,12 +29,12 @@
         <TextBlock x:Name="CusName" HorizontalAlignment="Left" Margin="570,380,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="25"/>
         <TextBlock x:Name="CusPoint" HorizontalAlignment="Left" Margin="624,440,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="25"/>
         <Button x:Name="FindMem" Content="고객조회" HorizontalAlignment="Left" Margin="460,504,0,0" VerticalAlignment="Top" Height="46" Width="291" Click="Button_Click_3"/>
-        <TextBlock x:Name="PDname" HorizontalAlignment="Left" Margin="578,119,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="PDcount" HorizontalAlignment="Left" Margin="586,182,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="PDprice" HorizontalAlignment="Left" Margin="586,248,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="상품명:" HorizontalAlignment="Left" Margin="460,105,0,0" VerticalAlignment="Top" FontSize="25"/>
-        <Label Content="상품갯수:" HorizontalAlignment="Left" Margin="460,168,0,0" VerticalAlignment="Top" FontSize="25"/>
-        <Label Content="상품가격:" HorizontalAlignment="Left" Margin="460,229,0,0" VerticalAlignment="Top" FontSize="25"/>
+        <TextBlock x:Name="PDname" HorizontalAlignment="Left" Margin="578,119,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="18" Foreground="White"/>
+        <TextBlock x:Name="PDcount" HorizontalAlignment="Left" Margin="586,182,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="18" Foreground="White"/>
+        <TextBlock x:Name="PDprice" HorizontalAlignment="Left" Margin="586,248,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="18" Foreground="White"/>
+        <Label Content="상품명:" HorizontalAlignment="Left" Margin="460,105,0,0" VerticalAlignment="Top" FontSize="25" Foreground="White"/>
+        <Label Content="상품갯수:" HorizontalAlignment="Left" Margin="460,168,0,0" VerticalAlignment="Top" FontSize="25" Foreground="White"/>
+        <Label Content="상품가격:" HorizontalAlignment="Left" Margin="460,229,0,0" VerticalAlignment="Top" FontSize="25" Foreground="White"/>
         <Button x:Name="deleteButton" Content="삭제" HorizontalAlignment="Left" Margin="693,119,0,0" VerticalAlignment="Top" Height="153" Width="58" Click="Button_Click_2" IsEnabled="False"/>
 
     </Grid>

@@ -9,11 +9,17 @@
       Title="회원가입">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="434" Header="회원가입" VerticalAlignment="Center" Width="376" FontSize="24"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Center" Height="434" Header="회원가입" VerticalAlignment="Center" Width="376" FontSize="24" Foreground="White"/>
         <TextBox x:Name="tb1" HorizontalAlignment="Center" Margin="0,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="25"/>
-        <Label Content="전화번호" HorizontalAlignment="Left" Margin="250,317,0,0" VerticalAlignment="Top"/>
+        <Label Content="전화번호" HorizontalAlignment="Left" Margin="250,317,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Button Content="회원가입" HorizontalAlignment="Center" Margin="0,430,0,0" VerticalAlignment="Top" Height="56" Width="174" Click="Button_Click_1"/>
-        <Label Content="이름" HorizontalAlignment="Left" Margin="250,362,0,0" VerticalAlignment="Top"/>
+        <Label Content="이름" HorizontalAlignment="Left" Margin="250,362,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="tb2" HorizontalAlignment="Center" Margin="0,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Height="25"/>
         <Button Content="뒤로가기" HorizontalAlignment="Center" Margin="0,510,0,0" VerticalAlignment="Top" Height="56" Width="174" Click="Button_Click"/>
 

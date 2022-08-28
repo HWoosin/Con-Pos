@@ -9,7 +9,13 @@
       Title="서비스판매">
 
     <Grid>
-        <Label Content="서비스판매" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="서비스판매" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White"/>
         <Button Content="택배 입고" HorizontalAlignment="Left" Height="76" Margin="54,115,0,0" VerticalAlignment="Top" Width="320" Click="Button_Click_3"/>
         <Button Content="회원 가입" HorizontalAlignment="Left" Height="76" Margin="400,115,0,0" VerticalAlignment="Top" Width="320" Click="Button_Click_1"/>
         <Button Content="택배 픽업" HorizontalAlignment="Left" Height="76" Margin="54,214,0,0" VerticalAlignment="Top" Width="320" Click="Button_Click_4"/>

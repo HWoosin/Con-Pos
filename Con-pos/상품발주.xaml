@@ -9,29 +9,35 @@
       Title="상품발주">
 
     <Grid>
-        <GroupBox HorizontalAlignment="Center" Height="728" Header="상품발주" VerticalAlignment="Center" Width="733" FontSize="20"/>
-        <DataGrid x:Name="AllGrid" HorizontalAlignment="Left" Height="595" Margin="59,95,0,0" VerticalAlignment="Top" Width="318" Loaded="AllGrid_Loaded"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox HorizontalAlignment="Center" Height="728" Header="상품발주" VerticalAlignment="Center" Width="733" FontSize="20" Foreground="White"/>
+        <DataGrid x:Name="AllGrid" HorizontalAlignment="Left" Height="595" Margin="59,95,0,0" VerticalAlignment="Top" Width="318" Loaded="AllGrid_Loaded" SelectedCellsChanged="AllGrid_SelectedCellsChanged"/>
         <TextBox x:Name="PDnum" HorizontalAlignment="Left" Margin="489,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Text=""/>
         <TextBox x:Name="PDname" HorizontalAlignment="Left" Margin="489,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
         <TextBox x:Name="PDcount" HorizontalAlignment="Left" Margin="489,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <Label Content="상품번호" HorizontalAlignment="Left" Margin="414,91,0,0" VerticalAlignment="Top"/>
-        <Label Content="상품이름" HorizontalAlignment="Left" Margin="414,124,0,0" VerticalAlignment="Top"/>
-        <Label Content="상품개수" HorizontalAlignment="Left" Margin="414,159,0,0" VerticalAlignment="Top"/>
+        <Label Content="상품번호" HorizontalAlignment="Left" Margin="414,91,0,0" VerticalAlignment="Top" Foreground="Black"/>
+        <Label Content="상품이름" HorizontalAlignment="Left" Margin="414,124,0,0" VerticalAlignment="Top" Foreground="Black"/>
+        <Label Content="상품개수" HorizontalAlignment="Left" Margin="414,159,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <TextBox x:Name="PDevent" HorizontalAlignment="Left" Margin="489,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Height="84"/>
-        <Label Content="상품이벤트" HorizontalAlignment="Left" Margin="414,279,0,0" VerticalAlignment="Top"/>
+        <Label Content="상품이벤트" HorizontalAlignment="Left" Margin="414,279,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Button Content="조회" HorizontalAlignment="Left" Height="55" Margin="657,95,0,0" VerticalAlignment="Top" Width="78" Click="Button_Click_2"/>
         <Button Content="발주" HorizontalAlignment="Left" Height="58" Margin="657,305,0,0" VerticalAlignment="Top" Width="78" Click="Button_Click_5"/>
-        <DataGrid x:Name="selectGrid" HorizontalAlignment="Left" Height="290" Margin="417,400,0,0" VerticalAlignment="Top" Width="318"/>
-        <Label Content="발주가능 목록" HorizontalAlignment="Left" Margin="59,69,0,0" VerticalAlignment="Top"/>
-        <Label Content="장바구니" HorizontalAlignment="Left" Margin="417,373,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="selectGrid" HorizontalAlignment="Left" Height="290" Margin="417,400,0,0" VerticalAlignment="Top" Width="318" SelectedCellsChanged="selectGrid_SelectedCellsChanged"/>
+        <Label Content="발주가능 목록" HorizontalAlignment="Left" Margin="59,69,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="장바구니" HorizontalAlignment="Left" Margin="417,373,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Margin="587,707,0,0" VerticalAlignment="Top" Width="148" Height="26" Click="Button_Click"/>
         <Button Content="추가" HorizontalAlignment="Left" Height="55" Margin="657,163,0,0" VerticalAlignment="Top" Width="78" Click="Button_Click_3"/>
         <Button Content="취소" HorizontalAlignment="Left" Height="55" Margin="657,233,0,0" VerticalAlignment="Top" Width="78" Click="Button_Click_4"/>
         <Button Content="새로고침" HorizontalAlignment="Left" Margin="417,707,0,0" VerticalAlignment="Top" Width="149" Height="26" Click="Button_Click_6"/>
         <Button Content="상품전체 조회" HorizontalAlignment="Left" Margin="59,707,0,0" VerticalAlignment="Top" Width="318" Height="26" Click="Button_Click_1"/>
-        <Label Content="제조사" HorizontalAlignment="Left" Margin="414,195,0,0" VerticalAlignment="Top"/>
+        <Label Content="제조사" HorizontalAlignment="Left" Margin="414,195,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <TextBox x:Name="PDmaker" HorizontalAlignment="Left" Margin="489,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
-        <Label Content="가격" HorizontalAlignment="Left" Margin="414,233,0,0" VerticalAlignment="Top"/>
+        <Label Content="가격" HorizontalAlignment="Left" Margin="414,233,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <TextBox x:Name="PDprice" HorizontalAlignment="Left" Margin="489,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
 
     </Grid>

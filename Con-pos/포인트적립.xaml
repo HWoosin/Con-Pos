@@ -9,9 +9,15 @@
       Title="포인트적립">
 
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00CAFF" Offset="0.549"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Button Content="적립" HorizontalAlignment="Left" Margin="75,311,0,0" VerticalAlignment="Top" Height="41" Width="280" Click="Button_Click_1"/>
-        <Label Content="결제금액:" HorizontalAlignment="Left" Margin="41,38,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock x:Name="TotalPrice" HorizontalAlignment="Left" Margin="140,43,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="20" Loaded="TotalPrice_Loaded"/>
+        <Label Content="결제금액:" HorizontalAlignment="Left" Margin="41,38,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
+        <TextBlock x:Name="TotalPrice" HorizontalAlignment="Left" Margin="140,43,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="20" Loaded="TotalPrice_Loaded" Foreground="White"/>
         <TextBox x:Name="CusMem" HorizontalAlignment="Left" Margin="74,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="24"/>
         <Button Content="고객조회" HorizontalAlignment="Left" Margin="246,92,0,0" VerticalAlignment="Top" Height="24" Width="109" Click="Button_Click"/>
         <Label Content="고객명:" HorizontalAlignment="Left" Margin="59,142,0,0" VerticalAlignment="Top" FontSize="15"/>

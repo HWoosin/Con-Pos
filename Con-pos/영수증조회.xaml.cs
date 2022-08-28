@@ -58,7 +58,16 @@ namespace Con_pos
                 }
                 else
                 {
+                    using (MySqlConnection conn = new MySqlConnection(Conn))
+                    {
+                        string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + selectReceipt.Text + ";";
+                        MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                        //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        selectGrid.ItemsSource = ds.Tables[0].DefaultView;
 
+                    }
                 }
             }
             catch (Exception ex)

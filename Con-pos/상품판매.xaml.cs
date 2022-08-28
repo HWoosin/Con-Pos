@@ -386,16 +386,31 @@ namespace Con_pos
 
         private void Button_Click_5(object sender, RoutedEventArgs e)//포인트결제
         {
-            Con_pos.FourthWindow fourthWindow = new Con_pos.FourthWindow();
-            fourthWindow.ShowDialog();
-            CompleteButton.IsEnabled = true;
-            CashButton.IsEnabled = false;
+            if(totalprice == 0 || TotalPrice.Text =="")
+            {
+                MessageBox.Show("결제금액을 확인해주세요!");
+            }
+            else
+            {
+                Con_pos.FourthWindow fourthWindow = new Con_pos.FourthWindow();
+                fourthWindow.ShowDialog();
+                CompleteButton.IsEnabled = true;
+                CashButton.IsEnabled = false;
+            }
+            
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            Con_pos.FifthWindow fifthWindow = new Con_pos.FifthWindow();
-            fifthWindow.ShowDialog();
+            if (totalprice == 0 || TotalPrice.Text == "")
+            {
+                MessageBox.Show("결제금액을 확인해주세요!");
+            }
+            else
+            {
+                Con_pos.FifthWindow fifthWindow = new Con_pos.FifthWindow();
+                fifthWindow.ShowDialog();
+            }
         }
     }
 }

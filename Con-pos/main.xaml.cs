@@ -43,8 +43,8 @@ namespace Con_pos
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
         }
-        StreamReader streamReader1;  // 데이타 읽기 위한 스트림리더
-        StreamWriter streamWriter1;  // 데이타 쓰기 위한 스트림라이터  
+        //StreamReader streamReader1;  // 데이타 읽기 위한 스트림리더
+        //StreamWriter streamWriter1;  // 데이타 쓰기 위한 스트림라이터  
         private void timer_Tick(object sender, EventArgs e)
         {
             DateTimebox.Text = DateTime.Now.ToString();

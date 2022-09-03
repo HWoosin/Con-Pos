@@ -18,13 +18,15 @@
         <GroupBox HorizontalAlignment="Center" Height="678" Header="매출점검" VerticalAlignment="Center" Width="662" FontSize="20" Foreground="White"/>
         <Label Content="현재 시각:" HorizontalAlignment="Left" Margin="117,119,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
         <TextBlock x:Name="Nowtime" HorizontalAlignment="Left" Margin="202,126,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
-        <Label Content="금일 매출:" HorizontalAlignment="Left" Margin="117,174,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <Label Content="총 매출:" HorizontalAlignment="Left" Margin="117,174,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
         <TextBlock x:Name="TodaySales" HorizontalAlignment="Left" Margin="202,179,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15" Loaded="TextBlock_Loaded" Foreground="White"/>
         <Label Content="포인트 매출:" HorizontalAlignment="Left" Margin="117,237,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
         <TextBlock x:Name="PointSales" HorizontalAlignment="Left" Margin="216,242,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
         <Label Content="현금 매출:" HorizontalAlignment="Left" Margin="117,302,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
         <TextBlock x:Name="CashSales" HorizontalAlignment="Left" Margin="203,307,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
         <Button Content="뒤로가기" HorizontalAlignment="Left" Margin="563,663,0,0" VerticalAlignment="Top" Height="42" Width="145" Click="Button_Click"/>
+        <DataGrid x:Name="Recordgrid" HorizontalAlignment="Left" Height="276" Margin="117,368,0,0" VerticalAlignment="Top" Width="591" Loaded="Recordgrid_Loaded"/>
+        <Button Content="기록" HorizontalAlignment="Left" Margin="373,663,0,0" VerticalAlignment="Top" Height="42" Width="173" Click="Button_Click_1"/>
 
     </Grid>
 </Page>

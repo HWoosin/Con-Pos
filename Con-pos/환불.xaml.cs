@@ -64,26 +64,34 @@ namespace Con_pos
 
         private void Button_Click_1(object sender, RoutedEventArgs e)//현금환불
         {
-            string PaymentTime = DateTime.Now.ToString();
-            using (MySqlConnection conn2 = new MySqlConnection(Conn2))
+            try
             {
-                conn2.Open();
-                MySqlCommand msc = new MySqlCommand("Update SalesCheck Set  todaysave=todaysave-'" + Refundprice + "', cashsave=cashsave-'" + Refundprice + "', safemoney= safemoney-'" + Totalprice.Text + "';", conn2);
-                msc.ExecuteNonQuery();
-            }
-            using (MySqlConnection conn = new MySqlConnection(Conn))
-            {
-                conn.Open();
-                MySqlCommand msc = new MySqlCommand("INSERT INTO " + 영수증조회.checkReceipt + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('1','근무자:','" + 근무자교대.worker + "','" + PaymentTime + "')", conn);
-                msc.ExecuteNonQuery();
-                MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + 영수증조회.checkReceipt + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('3','현금','환불완료.','')", conn);
-                msc2.ExecuteNonQuery();
-            }
+                string PaymentTime = DateTime.Now.ToString();
+                using (MySqlConnection conn2 = new MySqlConnection(Conn2))
+                {
+                    conn2.Open();
+                    MySqlCommand msc = new MySqlCommand("Update SalesCheck Set  todaysave=todaysave-'" + Refundprice + "', cashsave=cashsave-'" + Refundprice + "', safemoney= safemoney-'" + Totalprice.Text + "';", conn2);
+                    msc.ExecuteNonQuery();
+                }
+                using (MySqlConnection conn = new MySqlConnection(Conn))
+                {
+                    conn.Open();
+                    MySqlCommand msc = new MySqlCommand("INSERT INTO " + 영수증조회.checkReceipt + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('1','근무자:','" + 근무자교대.worker + "','" + PaymentTime + "')", conn);
+                    msc.ExecuteNonQuery();
+                    MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + 영수증조회.checkReceipt + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('3','현금','환불완료.','')", conn);
+                    msc2.ExecuteNonQuery();
+                }
                 MessageBox.Show("현금환불완료.");
-            FindMem.IsEnabled = false;
-            RefundCash.IsEnabled = false;
-            RefundPoint.IsEnabled = false;
-            backbutton.IsEnabled = true;
+                FindMem.IsEnabled = false;
+                RefundCash.IsEnabled = false;
+                RefundPoint.IsEnabled = false;
+                backbutton.IsEnabled = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("환불 금액을 확인해주세요");
+            }
+           
         }
 
         private void ReceiptLoad_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)//셀 선택시 텍스트박스에 나옴
@@ -184,34 +192,41 @@ namespace Con_pos
 
         private void Button_Click_4(object sender, RoutedEventArgs e)//포인트환불
         {
-            if(CusName.Text=="-"|| CusPoint.Text=="-")
+            try
             {
-                MessageBox.Show("고객을 조회해주세요");
+                if (CusName.Text == "-" || CusPoint.Text == "-")
+                {
+                    MessageBox.Show("고객을 조회해주세요");
+                }
+                else
+                {
+                    string PaymentTime = DateTime.Now.ToString();
+                    using (MySqlConnection conn2 = new MySqlConnection(Conn2))//해당회원의 포인트 차감과 매출에 포인트 더함
+                    {
+                        conn2.Open();
+                        MySqlCommand msc = new MySqlCommand("Update Cmem Set Mpoint= Mpoint+'" + Refundprice + "' Where Mph ='" + CusMem.Text + "';", conn2);
+                        msc.ExecuteNonQuery();
+                        MySqlCommand msc2 = new MySqlCommand("Update SalesCheck Set todaysave=todaysave-'" + Refundprice + "', pointsave=pointsave-'" + Refundprice + "';", conn2);
+                        msc2.ExecuteNonQuery();
+                    }
+                    using (MySqlConnection conn = new MySqlConnection(Conn))
+                    {
+                        conn.Open();
+                        MySqlCommand msc = new MySqlCommand("INSERT INTO " + 영수증조회.checkReceipt + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('1','근무자:','" + 근무자교대.worker + "','" + PaymentTime + "')", conn);
+                        msc.ExecuteNonQuery();
+                        MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + 영수증조회.checkReceipt + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('3','포인트','환불완료.','')", conn);
+                        msc2.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("포인트환불완료.");
+                    FindMem.IsEnabled = false;
+                    RefundCash.IsEnabled = false;
+                    RefundPoint.IsEnabled = false;
+                    backbutton.IsEnabled = true;
+                }
             }
-            else
+           catch(Exception ex)
             {
-                string PaymentTime = DateTime.Now.ToString();
-                using (MySqlConnection conn2 = new MySqlConnection(Conn2))//해당회원의 포인트 차감과 매출에 포인트 더함
-                {
-                    conn2.Open();
-                    MySqlCommand msc = new MySqlCommand("Update Cmem Set Mpoint= Mpoint+'" + Refundprice + "' Where Mph ='" + CusMem.Text + "';", conn2);
-                    msc.ExecuteNonQuery();
-                    MySqlCommand msc2 = new MySqlCommand("Update SalesCheck Set todaysave=todaysave-'" + Refundprice + "', pointsave=pointsave-'" + Refundprice + "';", conn2);
-                    msc2.ExecuteNonQuery();
-                }
-                using (MySqlConnection conn = new MySqlConnection(Conn))
-                {
-                    conn.Open();
-                    MySqlCommand msc = new MySqlCommand("INSERT INTO " + 영수증조회.checkReceipt + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('1','근무자:','" + 근무자교대.worker + "','" + PaymentTime + "')", conn);
-                    msc.ExecuteNonQuery();
-                    MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + 영수증조회.checkReceipt + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('3','포인트','환불완료.','')", conn);
-                    msc2.ExecuteNonQuery();
-                }
-                MessageBox.Show("포인트환불완료.");
-                FindMem.IsEnabled = false;
-                RefundCash.IsEnabled = false;
-                RefundPoint.IsEnabled = false;
-                backbutton.IsEnabled = true;
+                MessageBox.Show("환불 금액을 확인해주세요");
             }
             
         }

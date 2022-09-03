@@ -174,6 +174,13 @@ namespace Con_pos
             {
                 MessageBox.Show("오류입니다.");
             }
+            if (totalcount <= 0 || totalprice <= 0)
+            {
+                TotalCount.Text = "0";
+                TotalPrice.Text = "0";
+                deleteButton.IsEnabled = false;
+                backtoMain.IsEnabled = true;
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)//삭제
@@ -204,7 +211,7 @@ namespace Con_pos
                                 Pprice.Text = (reader["SPDprice"].ToString());//Hidden
                             }
                         }
-                        
+
                         conn2.Close();
                     }
                     try
@@ -225,12 +232,12 @@ namespace Con_pos
                                         PDcount.Text = (reader["Sellcount"].ToString());//Hidden
                                     }
                                 }
-                               
+
                                 MySqlCommand msc2 = new MySqlCommand("INSERT INTO " + Receiptname.Text + "(SellPDnum, SellPDname, Sellcount, Sellprice) values('" + Pnum.Text + "','0','0','0')", conn);//예외로 넘겨 삭제위함
                                 msc2.ExecuteNonQuery();
                                 MySqlCommand msc = new MySqlCommand("DELETE FROM " + Receiptname.Text + " Where SellPDnum = '" + Pnum.Text + "';", conn);
                                 msc.ExecuteNonQuery();
-                                
+
                                 string sql = "SELECT SellPDname, Sellcount, Sellprice FROM " + Receiptname.Text + ";";
                                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                                 DataSet ds = new DataSet();
@@ -243,7 +250,7 @@ namespace Con_pos
                                     MySqlCommand msc3 = new MySqlCommand("Update ShopProduct Set SPDcount=SPDcount+'" + PDcount.Text + "' Where SPDnum ='" + Pnum.Text + "';", conn2);
                                     msc3.ExecuteNonQuery();
                                 }
-                               
+
                             }
                         }
                         else
@@ -294,7 +301,7 @@ namespace Con_pos
             {
                 MessageBox.Show("오류입니다.");
             }
-            
+
             if (totalcount <= 0 || totalprice <= 0)
             {
                 TotalCount.Text = "0";
@@ -386,7 +393,7 @@ namespace Con_pos
 
         private void Button_Click_5(object sender, RoutedEventArgs e)//포인트결제
         {
-            if(totalprice == 0 || TotalPrice.Text =="")
+            if (totalprice == 0 || TotalPrice.Text == "")
             {
                 MessageBox.Show("결제금액을 확인해주세요!");
             }
@@ -397,7 +404,7 @@ namespace Con_pos
                 CompleteButton.IsEnabled = true;
                 CashButton.IsEnabled = false;
             }
-            
+
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)

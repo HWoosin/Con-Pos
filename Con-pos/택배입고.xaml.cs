@@ -127,6 +127,7 @@ namespace Con_pos
             {
                 MessageBox.Show("이미 입고된 택배입니다.");
                 CompletePay.IsEnabled = false;
+                backtomenu.IsEnabled = true;
             }
             
         }

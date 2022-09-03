@@ -60,8 +60,8 @@ namespace Con_pos
                     while (reader.Read())
                     {
                         TodaySales.Text = (reader["todaysave"].ToString());
-                        PointSales.Text = (reader["cashsave"].ToString());
-                        CashSales.Text = (reader["pointsave"].ToString());
+                        PointSales.Text = (reader["pointsave"].ToString());
+                        CashSales.Text = (reader["cashsave"].ToString());
                     }
                 }
                 conn2.Close();

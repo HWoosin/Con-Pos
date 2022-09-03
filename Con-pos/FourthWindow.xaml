@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Con_pos"
         mc:Ignorable="d"
-        Title="FourthWindow" Height="450" Width="450">
+        Title="FourthWindow" Height="450" Width="450" WindowStyle="None" ResizeMode="NoResize">
     <Grid>
         <Frame  Source="/포인트결제.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>

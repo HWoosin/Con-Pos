@@ -30,11 +30,14 @@
         <Label Content="주소" HorizontalAlignment="Left" Margin="437,180,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="Raddress" HorizontalAlignment="Left" Margin="496,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Height="108"/>
         <Label Content="택배접수" HorizontalAlignment="Left" Margin="27,25,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White" Background="{x:Null}"/>
-        <Button Content="입력" HorizontalAlignment="Left" Height="33" Margin="612,324,0,0" VerticalAlignment="Top" Width="139" Click="Button_Click"/>
-        <DataGrid x:Name="checkGrid" HorizontalAlignment="Left" Height="76" Margin="61,324,0,0" VerticalAlignment="Top" Width="539" />
-        <Button Content="삭제" HorizontalAlignment="Left" Height="33" Margin="612,367,0,0" VerticalAlignment="Top" Width="139" Click="Button_Click_1"/>
-        <Button Content="착불" HorizontalAlignment="Left" Height="46" Margin="61,420,0,0" VerticalAlignment="Top" Width="336" Click="Button_Click_3"/>
-        <Button Content="선불" HorizontalAlignment="Left" Height="46" Margin="415,420,0,0" VerticalAlignment="Top" Width="336" Click="Button_Click_2"/>
+        <Button x:Name="makepronum" Content="입력" HorizontalAlignment="Left" Height="33" Margin="612,324,0,0" VerticalAlignment="Top" Width="139" Click="Button_Click"/>
+        <DataGrid x:Name="checkGrid" HorizontalAlignment="Left" Height="76" Margin="61,324,0,0" VerticalAlignment="Top" Width="336" />
+        <Button x:Name="deletepronum" Content="삭제" HorizontalAlignment="Left" Height="33" Margin="612,367,0,0" VerticalAlignment="Top" Width="139" Click="Button_Click_1" IsEnabled="False"/>
+        <Button x:Name="PayforFree" Content="착불" HorizontalAlignment="Left" Height="46" Margin="61,420,0,0" VerticalAlignment="Top" Width="264" Click="Button_Click_3"/>
+        <Button x:Name="Payfor" Content="선불" HorizontalAlignment="Left" Height="46" Margin="330,420,0,0" VerticalAlignment="Top" Width="268" Click="Button_Click_2"/>
+        <Button x:Name="closewindow" Content="닫기" HorizontalAlignment="Left" Height="45" Margin="612,421,0,0" VerticalAlignment="Top" Width="139" Click="closewindow_Click"/>
+        <Label Content="운송장번호" HorizontalAlignment="Left" Margin="415,324,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
+        <TextBlock x:Name="checkPackageNum" HorizontalAlignment="Left" Margin="421,367,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
 
     </Grid>
 </Page>

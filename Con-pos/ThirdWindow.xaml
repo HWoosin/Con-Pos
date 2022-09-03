@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Con_pos"
         mc:Ignorable="d"
-        Title="ThirdWindow" Height="200" Width="200">
+        Title="ThirdWindow" Height="200" Width="200" ResizeMode="NoResize">
     <Grid>
         <Frame  Source="/근무자교대.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>

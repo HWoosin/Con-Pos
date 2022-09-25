@@ -49,35 +49,58 @@ namespace Con_pos
 
         private void Button_Click_2(object sender, RoutedEventArgs e)//입고
         {
-            using (MySqlConnection conn = new MySqlConnection(Conn))
+            try
             {
-                conn.Open();
-                MySqlCommand msc = new MySqlCommand("INSERT INTO ReceptionPackage(RecepPnum) values( '" + RecepPnum.Text + "')", conn);
-                msc.ExecuteNonQuery();
-                string sql = "SELECT * FROM ReceptionPackage where RecepPnum = '" + RecepPnum.Text + "';";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                pickGrid.ItemsSource = ds.Tables[0].DefaultView;
-                MessageBox.Show("택배가 입고되었습니다.");
+                if (RecepPnum.Text == "")
+                {
+                    MessageBox.Show("운송장번호를 다시 확인해주세요.");
+                }
+                else
+                {
+                    using (MySqlConnection conn = new MySqlConnection(Conn))
+                    {
+                        conn.Open();
+                        MySqlCommand msc = new MySqlCommand("INSERT INTO ReceptionPackage(RecepPnum) values( '" + RecepPnum.Text + "')", conn);
+                        msc.ExecuteNonQuery();
+                        string sql = "SELECT * FROM ReceptionPackage where RecepPnum = '" + RecepPnum.Text + "';";
+                        MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                        //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        pickGrid.ItemsSource = ds.Tables[0].DefaultView;
+                        MessageBox.Show("택배가 입고되었습니다.");
+                    }
+                }
+               
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("운송장번호를 다시 확인해주세요.");
+            }
+           
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)//출고
         {
-            using (MySqlConnection conn = new MySqlConnection(Conn))
+            if (RecepPnum.Text == "")
             {
-                conn.Open();
-                MySqlCommand msc = new MySqlCommand("DELETE FROM ReceptionPackage where RecepPnum = '" + RecepPnum.Text + "'", conn);
-                msc.ExecuteNonQuery();
-                string sql = "SELECT * FROM ReceptionPackage";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                pickGrid.ItemsSource = ds.Tables[0].DefaultView;
-                MessageBox.Show("택배가 고객님께 전달되었습니다.");
+                MessageBox.Show("운송장번호를 다시 확인해주세요.");
+            }
+            else
+            {
+                using (MySqlConnection conn = new MySqlConnection(Conn))
+                {
+                    conn.Open();
+                    MySqlCommand msc = new MySqlCommand("DELETE FROM ReceptionPackage where RecepPnum = '" + RecepPnum.Text + "'", conn);
+                    msc.ExecuteNonQuery();
+                    string sql = "SELECT * FROM ReceptionPackage";
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                    //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    pickGrid.ItemsSource = ds.Tables[0].DefaultView;
+                    MessageBox.Show("택배가 고객님께 전달되었습니다.");
+                }
             }
         }
 
@@ -93,6 +116,17 @@ namespace Con_pos
                 pickGrid.ItemsSource = ds.Tables[0].DefaultView;
 
             }
+        }
+
+        private void pickGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            try
+            {
+                DataRowView dataRow = (DataRowView)pickGrid.SelectedItem;
+                string s1 = dataRow.Row.ItemArray[0].ToString();
+                RecepPnum.Text = s1;
+            }
+            catch (Exception ex) { }
         }
     }
 }

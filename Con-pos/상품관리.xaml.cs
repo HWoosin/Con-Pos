@@ -130,5 +130,16 @@ namespace Con_pos
                 shopPDGrid.ItemsSource = ds.Tables[0].DefaultView;
             }
         }
+
+        private void shopPDGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            try
+            {
+                DataRowView dataRow = (DataRowView)shopPDGrid.SelectedItem;
+                string s1 = dataRow.Row.ItemArray[0].ToString();
+                PDnum.Text = s1;
+            }
+            catch (Exception ex) { }
+        }
     }
 }

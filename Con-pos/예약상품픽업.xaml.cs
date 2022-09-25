@@ -76,36 +76,71 @@ namespace Con_pos
 
         private void Button_Click_3(object sender, RoutedEventArgs e)//고객수령
         {
-            using (MySqlConnection conn = new MySqlConnection(Conn))
+            if (ReserveNum.Text == "")
             {
-                conn.Open();
-                MySqlCommand msc = new MySqlCommand("DELETE FROM ReservePD where RePDnum = '" + ReserveNum.Text + "'", conn);
-                msc.ExecuteNonQuery();
-                string sql = "SELECT * FROM ReservePD";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                Allgrid.ItemsSource = ds.Tables[0].DefaultView;
-                MessageBox.Show("예약상품이 고객님께 전달되었습니다.");
+                MessageBox.Show("운송장번호를 다시 확인해주세요.");
             }
+            else
+            {
+                using (MySqlConnection conn = new MySqlConnection(Conn))
+                {
+                    conn.Open();
+                    MySqlCommand msc = new MySqlCommand("DELETE FROM ReservePD where RePDnum = '" + ReserveNum.Text + "'", conn);
+                    msc.ExecuteNonQuery();
+                    string sql = "SELECT * FROM ReservePD";
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                    //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    Allgrid.ItemsSource = ds.Tables[0].DefaultView;
+                    MessageBox.Show("예약상품이 고객님께 전달되었습니다.");
+                }
+            }
+            
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)//예약상품 입고
         {
-            using (MySqlConnection conn = new MySqlConnection(Conn))
+            try
             {
-                conn.Open();
-                MySqlCommand msc = new MySqlCommand("INSERT INTO ReservePD(RePDnum, RePDcount, Cusnum)  values( '" + checkNum.Text + "','" + checkCount.Text + "','" + checkCusNum.Text + "')", conn);
-                msc.ExecuteNonQuery();
-                string sql = "SELECT * FROM ReservePD where RePDnum = '" + checkNum.Text + "';";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                Allgrid.ItemsSource = ds.Tables[0].DefaultView;
-                MessageBox.Show("예약상품이 입고되었습니다.");
+                if (checkNum.Text == "" || checkCount.Text == ""|| checkCusNum.Text == "")
+                {
+                    MessageBox.Show("모두 입력해주세요.");
+                }
+                else
+                {
+                    using (MySqlConnection conn = new MySqlConnection(Conn))
+                    {
+                        conn.Open();
+                        MySqlCommand msc = new MySqlCommand("INSERT INTO ReservePD(RePDnum, RePDcount, Cusnum)  values( '" + checkNum.Text + "','" + checkCount.Text + "','" + checkCusNum.Text + "')", conn);
+                        msc.ExecuteNonQuery();
+                        string sql = "SELECT * FROM ReservePD where RePDnum = '" + checkNum.Text + "';";
+                        MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                        //MySqlCommandBuilder cb = new MySqlCommandBuilder(daCountry);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        Allgrid.ItemsSource = ds.Tables[0].DefaultView;
+                        MessageBox.Show("예약상품이 입고되었습니다.");
+                    }
+                }
+               
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("예약번호를 다시 확인해주세요.");
+            }
+           
+        }
+
+        private void Allgrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            try
+            {
+                DataRowView dataRow = (DataRowView)Allgrid.SelectedItem;
+                string s1 = dataRow.Row.ItemArray[0].ToString();
+                ReserveNum.Text = s1;
+            }
+            catch (Exception ex) { }
         }
     }
 }

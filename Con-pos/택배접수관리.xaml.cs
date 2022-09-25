@@ -144,5 +144,16 @@ namespace Con_pos
                 SentGrid.ItemsSource = ds.Tables[0].DefaultView;
             }
         }
+
+        private void PropGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            try
+            {
+                DataRowView dataRow = (DataRowView)PropGrid.SelectedItem;
+                string s1 = dataRow.Row.ItemArray[0].ToString();
+                Packnum.Text = s1;
+            }
+            catch (Exception ex) { }
+        }
     }
 }

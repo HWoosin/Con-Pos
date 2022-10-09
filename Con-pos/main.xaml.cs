@@ -31,6 +31,7 @@ namespace Con_pos
         int Receipt;
         string Conn = "Server=localhost;Database=ConStore_sell;Uid=root;Pwd=dntls88;";
         string Conn2 = "Server=localhost;Database=ConStore;Uid=root;Pwd=dntls88;";
+
         public main()
         {
 
@@ -43,8 +44,6 @@ namespace Con_pos
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
         }
-        //StreamReader streamReader1;  // 데이타 읽기 위한 스트림리더
-        //StreamWriter streamWriter1;  // 데이타 쓰기 위한 스트림라이터  
         private void timer_Tick(object sender, EventArgs e)
         {
             DateTimebox.Text = DateTime.Now.ToString();
@@ -143,76 +142,11 @@ namespace Con_pos
 
         private void Button_Click_10(object sender, RoutedEventArgs e)//서버오픈
         {
-            /*
-           TcpListener serverSocket = new TcpListener(7000);
-           TcpClient clientSocket = default(TcpClient);
 
-           serverSocket.Start();
-           IPbox.Text = "started.";
-           clientSocket = serverSocket.AcceptTcpClient();
-           Portbox.Text = "accept.";
-
-           while (true)
-           {
-               try
-               {
-                   NetworkStream networkStream = clientSocket.GetStream();
-                   byte[] bytesFrom = new byte[clientSocket.ReceiveBufferSize];
-                   networkStream.Read(bytesFrom, 0, clientSocket.ReceiveBufferSize);
-                   string dataFromClient = Encoding.ASCII.GetString(bytesFrom);
-                   dataFromClient = dataFromClient.Substring(0, dataFromClient.IndexOf("$"));
-                    messageBox.Text = ">>Data from Client--" + dataFromClient;
-
-                   string serverResponse = "Last Message from Client:" + dataFromClient;
-                   byte[] sendBytes = Encoding.ASCII.GetBytes(serverResponse);
-                   networkStream.Write(sendBytes, 0, sendBytes.Length);
-                   networkStream.Flush();
-                    messageBox.Text = ">>server send Data--" + serverResponse;
-               }
-               catch (Exception ex) { }
-           }
-            
-           clientSocket.Close();
-           serverSocket.Stop();
-           */
-            /*
-            Thread thread1 = new Thread(serverconnect); // Thread 객채 생성, Form과는 별도 쓰레드에서 connect 함수가 실행됨.
-            thread1.IsBackground = true; // Form이 종료되면 thread1도 종료.
-            thread1.Start(); // thread1 시작.
-            */
         }
-        /*
-        private void serverconnect()  // thread1에 연결된 함수. 메인폼과는 별도로 동작한다.
-        {
-            TcpListener tcpListener1 = new TcpListener(IPAddress.Parse(IPbox.Text), int.Parse(Portbox.Text)); // 서버 객체 생성 및 IP주소와 Port번호를 할당
-            tcpListener1.Start();  // 서버 시작
-            writeMessageTextbox("서버 준비...클라이언트 기다리는 중...");
-
-            TcpClient tcpClient1 = tcpListener1.AcceptTcpClient(); // 클라이언트 접속 확인
-            writeMessageTextbox("클라이언트 연결됨...");
-
-            streamReader1 = new StreamReader(tcpClient1.GetStream());  // 읽기 스트림 연결
-            streamWriter1 = new StreamWriter(tcpClient1.GetStream());  // 쓰기 스트림 연결
-            streamWriter1.AutoFlush = true;  // 쓰기 버퍼 자동으로 뭔가 처리..
-
-            while (tcpClient1.Connected)  // 클라이언트가 연결되어 있는 동안
-            {
-                string receiveData1 = streamReader1.ReadLine();  // 수신 데이타를 읽어서 receiveData1 변수에 저장
-                writeMessageTextbox(receiveData1); // 데이타를 수신창에 쓰기                  
-            }
-        }
-            */
-        /*
-        private void writeMessageTextbox(string str)  // richTextbox1 에 쓰기 함수
-        {
-            messageBox.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate { messageBox.AppendText(str + "\r\n"); })); // 데이타를 수신창에 표시, 반드시 invoke 사용. 충돌피함.
-            messageBox.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate { messageBox.ScrollToLine(0); }));  // 스크롤을 젤 밑으로.
-        }
-            */
         private void Button_Click_11(object sender, RoutedEventArgs e)
         {
-            //string sendData1 = "확인";  // 내용확인을 sendData1 변수에 저장
-            //streamWriter1.WriteLine(sendData1);  // 스트림라이터를 통해 데이타를 전송
+
         }
         
     }
